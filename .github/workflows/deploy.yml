@@ -1,4 +1,4 @@
-name: Deploy AMATA Production site
+name: Deploy Bluroca Site
 
 on:
   push:
@@ -13,22 +13,23 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
-      
+
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3.5"
           bundler-cache: true
-      
+
       - name: Setup Python 🐍
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
           cache: "pip"
-      
+
       - name: Install and Build 🔧
         env:
           ADMIN_PASSWORD: ${{ secrets.ADMIN_PASSWORD }}
@@ -36,27 +37,23 @@ jobs:
         run: |
           ADMIN_B64=$(echo -n "$ADMIN_PASSWORD" | base64)
           MANAGER_B64=$(echo -n "$MANAGER_PASSWORD" | base64)
-
           echo "env:" > _secrets.yml
           echo "  ADMIN_PASSWORD_B64: \"$ADMIN_B64\"" >> _secrets.yml
           echo "  MANAGER_PASSWORD_B64: \"$MANAGER_B64\"" >> _secrets.yml
-
           export JEKYLL_ENV=production
           bundle exec jekyll build --trace --verbose --config _config.yml,_secrets.yml
-      
+
 #      - name: Purge unused CSS 🧹
 #        run: |
 #          npm install -g purgecss
 #          purgecss -c purgecss.config.js
-      
-      - name: Deploy to AMATA-Production-Page repo 🚀
+
+      - name: Deploy to GitHub Pages 🚀
         uses: peaceiris/actions-gh-pages@v3
-        if: github.event_name != 'pull_request'
         with:
-          external_repository: Bodysbobb/AMATA-Production-Page
-          publish_branch: main
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
           publish_dir: ./_site
-          personal_token: ${{ secrets.DEPLOY_REPO_TOKEN_AMATA }}
-          cname: www.amataproduction.com
+          cname: bluroca.com
           force_orphan: true
           verbose: true

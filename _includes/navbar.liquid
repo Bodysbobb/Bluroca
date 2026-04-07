@@ -82,8 +82,8 @@
       <ul class="navbar-nav" id="navbar-nav">
         {% assign home_page = site.pages | where: "permalink", "/" | first %}
         {% if home_page %}
-          {% if page.lang == "en" and home_page.title_en %}
-            {% assign about_title = home_page.title_en %}
+          {% if page.lang == "en" and home_page.title_th %}
+            {% assign about_title = home_page.title_th %}
           {% else %}
             {% assign about_title = home_page.title %}
           {% endif %}
@@ -102,8 +102,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle {% if page.title == p.title %}active{% endif %}" href="#" 
                    role="button" aria-expanded="false">
-                  {% if page.lang == "en" and p.title_en %}
-                    {{- p.title_en }}
+                  {% if page.lang == "en" and p.title_th %}
+                    {{- p.title_th }}
                   {% else %}
                     {{- p.title }}
                   {% endif %}
@@ -115,8 +115,8 @@
                     {% else %}
                       <li>
                         <a class="dropdown-item" href="{% if child.permalink contains '://' %}{{ child.permalink }}{% else %}{{ child.permalink | relative_url }}{% endif %}">
-                          {% if page.lang == "en" and child.title_en %}
-                            {{- child.title_en -}}
+                          {% if page.lang == "en" and child.title_th %}
+                            {{- child.title_th -}}
                           {% else %}
                             {{- child.title -}}
                           {% endif %}
@@ -136,8 +136,8 @@
                   {%- assign url = p.url -%}
                 {%- endif %}
                 <a class="nav-link {% if page.url contains p.url %}active{% endif %}" href="{{ url | relative_url }}">
-                  {% if page.lang == "en" and p.title_en %}
-                    {{- p.title_en }}
+                  {% if page.lang == "en" and p.title_th %}
+                    {{- p.title_th }}
                   {% else %}
                     {{- p.title }}
                   {% endif %}

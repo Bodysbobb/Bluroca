@@ -2,14 +2,14 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: AMATA Production Co., Ltd.
-contact_note: "<a href='mailto:sales@amataproduction.com'>sales@amataproduction.com</a>"
+title: Bluroca
+contact_note: "<a href='mailto:bluroca.info@gmail.com'>bluroca.info@gmail.com</a>"
 description: >
-  อมตะ โปรดักชั่น รับผลิตและออกแบบเสื้อและสื่อสิ่งพิมพ์ทุกชนิด ทั้ง เสื้อพิมพ์ลาย เสื้อกีฬา หน่วยงาน องค์กร มหาลัย กีฬาสี และงานป้ายโฆษณา ป้ายหาเสียง ราคาถูก ผลิตด่วน ส่งไว สร้างแบรนด์อย่างมืออาชีพ
-lang: th
-icon: page_logo/metalogo.png
+  Comprehensive business solutions from strategy to execution
+lang: en
+#icon: page_logo/metalogo.png
 
-url: https://www.amataproduction.com
+url: https://www.bluroca.com
 baseurl:
 last_updated: false
 impressum_path:
@@ -42,7 +42,7 @@ search_enabled: false
 socials_in_search: true
 bib_search: false
 
-max_width: 1400px
+max_width: 1200px
 
 # -----------------------------------------------------------------------------
 # Search configuration
@@ -59,9 +59,9 @@ search_settings:
 # Open Graph & Schema.org
 # -----------------------------------------------------------------------------
 
-serve_og_meta: true
+serve_og_meta: false # change to true later
 serve_schema_org: false
-og_image: "/assets/img/page_logo/link_pic.png"
+#og_image: "/assets/img/page_logo/link_pic.png"
 
 # -----------------------------------------------------------------------------
 # BibTeX to CV Sync
@@ -73,20 +73,20 @@ auto_sync_backup: false
 # Analytics and search engine verification
 # -----------------------------------------------------------------------------
 
-google_analytics: G-2EQL4J4Y97
+google_analytics: #G-2EQL4J4Y97
 cronitor_analytics:
 pirsch_analytics:
 openpanel_analytics:
 
-google_site_verification: zjU4uXnFBn_pJRdMKfzSEpEt7lwfwAGHWpTiHdC53CU
+google_site_verification: #zjU4uXnFBn_pJRdMKfzSEpEt7lwfwAGHWpTiHdC53CU
 bing_site_verification:
 
 # -----------------------------------------------------------------------------
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: AMATA Production
-blog_description: "รับผลิตและออกแบบเสื้อผ้า และสิ่งพิมพ์"
+blog_name: Bluroca
+blog_description: "Comprehensive business solutions from strategy to execution"
 permalink: /blog/:year/:title/
 lsi: false
 
@@ -119,25 +119,18 @@ collections:
           type: projects
         values:
           layout: page
-  english:   
+  th:   
     output: true
-    permalink: /english/:path/
+    permalink: /th/:path/
     defaults:
       - scope:
           path: ""
-          type: english
+          type: th
         values:
           layout: page
-  admins:
+  cocobarn:
     output: true
-    permalink: /admins/:path/
-    defaults:
-      - scope:
-          path: ""
-          type: admins  
-        values:
-          layout: admin
-          sitemap: false  # Add this line
+    permalink: /cocobarn/
 
 # Environment variables
 env: {}
@@ -261,7 +254,7 @@ external_links:
 # -----------------------------------------------------------------------------
 
 imagemagick:
-   enabled: true
+   enabled: false
    widths:
      - 480
      - 800

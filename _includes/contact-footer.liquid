@@ -1,4 +1,4 @@
-<footer class="amata-contact-footer">
+<footer class="contact-footer">
   <div class="footer-inner-wrapper">
     <div class="contact-info-grid-3col">
 
@@ -38,8 +38,8 @@
       <div class="contact-info-box contact-box">
         <div class="contact-info-item">{% include icons/phone-solid.liquid %}<a href="tel:{{ site.company.phone | default: '0818888866' | remove: '-' }}">{{ site.company.phone | default: "081-888-8866" }}</a></div>
         <div class="contact-info-item">{% include icons/line-brands.liquid %}<a href="https://line.me/ti/p/{{ site.company.line | default: '@amatapr' | remove: '@' }}" target="_blank">{{ site.company.line | default: "@amatapr" }}</a></div>
-        <div class="contact-info-item">{% include icons/email-solid.liquid %}<a href="mailto:{{ site.company.email | default: 'sales@amataproduction.com' }}">{{ site.company.email | default: "sales@amataproduction.com" }}</a></div>
-        <div class="contact-info-item">{% include icons/world.liquid %}<a href="https://{{ site.company.website | default: 'www.amataproduction.com' }}" target="_blank">{{ site.company.website | default: "www.amataproduction.com" }}</a></div>
+        <div class="contact-info-item">{% include icons/email-solid.liquid %}<a href="mailto:{{ site.company.email | default: 'sales@amataproduction.com' }}">{{ site.company.email | default: "bluroca.info@gmail.com }}</a></div>
+        <div class="contact-info-item">{% include icons/world.liquid %}<a href="https://{{ site.company.website | default: 'www.bluroca.com' }}" target="_blank">{{ site.company.website | default: "www.bluroca.com" }}</a></div>
       </div>
 
       <!-- Divider -->
@@ -67,7 +67,7 @@
 </footer>
 
 <style>
-.amata-contact-footer {
+.contact-footer {
   width: 100%;
   background-color: var(--global-nav-color);
   color: var(--global-text-nav-color);
@@ -142,7 +142,7 @@
 }
 
 @media (max-width: 768px) {
-  .amata-contact-footer {
+  .contact-footer {
     min-height: 500px;
   }
   
