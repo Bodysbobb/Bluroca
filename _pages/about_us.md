@@ -18,7 +18,7 @@ contact_order:
 #  - digitalcard
 
 # ================ NAVBAR ================ #
-#navbar_logo_one: /assets/img/page_logo/amata_main_logo.webp
+navbar_logo_one: /assets/img/custom_logo/bluroca/Bluroca_square.svg
 
 # ================ Language Switch ================ #
 language_switch: false

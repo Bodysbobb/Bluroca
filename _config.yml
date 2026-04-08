@@ -61,7 +61,7 @@ search_settings:
 
 serve_og_meta: false # change to true later
 serve_schema_org: false
-#og_image: "/assets/img/page_logo/link_pic.png"
+og_image: "/assets/img/custom_logo/bluroca/Bluroca.png"
 
 # -----------------------------------------------------------------------------
 # BibTeX to CV Sync
