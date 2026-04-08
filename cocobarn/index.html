@@ -501,8 +501,10 @@ a{text-decoration:none;color:inherit}
 .cb-shelf-bg{
   position:absolute;right:-2%;top:50%;transform:translateY(-50%);
   font-family:'GeneralSans',sans-serif;font-size:clamp(90px,17vw,200px);font-weight:700;
-  color:transparent;-webkit-text-stroke:1px rgba(63,81,36,0.1);
-  pointer-events:none;user-select:none;white-space:nowrap
+  color:transparent;-webkit-text-stroke:2px rgba(63,81,36,0.18);
+  pointer-events:none;user-select:none;white-space:nowrap;
+  letter-spacing:-0.04em;
+  text-shadow:4px 4px 0 rgba(63,81,36,0.06);
 }
 
 /* PAGES 5-6 */
@@ -641,9 +643,13 @@ a{text-decoration:none;color:inherit}
 @media(max-width:900px){
   .cb-nav-tag{display:none}
   .cb-concept-grid{grid-template-columns:1fr;gap:40px}
-  .cb-mascot-box{display:none}
+  .cb-mascot-box{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:24px;order:1}
+  .cb-mascot-svg-wrap{animation:elegantWalk 5s ease-in-out infinite}
+  .cb-mascot-p2-logo{width:clamp(100px,24vw,150px);height:auto;filter:drop-shadow(0 10px 24px rgba(63,81,36,0.18))}
+  .cb-mascot-cap{text-align:center;font-size:0.6rem}
+  .cb-concept-grid>div:first-child{order:2}
   .cb-price-cards{grid-template-columns:1fr}
-  .cb-shelf-bg{display:none}
+  .cb-shelf-bg{font-size:clamp(60px,13vw,100px);right:-4%;opacity:0.8}
 
   /* ── WHY: Tablet — video LEFT, all 6 cards RIGHT ── */
   .cb-why-stage{
