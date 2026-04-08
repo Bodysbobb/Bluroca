@@ -11,6 +11,10 @@ class: about-page
 hide_title: true
 hide_description: true
 contact_info: true
+contact_order:
+  - email
+  - call
+#  - digitalcard
 
 # ================ NAVBAR ================ #
 #navbar_logo_one: /assets/img/page_logo/amata_main_logo.webp

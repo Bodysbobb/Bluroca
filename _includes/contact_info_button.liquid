@@ -1,6 +1,6 @@
 {% comment %}
 Optimized Contact Info Button Component
-Improved for page speed, reduced redundancy, and better LCP
+Supports page-level contact_order override
 {% endcomment %}
 
 {% assign position = include.position | default: page.contact_position | default: "right" %}
@@ -16,15 +16,14 @@ Improved for page speed, reduced redundancy, and better LCP
   {% assign location_label = "ที่อยู่" %}
   {% assign email_label = "อีเมล" %}
   {% assign call = "+66818888866" %}
-  {% assign email = "bluroca.info@gmail.com %}
+  {% assign email = "bluroca.info@gmail.com" %}
   {% assign location_url = "https://maps.app.goo.gl/46SZnCwHuesWyBwm7" %}
   {% assign chat_url = "" %}
   {% assign messenger = "amataproduction.sport" %}
   {% assign whatsapp = "" %}
   {% assign line_url = "https://line.me/ti/p/@amatapr" %}
   {% assign digitalcard_url = "https://vcard-admin.pkp.homes/U0NtnOPAOx" %}
-  {% assign contact_order = "email,location,call,digitalcard,messenger,line" | split: "," %}
-{% elsif current_lang == "en" %}
+{% else %}
   {% assign contact_title = "Get In Touch" %}
   {% assign call_label = "Call Us" %}
   {% assign line_label = "Line Official" %}
@@ -33,23 +32,25 @@ Improved for page speed, reduced redundancy, and better LCP
   {% assign location_label = "Visit Us" %}
   {% assign email_label = "Email Us" %}
   {% assign call = "+66818888866" %}
-  {% assign email = "bluroca.info@gmail.com %}
+  {% assign email = "bluroca.info@gmail.com" %}
   {% assign location_url = "https://maps.app.goo.gl/46SZnCwHuesWyBwm7" %}
   {% assign chat_url = "" %}
   {% assign messenger = "amataproduction.sport" %}
   {% assign whatsapp = "" %}
   {% assign line_url = "https://line.me/ti/p/@amatapr" %}
   {% assign digitalcard_url = "https://vcard-admin.pkp.homes/U0NtnOPAOx" %}
-  {% assign contact_order = "email,location,call,digitalcard,messenger,line" | split: "," %}
 {% endif %}
 
-{% comment %}
-Animation settings - enable by default for attention-grabbing features
-{% endcomment %}
+{% assign default_contact_order = "email,location,call,digitalcard,messenger,line" | split: "," %}
+{% assign contact_order = page.contact_order | default: include.contact_order | default: default_contact_order %}
+{% if contact_order contains "," %}
+  {% assign contact_order = contact_order | split: "," %}
+{% endif %}
+
 {% assign main_animation = include.main_animation | default: page.main_animation | default: "true" %}
 {% assign wave_animation = include.wave_animation | default: page.wave_animation | default: "true" %}
 
-<div class="floating-contact-container {{ theme }}" 
+<div class="floating-contact-container {{ theme }}"
      data-position="{{ position }}"
      data-main-animation="{{ main_animation }}"
      data-wave-animation="{{ wave_animation }}"
@@ -57,119 +58,96 @@ Animation settings - enable by default for attention-grabbing features
      aria-label="{{ contact_title }}">
   <div class="contact-options" id="contact-options">
     {% for item in contact_order %}
-      {% case item %}
-        
+      {% assign item_clean = item | strip %}
+      {% case item_clean %}
+
         {% when "email" %}
           {% if email %}
           <a href="mailto:{{ email }}" class="contact-button email-button" aria-label="{{ email_label }}: {{ email }}" tabindex="-1">
             {% if position == "right" %}
             <div class="contact-button-label">{{ email_label }}</div>
-            <div class="contact-button-icon">
-              {% include icons/email-solid.liquid %}
-            </div>
+            <div class="contact-button-icon">{% include icons/email-solid.liquid %}</div>
             {% else %}
-            <div class="contact-button-icon">
-              {% include icons/email-solid.liquid %}
-            </div>
+            <div class="contact-button-icon">{% include icons/email-solid.liquid %}</div>
             <div class="contact-button-label">{{ email_label }}</div>
             {% endif %}
           </a>
           {% endif %}
-        
+
         {% when "location" %}
           {% if location_url %}
           <a href="{{ location_url }}" class="contact-button location-button" target="_blank" rel="external nofollow noopener" aria-label="{{ location_label }}" tabindex="-1">
             {% if position == "right" %}
             <div class="contact-button-label">{{ location_label }}</div>
-            <div class="contact-button-icon">
-              {% include icons/location-dot-solid.liquid %}
-            </div>
+            <div class="contact-button-icon">{% include icons/location-dot-solid.liquid %}</div>
             {% else %}
-            <div class="contact-button-icon">
-              {% include icons/location-dot-solid.liquid %}
-            </div>
+            <div class="contact-button-icon">{% include icons/location-dot-solid.liquid %}</div>
             <div class="contact-button-label">{{ location_label }}</div>
             {% endif %}
           </a>
           {% endif %}
-        
+
         {% when "messenger" %}
           {% if messenger %}
           <a href="https://m.me/{{ messenger }}" class="contact-button messenger-button" target="_blank" rel="external nofollow noopener" aria-label="{{ messenger_label }}" tabindex="-1">
             {% if position == "right" %}
             <div class="contact-button-label">{{ messenger_label }}</div>
-            <div class="contact-button-icon">
-              {% include icons/facebook-messenger-brands.liquid %}
-            </div>
+            <div class="contact-button-icon">{% include icons/facebook-messenger-brands.liquid %}</div>
             {% else %}
-            <div class="contact-button-icon">
-              {% include icons/facebook-messenger-brands.liquid %}
-            </div>
+            <div class="contact-button-icon">{% include icons/facebook-messenger-brands.liquid %}</div>
             <div class="contact-button-label">{{ messenger_label }}</div>
             {% endif %}
           </a>
           {% endif %}
-        
+
         {% when "line" %}
           {% if line_url %}
           <a href="{{ line_url }}" class="contact-button line-account-button" target="_blank" rel="external nofollow noopener" aria-label="{{ line_label }}" tabindex="-1">
             {% if position == "right" %}
             <div class="contact-button-label">{{ line_label }}</div>
-            <div class="contact-button-icon">
-              {% include icons/line-brands.liquid %}
-            </div>
+            <div class="contact-button-icon">{% include icons/line-brands.liquid %}</div>
             {% else %}
-            <div class="contact-button-icon">
-              {% include icons/line-brands.liquid %}
-            </div>
+            <div class="contact-button-icon">{% include icons/line-brands.liquid %}</div>
             <div class="contact-button-label">{{ line_label }}</div>
             {% endif %}
           </a>
           {% endif %}
-        
+
         {% when "call" %}
           {% if call %}
           <a href="tel:{{ call | remove: ' ' | remove: '-' | remove: '(' | remove: ')' }}" class="contact-button call-button" aria-label="{{ call_label }}: {{ call }}" tabindex="-1">
             {% if position == "right" %}
             <div class="contact-button-label">{{ call_label }}</div>
-            <div class="contact-button-icon">
-              {% include icons/phone-solid.liquid %}
-            </div>
+            <div class="contact-button-icon">{% include icons/phone-solid.liquid %}</div>
             {% else %}
-            <div class="contact-button-icon">
-              {% include icons/phone-solid.liquid %}
-            </div>
+            <div class="contact-button-icon">{% include icons/phone-solid.liquid %}</div>
             <div class="contact-button-label">{{ call_label }}</div>
             {% endif %}
           </a>
           {% endif %}
-        
+
         {% when "digitalcard" %}
           {% if digitalcard_url %}
           <a href="{{ digitalcard_url }}" class="contact-button digitalcard-button" target="_blank" rel="external nofollow noopener" aria-label="{{ smart_card_label }}" tabindex="-1">
             {% if position == "right" %}
             <div class="contact-button-label">{{ smart_card_label }}</div>
-            <div class="contact-button-icon">
-              {% include icons/id-card-solid.liquid %}
-            </div>
+            <div class="contact-button-icon">{% include icons/id-card-solid.liquid %}</div>
             {% else %}
-            <div class="contact-button-icon">
-              {% include icons/id-card-solid.liquid %}
-            </div>
+            <div class="contact-button-icon">{% include icons/id-card-solid.liquid %}</div>
             <div class="contact-button-label">{{ smart_card_label }}</div>
             {% endif %}
           </a>
           {% endif %}
-          
+
       {% endcase %}
     {% endfor %}
   </div>
 
   <div class="contact-toggle-wrapper">
     <div class="contact-toggle-bubble" aria-hidden="true">{{ contact_title }}</div>
-    <button class="contact-toggle" 
-            aria-controls="contact-options" 
-            aria-expanded="false" 
+    <button class="contact-toggle"
+            aria-controls="contact-options"
+            aria-expanded="false"
             aria-label="{{ contact_title }}">
       <span class="icon-comment">{% include icons/comment-solid.liquid %}</span>
       <span class="icon-times">{% include icons/times-solid.liquid %}</span>
