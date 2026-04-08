@@ -54,6 +54,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./_site
-          cname: bluroca.com
+          cname: www.bluroca.com
           force_orphan: true
           verbose: true
