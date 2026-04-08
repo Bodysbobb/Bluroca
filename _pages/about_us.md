@@ -10,6 +10,7 @@ class: about-page
 # ================ TITLE & Description ================ #
 hide_title: true
 hide_description: true
+amata_footer: false
 contact_info: true
 contact_order:
   - email
