@@ -100,6 +100,7 @@ a{text-decoration:none;color:inherit}
 .cb-nav-logo{
   height:36px;width:auto;display:block;flex-shrink:0;
   filter:brightness(0) invert(1);
+  will-change:filter;
 }
 .cb-nav-tag{font-family:'GeneralSans',sans-serif;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(213,216,137,0.55);border-left:1px solid rgba(213,216,137,0.25);padding-left:14px;white-space:nowrap;font-weight:400}
 .cb-nav-links{display:flex;align-items:center;gap:32px;list-style:none}
@@ -178,12 +179,10 @@ a{text-decoration:none;color:inherit}
 .cb-hero-logo{
   display:block;margin:0 auto 16px;
   height:clamp(100px,16vw,170px);
-  max-width:min(80vw, 500px);
+  max-width:min(80vw,500px);
   width:auto;
-  /* Filter always applied — never shows green/black during animation */
-  filter:brightness(0) invert(1) drop-shadow(0 6px 28px rgba(213,216,137,0.22));
-  /* Fade in only, no transform, prevents filter-flash */
-  opacity:0;animation:cbFadeIn 0.9s 0.4s ease forwards;
+  filter:brightness(0) invert(1);
+  opacity:0;animation:cbFadeIn 0.9s 0.3s ease forwards;
 }
 @keyframes cbFadeIn{from{opacity:0}to{opacity:1}}
 .cb-sub{
@@ -305,6 +304,68 @@ a{text-decoration:none;color:inherit}
   font-family:'GeneralSans',sans-serif;font-size:0.88rem;
   color:rgba(250,250,245,0.52);line-height:1.7;font-weight:400
 }
+/* Tap hint — mobile only, shown via media query */
+.cb-why-tap{
+  display:none;
+  font-family:'GeneralSans',sans-serif;font-size:0.6rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:rgba(213,216,137,0.35);margin-top:auto;font-weight:400
+}
+
+/* ── WHY CARD MODAL ── */
+.cb-why-modal-overlay{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(26,26,15,0.75);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s ease;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.cb-why-modal-overlay.open{opacity:1;pointer-events:auto}
+.cb-why-modal{
+  width:100%;max-width:560px;
+  background:var(--forest);
+  border-radius:20px 20px 0 0;
+  padding:0 0 40px;
+  transform:translateY(100%);
+  transition:transform 0.4s cubic-bezier(0.32,0.72,0,1);
+  position:relative;
+  max-height:88vh;overflow-y:auto;
+}
+.cb-why-modal-overlay.open .cb-why-modal{transform:translateY(0)}
+.cb-why-modal-handle{
+  width:36px;height:4px;border-radius:2px;
+  background:rgba(213,216,137,0.25);
+  margin:14px auto 0;
+}
+.cb-why-modal-body{padding:28px 32px 8px}
+.cb-why-modal-num{
+  font-family:'GeneralSans',sans-serif;font-size:0.72rem;letter-spacing:0.28em;
+  color:var(--accent);opacity:0.6;font-weight:500;margin-bottom:16px
+}
+.cb-why-modal-icon{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(213,216,137,0.1);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px
+}
+.cb-why-modal-icon svg{width:24px;height:24px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.cb-why-modal-title{
+  font-family:'GeneralSans',sans-serif;font-size:1.22rem;font-weight:600;
+  color:var(--warm-white);line-height:1.3;margin-bottom:16px
+}
+.cb-why-modal-desc{
+  font-family:'GeneralSans',sans-serif;font-size:1rem;
+  color:rgba(250,250,245,0.65);line-height:1.75;font-weight:400
+}
+.cb-why-modal-close{
+  position:absolute;top:16px;right:20px;
+  width:32px;height:32px;border:none;background:rgba(213,216,137,0.12);
+  border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);font-size:1.1rem;line-height:1;
+  transition:background 0.2s;
+}
+.cb-why-modal-close:hover{background:rgba(213,216,137,0.22)}
 
 /* PAGE 4 */
 #p4{background:var(--accent);padding:120px 0 100px}
@@ -545,11 +606,12 @@ a{text-decoration:none;color:inherit}
   /* Why — ALWAYS 2 columns on phone */
   .cb-why-grid{grid-template-columns:1fr 1fr !important}
   .cb-why-h{font-size:clamp(1.7rem,6.5vw,2.4rem);margin-bottom:28px}
-  .cb-why-card{padding:18px 14px;min-height:auto;gap:8px}
-  .cb-why-num{font-size:0.68rem}
-  .cb-why-title{font-size:0.8rem;line-height:1.3}
-  .cb-why-desc{font-size:0.72rem;line-height:1.6}
-  .cb-why-icon svg{width:20px;height:20px}
+  .cb-why-card{padding:22px 18px;min-height:auto;gap:10px;cursor:pointer}
+  .cb-why-tap{display:block;font-size:0.66rem}
+  .cb-why-num{font-size:0.82rem}
+  .cb-why-title{font-size:1rem;line-height:1.3}
+  .cb-why-desc{font-size:0.82rem;line-height:1.6}
+  .cb-why-icon svg{width:22px;height:22px}
 
   /* Shelf */
   .cb-shelf-h{font-size:clamp(1.7rem,6.5vw,2.4rem)}
@@ -571,11 +633,12 @@ a{text-decoration:none;color:inherit}
 @media(max-width:480px){
   /* why-us: keep 2 col even on very small screens */
   .cb-why-grid{grid-template-columns:1fr 1fr !important}
-  .cb-why-card{padding:14px 10px;gap:6px}
-  .cb-why-title{font-size:0.72rem}
-  .cb-why-desc{font-size:0.65rem}
-  .cb-why-icon{width:24px;height:24px}
-  .cb-why-icon svg{width:18px;height:18px}
+  .cb-why-card{padding:16px 12px;gap:8px}
+  .cb-why-num{font-size:0.75rem}
+  .cb-why-title{font-size:0.88rem}
+  .cb-why-desc{font-size:0.75rem}
+  .cb-why-icon{width:26px;height:26px}
+  .cb-why-icon svg{width:20px;height:20px}
   .cb-badge{font-size:0.55rem;letter-spacing:0.08em}
   .cb-delivery{flex-direction:column;align-items:flex-start}
   .cb-size-badges{flex-wrap:wrap;gap:8px}
@@ -604,7 +667,7 @@ a{text-decoration:none;color:inherit}
 .coco-btn-mail .coco-btn-icon svg{stroke:#90b8e0}
 .coco-btn-card .coco-btn-icon{background:var(--forest)}
 .coco-label{font-family:'GeneralSans',sans-serif;font-size:0.64rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--forest);background:var(--accent);padding:5px 13px;border-radius:100px;white-space:nowrap;box-shadow:0 2px 9px rgba(0,0,0,0.11);opacity:0;transform:translateX(10px);transition:opacity 0.3s,transform 0.3s;pointer-events:none}
-.coco-wrap:hover .coco-label,.coco-wrap.open .coco-label{opacity:1;transform:translateX(0)}
+.coco-wrap.open .coco-label{opacity:1;transform:translateX(0)}
 .coco-row{display:flex;align-items:center;gap:10px}
 .coco-toggle{
   width:60px;height:60px;border-radius:50%;
@@ -686,7 +749,6 @@ a{text-decoration:none;color:inherit}
   <div class="cb-leaf cb-leaf-2">🌿</div>
   <div class="cb-inner">
     <p class="cb-tagline">Brand Introduction</p>
-    <!-- White logo on dark green background -->
     <img
       src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg"
       alt="COCOBARN"
@@ -731,41 +793,47 @@ a{text-decoration:none;color:inherit}
     <p class="cb-eyebrow light cbr">Why COCOBARN</p>
     <h2 class="cb-why-h cbr d1">Six reasons to choose real.</h2>
     <div class="cb-why-grid">
-      <div class="cb-why-card cbr d1">
+      <div class="cb-why-card cbr d1" data-num="01" data-title="100% Organic Thai Nam Hom Coconut" data-desc="The finest aromatic variety, certified organic from farm to bottle. Thai Namhom coconuts are prized for their natural fragrance and delicately sweet water — a quality you simply cannot replicate with other varieties." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11"/><path d="M14 3 Q18 8 14 14 Q10 8 14 3Z"/><path d="M9 6 Q12 12 14 14 Q9 10 9 6Z" opacity="0.5"/><path d="M19 6 Q16 12 14 14 Q19 10 19 6Z" opacity="0.5"/></svg>'>
         <span class="cb-why-num">01</span>
         <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11"/><path d="M14 3 Q18 8 14 14 Q10 8 14 3Z"/><path d="M9 6 Q12 12 14 14 Q9 10 9 6Z" opacity="0.5"/><path d="M19 6 Q16 12 14 14 Q19 10 19 6Z" opacity="0.5"/></svg></div>
         <div class="cb-why-title">100% Organic Thai Nam Hom Coconut</div>
         <div class="cb-why-desc">The finest aromatic variety, certified organic from farm to bottle.</div>
+        <span class="cb-why-tap">Tap to read more</span>
       </div>
-      <div class="cb-why-card cbr d2">
+      <div class="cb-why-card cbr d2" data-num="02" data-title="Locally Sourced Freshness" data-desc="Direct from Ratchaburi growers — no middlemen, maximum freshness. By working directly with farmers, we eliminate unnecessary supply chain steps and ensure the water reaches you at its most vibrant, alive state." data-icon='<svg viewBox="0 0 28 28"><path d="M14 3 C9 3 5 7 5 12 C5 19 14 25 14 25 C14 25 23 19 23 12 C23 7 19 3 14 3Z"/><circle cx="14" cy="12" r="3.5"/></svg>'>
         <span class="cb-why-num">02</span>
         <div class="cb-why-icon"><svg viewBox="0 0 28 28"><path d="M14 3 C9 3 5 7 5 12 C5 19 14 25 14 25 C14 25 23 19 23 12 C23 7 19 3 14 3Z"/><circle cx="14" cy="12" r="3.5"/></svg></div>
         <div class="cb-why-title">Locally Sourced Freshness</div>
         <div class="cb-why-desc">Direct from Ratchaburi growers—no middlemen, maximum freshness.</div>
+        <span class="cb-why-tap">Tap to read more</span>
       </div>
-      <div class="cb-why-card cbr d3">
+      <div class="cb-why-card cbr d3" data-num="03" data-title="Optimal 6-Month Harvest" data-desc="Harvested at exactly 6 months — the peak of juiciness and flavor. Too young and the water is watery; too old and it becomes oily. We harvest at the precise moment when sweetness, electrolytes, and aroma are at their absolute best." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="15" r="10"/><polyline points="14,8 14,15 19,15"/><path d="M14 5L14 3" stroke-width="2"/></svg>'>
         <span class="cb-why-num">03</span>
         <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="15" r="10"/><polyline points="14,8 14,15 19,15"/><path d="M14 5L14 3" stroke-width="2"/></svg></div>
         <div class="cb-why-title">Optimal 6-Month Harvest</div>
         <div class="cb-why-desc">Harvested at peak maturity—the most juicy, delicious stage of growth.</div>
+        <span class="cb-why-tap">Tap to read more</span>
       </div>
-      <div class="cb-why-card cbr d4">
+      <div class="cb-why-card cbr d4" data-num="04" data-title="No Added Sugar" data-desc="Pure coconut water as nature intended — nothing added, nothing hidden. No sugar. No preservatives. No concentrates. Just the real, living water from inside each coconut, bottled with minimal processing to preserve every natural note." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M10 10L18 18M18 10L10 18" stroke-width="2"/></svg>'>
         <span class="cb-why-num">04</span>
         <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M10 10L18 18M18 10L10 18" stroke-width="2"/></svg></div>
         <div class="cb-why-title">No Added Sugar</div>
         <div class="cb-why-desc">Pure coconut water as nature intended—nothing added, nothing hidden.</div>
+        <span class="cb-why-tap">Tap to read more</span>
       </div>
-      <div class="cb-why-card cbr d5">
+      <div class="cb-why-card cbr d5" data-num="05" data-title="Electrolyte &amp; Nutrient Rich" data-desc="Naturally packed with potassium, magnesium, calcium, and natural electrolytes. COCOBARN coconut water replenishes what your body loses — without any artificial additives — making it the most honest form of hydration possible." data-icon='<svg viewBox="0 0 28 28"><path d="M14 4 Q14 4 20 13 C22 17 21 22 17 24 C15 25 13 25 11 24 C7 22 6 17 8 13 Q14 4 14 4Z"/><path d="M10 18 Q12 22 16 20" stroke-width="1.5" opacity="0.6"/></svg>'>
         <span class="cb-why-num">05</span>
         <div class="cb-why-icon"><svg viewBox="0 0 28 28"><path d="M14 4 Q14 4 20 13 C22 17 21 22 17 24 C15 25 13 25 11 24 C7 22 6 17 8 13 Q14 4 14 4Z"/><path d="M10 18 Q12 22 16 20" stroke-width="1.5" opacity="0.6"/></svg></div>
         <div class="cb-why-title">Electrolyte &amp; Nutrient Rich</div>
         <div class="cb-why-desc">Naturally packed with electrolytes and nutrients for real hydration.</div>
+        <span class="cb-why-tap">Tap to read more</span>
       </div>
-      <div class="cb-why-card cbr d6">
+      <div class="cb-why-card cbr d6" data-num="06" data-title="GMP, HACCP, Thai Organic Certified" data-desc="Every bottle is produced under GMP (Good Manufacturing Practice) and HACCP food safety standards, and certified by Thailand's official organic certification body. International quality, Thai authenticity — backed by independent verification." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><polyline points="9,14 13,18 20,10"/></svg>'>
         <span class="cb-why-num">06</span>
         <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><polyline points="9,14 13,18 20,10"/></svg></div>
         <div class="cb-why-title">GMP, HACCP, Thai Organic Certified</div>
         <div class="cb-why-desc">International standards, verified quality, trusted by experts.</div>
+        <span class="cb-why-tap">Tap to read more</span>
       </div>
     </div>
   </div>
@@ -825,12 +893,9 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- PAGE 6: FARM — image LEFT, text RIGHT -->
+<!-- PAGE 6: FARM — text LEFT, image RIGHT -->
 <section class="cb-pack-page" id="p6">
   <div class="cb-pack-grid">
-    <div class="cb-pack-img-panel">
-      <img src="/assets/img/cocobarn/banner.jpg" alt="COCOBARN farm">
-    </div>
     <div class="cb-pack-text-panel dark">
       <p class="cb-eyebrow light cbr">Designed for Nature</p>
       <h2 class="cb-pack-h light cbr d1">Farm fresh,<br><em>from barn<br>to hand.</em></h2>
@@ -839,6 +904,9 @@ a{text-decoration:none;color:inherit}
         <span class="cb-tag light">Ratchaburi Farm</span>
         <span class="cb-tag light">Near-Zero Waste</span>
       </div>
+    </div>
+    <div class="cb-pack-img-panel">
+      <img src="/assets/img/cocobarn/banner.jpg" alt="COCOBARN farm">
     </div>
   </div>
 </section>
@@ -902,6 +970,20 @@ a{text-decoration:none;color:inherit}
   </div>
 </div>
 
+<!-- WHY CARD MODAL -->
+<div class="cb-why-modal-overlay" id="whyModal" role="dialog" aria-modal="true">
+  <div class="cb-why-modal" id="whyModalPanel">
+    <div class="cb-why-modal-handle"></div>
+    <button class="cb-why-modal-close" id="whyModalClose" aria-label="Close">✕</button>
+    <div class="cb-why-modal-body">
+      <div class="cb-why-modal-num" id="whyModalNum"></div>
+      <div class="cb-why-modal-icon" id="whyModalIcon"></div>
+      <div class="cb-why-modal-title" id="whyModalTitle"></div>
+      <div class="cb-why-modal-desc" id="whyModalDesc"></div>
+    </div>
+  </div>
+</div>
+
 <footer class="cb-footer">
   © Bluroca All rights reserved.
 </footer>
@@ -948,7 +1030,47 @@ document.addEventListener('click',e=>{
   if(!cw.contains(e.target))cw.classList.remove('open');
 });
 
-const cbNavToggle=document.getElementById('cbNavToggle');
+// ── WHY CARD MODAL (mobile only) ──
+const whyModal    = document.getElementById('whyModal');
+const whyPanel    = document.getElementById('whyModalPanel');
+const whyClose    = document.getElementById('whyModalClose');
+const whyNum      = document.getElementById('whyModalNum');
+const whyIcon     = document.getElementById('whyModalIcon');
+const whyTitle    = document.getElementById('whyModalTitle');
+const whyDesc     = document.getElementById('whyModalDesc');
+
+function openWhyModal(card){
+  if(window.innerWidth > 900) return; // desktop: no modal
+  whyNum.textContent   = card.dataset.num;
+  whyIcon.innerHTML    = card.dataset.icon;
+  whyTitle.textContent = card.dataset.title;
+  whyDesc.textContent  = card.dataset.desc;
+  whyModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeWhyModal(){
+  whyModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.cb-why-card').forEach(card=>{
+  card.addEventListener('click',()=>openWhyModal(card));
+});
+whyClose.addEventListener('click', closeWhyModal);
+whyModal.addEventListener('click', e=>{ if(e.target===whyModal) closeWhyModal(); });
+
+// Swipe down to close
+let touchStartY = 0;
+whyPanel.addEventListener('touchstart', e=>{ touchStartY = e.touches[0].clientY; },{passive:true});
+whyPanel.addEventListener('touchmove', e=>{
+  const dy = e.touches[0].clientY - touchStartY;
+  if(dy > 0) whyPanel.style.transform = `translateY(${dy}px)`;
+},{passive:true});
+whyPanel.addEventListener('touchend', e=>{
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  whyPanel.style.transform = '';
+  if(dy > 80) closeWhyModal();
+},{passive:true});
 const cbMobileMenu=document.getElementById('cbMobileMenu');
 
 function closeMobileMenu(){
