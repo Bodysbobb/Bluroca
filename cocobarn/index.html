@@ -102,7 +102,8 @@ a{text-decoration:none;color:inherit}
   filter:brightness(0) invert(1);
   will-change:filter;
 }
-.cb-nav-tag{font-family:'GeneralSans',sans-serif;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(213,216,137,0.55);border-left:1px solid rgba(213,216,137,0.25);padding-left:14px;white-space:nowrap;font-weight:400}
+.cb-why-h-logo{display:flex;align-items:flex-end;gap:0.16em;line-height:1}.cb-why-logo-wrap{display:inline-flex;align-items:flex-end}.cb-why-logo-word{display:block;height:1em;width:auto;filter:brightness(0) invert(1);transform:translateY(0.05em)}
+.cb-nav-tag{font-family:'GeneralSans',sans-serif;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(213,216,137,0.82);border-left:1px solid rgba(213,216,137,0.42);padding-left:14px;white-space:nowrap;font-weight:400}
 .cb-nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .cb-nav-links a{font-family:'GeneralSans',sans-serif;font-size:0.88rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,250,245,0.65);cursor:pointer;transition:color 0.2s;font-weight:400}
 .cb-nav-links a:hover{color:var(--accent)}
@@ -186,14 +187,14 @@ a{text-decoration:none;color:inherit}
 }
 @keyframes cbFadeIn{from{opacity:0}to{opacity:1}}
 .cb-sub{
-  font-family:'IvyOra',serif;font-size:clamp(1rem,1.9vw,1.25rem);font-weight:300;
-  color:rgba(250,250,245,0.55);margin-top:16px;letter-spacing:0.08em;
+  font-family:'IvyOra',serif;font-size:clamp(1.1rem,2.5vw,1.35rem);font-weight:300;
+  color:rgba(250,250,245,0.58);margin-top:16px;letter-spacing:0.08em;
   opacity:0;animation:up 0.9s 0.7s ease forwards
 }
 .cb-badge{
   display:inline-flex;align-items:center;gap:8px;margin-top:44px;
   padding:9px 24px;border:1px solid rgba(213,216,137,0.26);border-radius:100px;
-  font-family:'GeneralSans',sans-serif;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
+  font-family:'GeneralSans',sans-serif;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;
   color:var(--accent);font-weight:400;
   max-width:calc(100vw - 48px);
   flex-wrap:wrap;justify-content:center;
@@ -268,48 +269,159 @@ a{text-decoration:none;color:inherit}
 }
 
 /* PAGE 3 */
-#p3{background:var(--forest);padding:120px 0 100px}
+#p3{background:var(--forest);padding:100px 0 100px;overflow:hidden}
+#p3 .cb-page{min-height:auto}
 .cb-why-wrap{width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));margin:0 auto}
 .cb-why-h{
   font-family:'IvyOra',serif;font-size:clamp(2.2rem,4.8vw,3.6rem);
-  font-weight:300;color:var(--warm-white);margin-bottom:56px;max-width:480px
+  font-weight:300;color:var(--warm-white);margin-bottom:72px;max-width:480px;
+  line-height:1.05;
 }
-.cb-why-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:rgba(213,216,137,0.12);border:1px solid rgba(213,216,137,0.12);
-  border-radius:14px;overflow:hidden;width:100%
+
+/* ── CAMPAIGN STAGE ── */
+.cb-why-stage{
+  display:grid;
+  grid-template-columns:1fr clamp(220px,26vw,320px) 1fr;
+  gap:0 72px;
+  align-items:center;
+  width:100%;
+  position:relative;
 }
+
+/* Connecting line from cards to bottle — decorative */
+.cb-why-stage::before{
+  content:'';
+  position:absolute;
+  left:calc(33.33% - 1px);right:calc(33.33% - 1px);
+  top:50%;height:1px;
+  background:linear-gradient(90deg, transparent, rgba(213,216,137,0.08) 30%, rgba(213,216,137,0.08) 70%, transparent);
+  pointer-events:none;z-index:0;
+}
+
+/* Bottle */
+.cb-why-bottle{
+  display:flex;align-items:center;justify-content:center;
+  position:relative;z-index:2;
+}
+.cb-why-bottle-img{width:100%;height:auto;object-fit:contain;display:block;pointer-events:none}
+.cb-why-bottle-ring{
+  position:relative;
+  width:clamp(220px,26vw,320px);
+  display:flex;align-items:center;justify-content:center;
+  filter:drop-shadow(0 0 16px rgba(213,216,137,0.07));
+  animation:bottleGlow 4s ease-in-out infinite;
+}
+@keyframes bottleGlow{
+  0%,100%{filter:drop-shadow(0 0 16px rgba(213,216,137,0.07))}
+  50%    {filter:drop-shadow(0 0 52px rgba(213,216,137,0.22))}
+}
+.cb-why-bottle video{
+  width:100%;height:auto;
+  object-fit:contain;
+  display:block;
+  pointer-events:none;
+}
+.cb-why-bottle-ring::before,.cb-why-bottle-ring::after{display:none}
+
+/* Card columns — staggered vertical positions */
+.cb-why-col{
+  display:flex;flex-direction:column;
+  gap:0; /* gap handled per-card with margin */
+  position:relative;z-index:2;
+}
+
+/* ── STAGGER: each card gets a unique vertical offset ── */
+/* Left col — cards lean toward bottle (right-aligned text, slight offsets) */
+.cb-why-col.left .cb-why-card:nth-child(1){ margin-top:0; margin-bottom:32px; margin-left:auto; }
+.cb-why-col.left .cb-why-card:nth-child(2){ margin-top:0; margin-bottom:32px; margin-left:24%; }
+.cb-why-col.left .cb-why-card:nth-child(3){ margin-top:0; margin-left:auto; }
+
+/* Right col — mirror offset */
+.cb-why-col.right .cb-why-card:nth-child(1){ margin-top:0; margin-bottom:32px; margin-right:auto; }
+.cb-why-col.right .cb-why-card:nth-child(2){ margin-top:0; margin-bottom:32px; margin-right:24%; }
+.cb-why-col.right .cb-why-card:nth-child(3){ margin-top:0; margin-right:auto; }
+
+/* ── CARD: compact, refined, no big box feel ── */
 .cb-why-card{
-  background:rgba(63,81,36,0.7);padding:34px 30px;
-  display:flex;flex-direction:column;gap:12px;
-  transition:background 0.4s;position:relative;overflow:hidden;min-height:236px
+  width:100%;
+  max-width:360px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.045) 0%,rgba(213,216,137,0.03) 100%);
+  border:1.5px solid rgba(213,216,137,0.22);
+  border-radius:16px;
+  padding:18px 22px;
+  cursor:pointer;
+  will-change:background,border-color,transform;
+  transition:background 0.22s ease,border-color 0.22s ease,transform 0.22s ease,box-shadow 0.22s ease;
+  position:relative;overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,0.14),inset 0 1px 0 rgba(255,255,255,0.04);
 }
-.cb-why-card::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(213,216,137,0.06) 0%,transparent 60%);
-  opacity:0;transition:opacity 0.4s
+.cb-why-card::before{
+  content:'';
+  position:absolute;inset:0;border-radius:16px;
+  background:linear-gradient(135deg,rgba(213,216,137,0.12) 0%,rgba(255,255,255,0.02) 38%,transparent 72%);
+  opacity:0.7;
+  transition:opacity 0.22s ease;
 }
-.cb-why-card:hover{background:rgba(79,102,48,0.85)}.cb-why-card:hover::after{opacity:1}
+.cb-why-card:hover,.cb-why-card.active{
+  background:linear-gradient(180deg,rgba(255,255,255,0.07) 0%,rgba(213,216,137,0.05) 100%);
+  border-color:rgba(213,216,137,0.42);
+  box-shadow:0 18px 42px rgba(0,0,0,0.22),0 0 0 1px rgba(213,216,137,0.08),inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.cb-why-card:hover::before,.cb-why-card.active::before{opacity:1}
+.cb-why-col.left .cb-why-card:hover,
+.cb-why-col.left .cb-why-card.active{transform:translateX(4px)}
+.cb-why-col.right .cb-why-card:hover,
+.cb-why-col.right .cb-why-card.active{transform:translateX(-4px)}
+
+/* Card header */
+.cb-why-card-header{
+  display:flex;align-items:center;gap:10px;
+}
 .cb-why-num{
-  font-family:'GeneralSans',sans-serif;font-size:0.82rem;letter-spacing:0.2em;
-  color:var(--accent);opacity:0.65;font-weight:500
+  font-family:'GeneralSans',sans-serif;font-size:0.6rem;letter-spacing:0.28em;
+  color:var(--accent);opacity:0.45;font-weight:500;flex-shrink:0;
 }
-.cb-why-icon{width:34px;height:34px;display:flex;align-items:center;justify-content:center}
-.cb-why-icon svg{width:26px;height:26px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.cb-why-icon{
+  width:22px;height:22px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0.7;
+}
+.cb-why-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .cb-why-title{
-  font-family:'GeneralSans',sans-serif;font-size:1rem;font-weight:500;
-  color:var(--warm-white);line-height:1.38
+  font-family:'GeneralSans',sans-serif;font-size:0.82rem;font-weight:500;
+  color:var(--warm-white);line-height:1.28;
+  letter-spacing:0.01em;
 }
-.cb-why-desc{
-  font-family:'GeneralSans',sans-serif;font-size:0.88rem;
-  color:rgba(250,250,245,0.52);line-height:1.7;font-weight:400
+
+/* Expand chevron */
+.cb-why-chevron{
+  margin-left:auto;flex-shrink:0;width:14px;height:14px;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0.28;transition:transform 0.25s,opacity 0.25s;
 }
-/* Tap hint — mobile only, shown via media query */
-.cb-why-tap{
-  display:none;
-  font-family:'GeneralSans',sans-serif;font-size:0.6rem;letter-spacing:0.18em;
-  text-transform:uppercase;color:rgba(213,216,137,0.35);margin-top:auto;font-weight:400
+.cb-why-chevron svg{width:10px;height:10px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cb-why-card:hover .cb-why-chevron{opacity:0.7}
+.cb-why-card.active .cb-why-chevron{opacity:0.9;transform:rotate(180deg)}
+
+/* Expandable desc */
+.cb-why-desc-wrap{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows 0.28s cubic-bezier(0.4,0,0.2,1);
 }
+.cb-why-card.active .cb-why-desc-wrap,
+.cb-why-card:hover .cb-why-desc-wrap{
+  grid-template-rows:1fr;
+}
+.cb-why-desc{overflow:hidden;font-family:'GeneralSans',sans-serif;font-size:0.78rem;color:rgba(250,250,245,0.8);line-height:1.68;font-weight:400;padding-top:0;transition:padding-top 0.28s ease, opacity 0.22s ease;opacity:0}
+.cb-why-card.active .cb-why-desc,
+.cb-why-card:hover .cb-why-desc{
+  padding-top:10px;
+  opacity:1;
+}
+
+/* Tap hint mobile */
+.cb-why-tap{display:none}
 
 /* ── WHY CARD MODAL ── */
 .cb-why-modal-overlay{
@@ -353,10 +465,7 @@ a{text-decoration:none;color:inherit}
   font-family:'GeneralSans',sans-serif;font-size:1.22rem;font-weight:600;
   color:var(--warm-white);line-height:1.3;margin-bottom:16px
 }
-.cb-why-modal-desc{
-  font-family:'GeneralSans',sans-serif;font-size:1rem;
-  color:rgba(250,250,245,0.65);line-height:1.75;font-weight:400
-}
+.cb-why-modal-desc{font-family:'GeneralSans',sans-serif;font-size:1rem;color:rgba(250,250,245,0.82);line-height:1.75;font-weight:400}
 .cb-why-modal-close{
   position:absolute;top:16px;right:20px;
   width:32px;height:32px;border:none;background:rgba(213,216,137,0.12);
@@ -498,8 +607,12 @@ a{text-decoration:none;color:inherit}
 }
 .cb-price-val small{font-size:0.88rem;color:rgba(250,250,245,0.42);font-family:'GeneralSans',sans-serif}
 .cb-price-note{
-  font-family:'IvyOra',serif;font-size:0.82rem;color:rgba(250,250,245,0.35);
-  font-style:italic;margin-top:11px;line-height:1.68
+  font-family:'IvyOra',serif;
+  font-size:0.82rem;
+  color:rgba(250,250,245,0.72);
+  font-style:italic;
+  margin-top:11px;
+  line-height:1.68
 }
 .cb-delivery{
   width:100%;padding:18px 26px;
@@ -521,63 +634,56 @@ a{text-decoration:none;color:inherit}
   .cb-nav-tag{display:none}
   .cb-concept-grid{grid-template-columns:1fr;gap:40px}
   .cb-mascot-box{display:none}
-  .cb-why-grid{grid-template-columns:1fr 1fr}
   .cb-price-cards{grid-template-columns:1fr}
   .cb-shelf-bg{display:none}
 
-  /* ── Packaging mobile: image top (50vw), tabs under image, text below ── */
+  /* ── WHY: Tablet — video LEFT, all 6 cards RIGHT ── */
+  .cb-why-stage{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:auto;
+    gap:0 24px;
+    align-items:start;
+  }
+  .cb-why-bottle{
+    grid-column:1;
+    grid-row:1 / span 2;
+    align-self:start;
+    position:sticky;
+    top:88px;
+  }
+  .cb-why-bottle-img{width:100%;height:auto;object-fit:contain;max-height:55vw}
+  .cb-why-bottle-ring{width:100%}
+  .cb-why-col.left{
+    grid-column:2;grid-row:1;gap:10px;
+  }
+  .cb-why-col.right{
+    grid-column:2;grid-row:2;margin-top:10px;gap:10px;
+  }
+  /* Reset stagger offsets on tablet */
+  .cb-why-col.left .cb-why-card:nth-child(1),
+  .cb-why-col.left .cb-why-card:nth-child(2),
+  .cb-why-col.left .cb-why-card:nth-child(3),
+  .cb-why-col.right .cb-why-card:nth-child(1),
+  .cb-why-col.right .cb-why-card:nth-child(2),
+  .cb-why-col.right .cb-why-card:nth-child(3){
+    margin-left:0;margin-right:0;margin-bottom:0;max-width:100%;
+  }
+
+  /* ── Packaging mobile ── */
   .cb-pack-page{min-height:auto;display:block}
-  .cb-pack-grid{
-    display:flex;
-    flex-direction:column;
-    min-height:auto;
-    width:100%;
-    max-width:100%;
-    margin:0;
-  }
-  /* Image panel: fixed aspect ratio, contain so full bottle shows */
-  .cb-pack-img-panel{
-    width:100%;
-    height:56vw;
-    min-height:220px;
-    max-height:340px;
-    order:1;
-    background:#f0ece0;
-    flex-shrink:0;
-  }
-  .cb-pack-img-wrap{
-    width:100%;height:100%;
-    min-height:0;
-  }
-  /* Show full bottle — contain not cover */
+  .cb-pack-grid{display:flex;flex-direction:column;min-height:auto;width:100%;max-width:100%;margin:0}
+  .cb-pack-img-panel{width:100%;height:56vw;min-height:220px;max-height:340px;order:1;background:#f0ece0;flex-shrink:0}
+  .cb-pack-img-wrap{width:100%;height:100%;min-height:0}
   .cb-pack-slide img{object-fit:contain !important;padding:12px}
   .cb-pack-slide.story-slide img{object-fit:contain;padding:16px}
-  /* Farm banner keeps cover since it's a landscape scene */
   #p6 .cb-pack-img-panel img{object-fit:cover !important;padding:0}
-
-  /* Tabs: move directly under the image */
-  .cb-pack-mobile-tabs{
-    order:2;
-    width:100%;
-    padding:12px 20px 0;
-    background:var(--warm-white);
-    display:flex;
-  }
+  .cb-pack-mobile-tabs{order:2;width:100%;padding:12px 20px 0;background:var(--warm-white);display:flex}
   #p6 .cb-pack-mobile-tabs{display:none}
-  .cb-pack-mobile-tabs .cb-pack-tabs{
-    width:100%;margin-bottom:0;border-radius:8px;
-  }
+  .cb-pack-mobile-tabs .cb-pack-tabs{width:100%;margin-bottom:0;border-radius:8px}
   .cb-pack-mobile-tabs .cb-pack-tab{flex:1}
-
-  /* Text panel: below tabs */
-  .cb-pack-text-panel{
-    padding:24px 24px 44px;
-    order:3;
-  }
-  /* Hide the inline tabs inside text panel on mobile */
+  .cb-pack-text-panel{padding:24px 24px 44px;order:3}
   .cb-pack-text-inner-tabs{display:none}
-
-  /* p6: image first, text second */
   #p6 .cb-pack-img-panel{order:1}
   #p6 .cb-pack-text-panel{order:2;padding-top:36px}
 }
@@ -592,10 +698,10 @@ a{text-decoration:none;color:inherit}
   /* Hero */
   #p1{padding:88px 0 72px;align-items:center;text-align:center;overflow:hidden}
   .cb-inner{width:calc(100% - 48px);padding:0;overflow:hidden}
-  .cb-hero-logo{height:clamp(56px,16vw,96px);max-width:78vw;object-fit:contain}
-  .cb-tagline{font-size:0.6rem;letter-spacing:0.26em;margin-bottom:22px}
-  .cb-sub{font-size:0.95rem;margin-top:10px}
-  .cb-badge{font-size:0.58rem;letter-spacing:0.1em;padding:8px 14px;max-width:calc(100vw - 48px);white-space:normal;text-align:center;line-height:1.55}
+  .cb-hero-logo{height:clamp(90px,22vw,130px);max-width:72vw;object-fit:contain}
+  .cb-tagline{font-size:0.74rem;letter-spacing:0.28em;margin-bottom:20px}
+  .cb-sub{font-size:clamp(1.15rem,4.5vw,1.4rem);margin-top:14px}
+  .cb-badge{font-size:0.74rem;letter-spacing:0.12em;padding:10px 20px;max-width:calc(100vw - 48px);white-space:normal;text-align:center;line-height:1.55;margin-top:32px}
   .cb-scroll{bottom:20px}
 
   /* Story */
@@ -603,15 +709,41 @@ a{text-decoration:none;color:inherit}
   .cb-body{font-size:0.92rem}
   .cb-quote{font-size:0.96rem}
 
-  /* Why — ALWAYS 2 columns on phone */
-  .cb-why-grid{grid-template-columns:1fr 1fr !important}
-  .cb-why-h{font-size:clamp(1.7rem,6.5vw,2.4rem);margin-bottom:28px}
-  .cb-why-card{padding:22px 18px;min-height:auto;gap:10px;cursor:pointer}
-  .cb-why-tap{display:block;font-size:0.66rem}
-  .cb-why-num{font-size:0.82rem}
-  .cb-why-title{font-size:1rem;line-height:1.3}
-  .cb-why-desc{font-size:0.82rem;line-height:1.6}
-  .cb-why-icon svg{width:22px;height:22px}
+  /* ── WHY: Phone — video top, all 6 below ── */
+  #p3{min-height:auto;padding:72px 0 60px}
+  .cb-why-stage{display:flex;flex-direction:column;gap:0}
+  .cb-why-bottle{display:flex;width:100%;order:1;justify-content:center}
+  .cb-why-bottle-ring{width:80%;max-width:260px}
+  .cb-why-bottle video{width:100%;height:auto;object-fit:contain;max-height:55vw}
+  .cb-why-col.left{
+    grid-column:unset;grid-row:unset;position:static;
+    order:2;margin-top:20px;gap:8px;
+  }
+  .cb-why-col.right{
+    grid-column:unset;grid-row:unset;position:static;
+    order:3;margin-top:8px;gap:8px;
+  }
+  .cb-why-col{width:100%}
+  /* Reset all stagger offsets on phone */
+  .cb-why-col.left .cb-why-card:nth-child(1),
+  .cb-why-col.left .cb-why-card:nth-child(2),
+  .cb-why-col.left .cb-why-card:nth-child(3),
+  .cb-why-col.right .cb-why-card:nth-child(1),
+  .cb-why-col.right .cb-why-card:nth-child(2),
+  .cb-why-col.right .cb-why-card:nth-child(3){
+    margin-left:0;margin-right:0;margin-bottom:0;max-width:100%;
+  }
+  .cb-why-h{font-size:clamp(1.7rem,6.5vw,2.4rem);margin-bottom:24px}
+  .cb-why-card{padding:14px 14px}
+  .cb-why-num{font-size:0.62rem}
+  .cb-why-title{font-size:0.85rem;line-height:1.25}
+  .cb-why-desc-wrap{display:none}
+  .cb-why-chevron{display:none}
+  .cb-why-tap{display:block;font-size:0.58rem;margin-top:6px;opacity:0.4}
+  .cb-why-col.left .cb-why-card:hover,
+  .cb-why-col.left .cb-why-card.active,
+  .cb-why-col.right .cb-why-card:hover,
+  .cb-why-col.right .cb-why-card.active{transform:none}
 
   /* Shelf */
   .cb-shelf-h{font-size:clamp(1.7rem,6.5vw,2.4rem)}
@@ -631,14 +763,10 @@ a{text-decoration:none;color:inherit}
 }
 
 @media(max-width:480px){
-  /* why-us: keep 2 col even on very small screens */
-  .cb-why-grid{grid-template-columns:1fr 1fr !important}
-  .cb-why-card{padding:16px 12px;gap:8px}
-  .cb-why-num{font-size:0.75rem}
-  .cb-why-title{font-size:0.88rem}
-  .cb-why-desc{font-size:0.75rem}
-  .cb-why-icon{width:26px;height:26px}
-  .cb-why-icon svg{width:20px;height:20px}
+  .cb-why-stage{grid-template-columns:1fr 1fr;gap:6px}
+  .cb-why-card{padding:14px 10px}
+  .cb-why-num{font-size:0.68rem}
+  .cb-why-title{font-size:0.82rem}
   .cb-badge{font-size:0.55rem;letter-spacing:0.08em}
   .cb-delivery{flex-direction:column;align-items:flex-start}
   .cb-size-badges{flex-wrap:wrap;gap:8px}
@@ -790,52 +918,94 @@ a{text-decoration:none;color:inherit}
 <!-- PAGE 3: WHY US -->
 <section class="cb-page" id="p3">
   <div class="cb-why-wrap">
-    <p class="cb-eyebrow light cbr">Why COCOBARN</p>
-    <h2 class="cb-why-h cbr d1">Six reasons to choose real.</h2>
-    <div class="cb-why-grid">
-      <div class="cb-why-card cbr d1" data-num="01" data-title="100% Organic Thai Nam Hom Coconut" data-desc="The finest aromatic variety, certified organic from farm to bottle. Thai Namhom coconuts are prized for their natural fragrance and delicately sweet water — a quality you simply cannot replicate with other varieties." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11"/><path d="M14 3 Q18 8 14 14 Q10 8 14 3Z"/><path d="M9 6 Q12 12 14 14 Q9 10 9 6Z" opacity="0.5"/><path d="M19 6 Q16 12 14 14 Q19 10 19 6Z" opacity="0.5"/></svg>'>
-        <span class="cb-why-num">01</span>
-        <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11"/><path d="M14 3 Q18 8 14 14 Q10 8 14 3Z"/><path d="M9 6 Q12 12 14 14 Q9 10 9 6Z" opacity="0.5"/><path d="M19 6 Q16 12 14 14 Q19 10 19 6Z" opacity="0.5"/></svg></div>
-        <div class="cb-why-title">100% Organic Thai Nam Hom Coconut</div>
-        <div class="cb-why-desc">The finest aromatic variety, certified organic from farm to bottle.</div>
-        <span class="cb-why-tap">Tap to read more</span>
+    <p class="cb-eyebrow light cbr">Our product</p>
+    <h2 class="cb-why-h cb-why-h-logo cbr d1">Why <span class="cb-why-logo-wrap"><img src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg" alt="COCOBARN" class="cb-why-logo-word"></span></h2>
+
+    <div class="cb-why-stage cbr d2">
+
+      <!-- LEFT COLUMN: cards 01 02 03 -->
+      <div class="cb-why-col left">
+
+        <div class="cb-why-card" data-num="01" data-title="100% Organic Thai Nam Hom Coconut" data-desc="The finest aromatic variety, certified organic from farm to bottle. Thai Namhom coconuts are prized for their natural fragrance and delicately sweet water — a quality you simply cannot replicate with other varieties." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11"/><path d="M14 3 Q18 8 14 14 Q10 8 14 3Z"/><path d="M9 6 Q12 12 14 14 Q9 10 9 6Z" opacity="0.5"/><path d="M19 6 Q16 12 14 14 Q19 10 19 6Z" opacity="0.5"/></svg>'>
+          <div class="cb-why-card-header">
+            <span class="cb-why-num">01</span>
+            <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11"/><path d="M14 3 Q18 8 14 14 Q10 8 14 3Z"/><path d="M9 6 Q12 12 14 14 Q9 10 9 6Z" opacity="0.5"/><path d="M19 6 Q16 12 14 14 Q19 10 19 6Z" opacity="0.5"/></svg></div>
+            <div class="cb-why-title">100% Organic Thai Nam Hom</div>
+            <div class="cb-why-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div>
+          </div>
+          <div class="cb-why-desc-wrap"><div class="cb-why-desc">The finest aromatic variety, certified organic from farm to bottle. Thai Namhom coconuts are prized for their natural fragrance and delicately sweet water.</div></div>
+        </div>
+
+        <div class="cb-why-card" data-num="02" data-title="Locally Sourced Freshness" data-desc="Direct from Ratchaburi growers — no middlemen, maximum freshness. By working directly with farmers, we eliminate unnecessary supply chain steps and ensure the water reaches you at its most vibrant, alive state." data-icon='<svg viewBox="0 0 28 28"><path d="M14 3 C9 3 5 7 5 12 C5 19 14 25 14 25 C14 25 23 19 23 12 C23 7 19 3 14 3Z"/><circle cx="14" cy="12" r="3.5"/></svg>'>
+          <div class="cb-why-card-header">
+            <span class="cb-why-num">02</span>
+            <div class="cb-why-icon"><svg viewBox="0 0 28 28"><path d="M14 3 C9 3 5 7 5 12 C5 19 14 25 14 25 C14 25 23 19 23 12 C23 7 19 3 14 3Z"/><circle cx="14" cy="12" r="3.5"/></svg></div>
+            <div class="cb-why-title">Locally Sourced Freshness</div>
+            <div class="cb-why-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div>
+          </div>
+          <div class="cb-why-desc-wrap"><div class="cb-why-desc">Direct from Ratchaburi growers — no middlemen, maximum freshness. We eliminate unnecessary supply chain steps so the water reaches you at its most vibrant state.</div></div>
+        </div>
+
+        <div class="cb-why-card" data-num="03" data-title="Optimal 6-Month Harvest" data-desc="Harvested at exactly 6 months — the peak of juiciness and flavor. Too young and the water is watery; too old and it becomes oily. We harvest at the precise moment when sweetness, electrolytes, and aroma are at their absolute best." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="15" r="10"/><polyline points="14,8 14,15 19,15"/><path d="M14 5L14 3" stroke-width="2"/></svg>'>
+          <div class="cb-why-card-header">
+            <span class="cb-why-num">03</span>
+            <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="15" r="10"/><polyline points="14,8 14,15 19,15"/><path d="M14 5L14 3" stroke-width="2"/></svg></div>
+            <div class="cb-why-title">Optimal 6-Month Harvest</div>
+            <div class="cb-why-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div>
+          </div>
+          <div class="cb-why-desc-wrap"><div class="cb-why-desc">Harvested at exactly 6 months — the peak of juiciness and flavor. We harvest at the precise moment when sweetness, electrolytes, and aroma are at their absolute best.</div></div>
+        </div>
+
       </div>
-      <div class="cb-why-card cbr d2" data-num="02" data-title="Locally Sourced Freshness" data-desc="Direct from Ratchaburi growers — no middlemen, maximum freshness. By working directly with farmers, we eliminate unnecessary supply chain steps and ensure the water reaches you at its most vibrant, alive state." data-icon='<svg viewBox="0 0 28 28"><path d="M14 3 C9 3 5 7 5 12 C5 19 14 25 14 25 C14 25 23 19 23 12 C23 7 19 3 14 3Z"/><circle cx="14" cy="12" r="3.5"/></svg>'>
-        <span class="cb-why-num">02</span>
-        <div class="cb-why-icon"><svg viewBox="0 0 28 28"><path d="M14 3 C9 3 5 7 5 12 C5 19 14 25 14 25 C14 25 23 19 23 12 C23 7 19 3 14 3Z"/><circle cx="14" cy="12" r="3.5"/></svg></div>
-        <div class="cb-why-title">Locally Sourced Freshness</div>
-        <div class="cb-why-desc">Direct from Ratchaburi growers—no middlemen, maximum freshness.</div>
-        <span class="cb-why-tap">Tap to read more</span>
+
+      <!-- CENTER: Bottle video -->
+      <!-- CENTER: Bottle image  -->
+      <div class="cb-why-bottle cbr">
+        <div class="cb-why-bottle-ring">
+          <img src="/assets/img/cocobarn/font_bottle.svg" alt="COCOBARN bottle" class="cb-why-bottle-img">
+          <!--
+          <video autoplay muted loop playsinline preload="auto"
+            src="/assets/img/cocobarn/cocobarn_video.mp4">
+          </video>
+          -->
+        </div>
       </div>
-      <div class="cb-why-card cbr d3" data-num="03" data-title="Optimal 6-Month Harvest" data-desc="Harvested at exactly 6 months — the peak of juiciness and flavor. Too young and the water is watery; too old and it becomes oily. We harvest at the precise moment when sweetness, electrolytes, and aroma are at their absolute best." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="15" r="10"/><polyline points="14,8 14,15 19,15"/><path d="M14 5L14 3" stroke-width="2"/></svg>'>
-        <span class="cb-why-num">03</span>
-        <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="15" r="10"/><polyline points="14,8 14,15 19,15"/><path d="M14 5L14 3" stroke-width="2"/></svg></div>
-        <div class="cb-why-title">Optimal 6-Month Harvest</div>
-        <div class="cb-why-desc">Harvested at peak maturity—the most juicy, delicious stage of growth.</div>
-        <span class="cb-why-tap">Tap to read more</span>
+
+      <!-- RIGHT COLUMN: cards 04 05 06 -->
+      <div class="cb-why-col right">
+
+        <div class="cb-why-card" data-num="04" data-title="No Added Sugar" data-desc="Pure coconut water as nature intended — nothing added, nothing hidden. No sugar. No preservatives. No concentrates. Just the real, living water from inside each coconut, bottled with minimal processing to preserve every natural note." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M10 10L18 18M18 10L10 18" stroke-width="2"/></svg>'>
+          <div class="cb-why-card-header">
+            <span class="cb-why-num">04</span>
+            <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M10 10L18 18M18 10L10 18" stroke-width="2"/></svg></div>
+            <div class="cb-why-title">No Added Sugar</div>
+            <div class="cb-why-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div>
+          </div>
+          <div class="cb-why-desc-wrap"><div class="cb-why-desc">Pure coconut water as nature intended — nothing added, nothing hidden. No sugar, no preservatives, no concentrates. Just the real, living water from inside each coconut.</div></div>
+        </div>
+
+        <div class="cb-why-card" data-num="05" data-title="Electrolyte &amp; Nutrient Rich" data-desc="Naturally packed with potassium, magnesium, calcium, and natural electrolytes. COCOBARN coconut water replenishes what your body loses — without any artificial additives — making it the most honest form of hydration possible." data-icon='<svg viewBox="0 0 28 28"><path d="M14 4 Q14 4 20 13 C22 17 21 22 17 24 C15 25 13 25 11 24 C7 22 6 17 8 13 Q14 4 14 4Z"/><path d="M10 18 Q12 22 16 20" stroke-width="1.5" opacity="0.6"/></svg>'>
+          <div class="cb-why-card-header">
+            <span class="cb-why-num">05</span>
+            <div class="cb-why-icon"><svg viewBox="0 0 28 28"><path d="M14 4 Q14 4 20 13 C22 17 21 22 17 24 C15 25 13 25 11 24 C7 22 6 17 8 13 Q14 4 14 4Z"/><path d="M10 18 Q12 22 16 20" stroke-width="1.5" opacity="0.6"/></svg></div>
+            <div class="cb-why-title">Electrolyte &amp; Nutrient Rich</div>
+            <div class="cb-why-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div>
+          </div>
+          <div class="cb-why-desc-wrap"><div class="cb-why-desc">Naturally packed with potassium, magnesium, calcium, and electrolytes. Replenishes what your body loses — without any artificial additives — the most honest hydration possible.</div></div>
+        </div>
+
+        <div class="cb-why-card" data-num="06" data-title="GMP, HACCP, Thai Organic Certified" data-desc="Every bottle is produced under GMP and HACCP food safety standards, and certified by Thailand's official organic certification body. International quality, Thai authenticity — backed by independent verification." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><polyline points="9,14 13,18 20,10"/></svg>'>
+          <div class="cb-why-card-header">
+            <span class="cb-why-num">06</span>
+            <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><polyline points="9,14 13,18 20,10"/></svg></div>
+            <div class="cb-why-title">GMP, HACCP, Thai Organic Certified</div>
+            <div class="cb-why-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div>
+          </div>
+          <div class="cb-why-desc-wrap"><div class="cb-why-desc">Every bottle produced under GMP and HACCP standards, certified by Thailand's organic certification body. International quality, Thai authenticity — independently verified.</div></div>
+        </div>
+
       </div>
-      <div class="cb-why-card cbr d4" data-num="04" data-title="No Added Sugar" data-desc="Pure coconut water as nature intended — nothing added, nothing hidden. No sugar. No preservatives. No concentrates. Just the real, living water from inside each coconut, bottled with minimal processing to preserve every natural note." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M10 10L18 18M18 10L10 18" stroke-width="2"/></svg>'>
-        <span class="cb-why-num">04</span>
-        <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M10 10L18 18M18 10L10 18" stroke-width="2"/></svg></div>
-        <div class="cb-why-title">No Added Sugar</div>
-        <div class="cb-why-desc">Pure coconut water as nature intended—nothing added, nothing hidden.</div>
-        <span class="cb-why-tap">Tap to read more</span>
-      </div>
-      <div class="cb-why-card cbr d5" data-num="05" data-title="Electrolyte &amp; Nutrient Rich" data-desc="Naturally packed with potassium, magnesium, calcium, and natural electrolytes. COCOBARN coconut water replenishes what your body loses — without any artificial additives — making it the most honest form of hydration possible." data-icon='<svg viewBox="0 0 28 28"><path d="M14 4 Q14 4 20 13 C22 17 21 22 17 24 C15 25 13 25 11 24 C7 22 6 17 8 13 Q14 4 14 4Z"/><path d="M10 18 Q12 22 16 20" stroke-width="1.5" opacity="0.6"/></svg>'>
-        <span class="cb-why-num">05</span>
-        <div class="cb-why-icon"><svg viewBox="0 0 28 28"><path d="M14 4 Q14 4 20 13 C22 17 21 22 17 24 C15 25 13 25 11 24 C7 22 6 17 8 13 Q14 4 14 4Z"/><path d="M10 18 Q12 22 16 20" stroke-width="1.5" opacity="0.6"/></svg></div>
-        <div class="cb-why-title">Electrolyte &amp; Nutrient Rich</div>
-        <div class="cb-why-desc">Naturally packed with electrolytes and nutrients for real hydration.</div>
-        <span class="cb-why-tap">Tap to read more</span>
-      </div>
-      <div class="cb-why-card cbr d6" data-num="06" data-title="GMP, HACCP, Thai Organic Certified" data-desc="Every bottle is produced under GMP (Good Manufacturing Practice) and HACCP food safety standards, and certified by Thailand's official organic certification body. International quality, Thai authenticity — backed by independent verification." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><polyline points="9,14 13,18 20,10"/></svg>'>
-        <span class="cb-why-num">06</span>
-        <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><polyline points="9,14 13,18 20,10"/></svg></div>
-        <div class="cb-why-title">GMP, HACCP, Thai Organic Certified</div>
-        <div class="cb-why-desc">International standards, verified quality, trusted by experts.</div>
-        <span class="cb-why-tap">Tap to read more</span>
-      </div>
-    </div>
+    </div><!-- /cb-why-stage -->
   </div>
 </section>
 
@@ -847,7 +1017,7 @@ a{text-decoration:none;color:inherit}
     <h2 class="cb-shelf-h cbr d1">Keep it cold.<br>Keep it real.</h2>
     <div class="cb-shelf-stat cbr d2"><span class="cb-shelf-num">10</span><span class="cb-shelf-unit">days</span></div>
     <p class="cb-shelf-note cbr d3">🌡 Chilled fridge at 0–4°C</p>
-    <p class="cb-body cbr d4" style="color:var(--forest);max-width:460px">Our minimal processing preserves every drop's natural taste, color, and aroma—so every sip feels like drinking straight from the fruit.</p>
+    <p class="cb-body cbr d4" style="color:var(--forest);max-width:460px">Our minimal processing preserves every drop's natural taste—so every sip feels like drinking straight from the coconut.</p>
   </div>
 </section>
 
@@ -1054,7 +1224,17 @@ function closeWhyModal(){
 }
 
 document.querySelectorAll('.cb-why-card').forEach(card=>{
-  card.addEventListener('click',()=>openWhyModal(card));
+  card.addEventListener('click',()=>{
+    if(window.innerWidth > 768){
+      // Desktop: toggle active (expand inline)
+      const isActive = card.classList.contains('active');
+      document.querySelectorAll('.cb-why-card').forEach(c=>c.classList.remove('active'));
+      if(!isActive) card.classList.add('active');
+    } else {
+      // Mobile: open modal
+      openWhyModal(card);
+    }
+  });
 });
 whyClose.addEventListener('click', closeWhyModal);
 whyModal.addEventListener('click', e=>{ if(e.target===whyModal) closeWhyModal(); });
