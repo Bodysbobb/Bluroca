@@ -102,7 +102,7 @@ a{text-decoration:none;color:inherit}
   filter:brightness(0) invert(1);
   will-change:filter;
 }
-.cb-why-h-logo{display:flex;align-items:flex-end;gap:0.16em;line-height:1}.cb-why-logo-wrap{display:inline-flex;align-items:flex-end}.cb-why-logo-word{display:block;height:1em;width:auto;filter:brightness(0) invert(1);transform:translateY(0.05em)}
+.cb-why-h-logo{display:flex;align-items:flex-end;gap:0.16em;line-height:1}.cb-why-logo-wrap{display:inline-flex;align-items:flex-end}.cb-why-logo-word{display:block;height:1em;width:auto;transform:translateY(0.05em)}
 .cb-nav-tag{font-family:'GeneralSans',sans-serif;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(213,216,137,0.82);border-left:1px solid rgba(213,216,137,0.42);padding-left:14px;white-space:nowrap;font-weight:400}
 .cb-nav-links{display:flex;align-items:center;gap:32px;list-style:none}
 .cb-nav-links a{font-family:'GeneralSans',sans-serif;font-size:0.88rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,250,245,0.65);cursor:pointer;transition:color 0.2s;font-weight:400}
@@ -130,13 +130,14 @@ a{text-decoration:none;color:inherit}
 }
 .cb-mobile-menu-inner{
   width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));
-  margin:0 auto;display:flex;flex-direction:column
+  margin:0 auto;display:flex;flex-direction:column;align-items:flex-end
 }
 .cb-mobile-menu a{
   padding:16px 0;font-family:'GeneralSans',sans-serif;
   font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;
   color:rgba(250,250,245,0.75);
-  border-top:1px solid rgba(213,216,137,0.08);cursor:pointer
+  border-top:1px solid rgba(213,216,137,0.08);cursor:pointer;
+  width:100%;text-align:right
 }
 .cb-mobile-menu a:hover{color:var(--accent)}
 .cb-mobile-menu.cb-open{opacity:1;pointer-events:auto;transform:translateY(0)}
@@ -212,8 +213,11 @@ a{text-decoration:none;color:inherit}
 .cb-scroll-line{width:1px;height:38px;background:linear-gradient(to bottom,rgba(213,216,137,0.45),transparent);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:0.28}50%{opacity:1}}
 
-/* PAGE 2 */
-#p2{background:var(--warm-white);padding:120px 0 100px}
+/* PAGE 2 — Why Us (moved here, sage background) */
+#p2{background:#d5d889;padding:100px 0 100px;overflow:hidden}
+
+/* PAGE 3 — Story (was p2) */
+#p3{background:var(--warm-white);padding:120px 0 100px}
 .cb-concept-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
   width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));margin:0 auto
@@ -225,6 +229,7 @@ a{text-decoration:none;color:inherit}
 }
 .cb-eyebrow::before{content:'';width:28px;height:1px;background:currentColor;flex-shrink:0}
 .cb-eyebrow.light{color:var(--accent)}.cb-eyebrow.dark{color:var(--forest)}
+#p2 .cb-eyebrow.light{color:var(--forest)}
 .cb-h2{
   font-family:'IvyOra',serif;font-size:clamp(2.2rem,4.8vw,4rem);
   font-weight:300;line-height:1.1;color:var(--forest);margin-bottom:30px
@@ -268,13 +273,12 @@ a{text-decoration:none;color:inherit}
   text-transform:uppercase;color:var(--forest-mid);text-align:center;line-height:2;font-weight:400
 }
 
-/* PAGE 3 */
-#p3{background:var(--forest);padding:100px 0 100px;overflow:hidden}
-#p3 .cb-page{min-height:auto}
+/* PAGE 2 — Why Us on sage bg */
+#p2 .cb-page{min-height:auto}
 .cb-why-wrap{width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));margin:0 auto}
 .cb-why-h{
   font-family:'IvyOra',serif;font-size:clamp(2.2rem,4.8vw,3.6rem);
-  font-weight:300;color:var(--warm-white);margin-bottom:72px;max-width:480px;
+  font-weight:300;color:var(--forest);margin-bottom:72px;max-width:480px;
   line-height:1.05;
 }
 
@@ -303,17 +307,18 @@ a{text-decoration:none;color:inherit}
   display:flex;align-items:center;justify-content:center;
   position:relative;z-index:2;
 }
-.cb-why-bottle-img{width:100%;height:auto;object-fit:contain;display:block;pointer-events:none}
+.cb-why-bottle-img{width:100%;height:auto;object-fit:contain;display:block;pointer-events:auto;cursor:pointer}
 .cb-why-bottle-ring{
   position:relative;
   width:clamp(220px,26vw,320px);
   display:flex;align-items:center;justify-content:center;
   filter:drop-shadow(0 0 16px rgba(213,216,137,0.07));
   animation:bottleGlow 4s ease-in-out infinite;
+  perspective:900px;
 }
 @keyframes bottleGlow{
-  0%,100%{filter:drop-shadow(0 0 16px rgba(213,216,137,0.07))}
-  50%    {filter:drop-shadow(0 0 52px rgba(213,216,137,0.22))}
+  0%,100%{filter:drop-shadow(0 0 16px rgba(63,81,36,0.12))}
+  50%    {filter:drop-shadow(0 0 52px rgba(63,81,36,0.32))}
 }
 .cb-why-bottle video{
   width:100%;height:auto;
@@ -345,27 +350,27 @@ a{text-decoration:none;color:inherit}
 .cb-why-card{
   width:100%;
   max-width:360px;
-  background:linear-gradient(180deg,rgba(255,255,255,0.045) 0%,rgba(213,216,137,0.03) 100%);
-  border:1.5px solid rgba(213,216,137,0.22);
+  background:linear-gradient(180deg,rgba(63,81,36,0.82) 0%,rgba(47,62,24,0.90) 100%);
+  border:1.5px solid rgba(63,81,36,0.35);
   border-radius:16px;
   padding:18px 22px;
   cursor:pointer;
   will-change:background,border-color,transform;
   transition:background 0.22s ease,border-color 0.22s ease,transform 0.22s ease,box-shadow 0.22s ease;
   position:relative;overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,0.14),inset 0 1px 0 rgba(255,255,255,0.04);
+  box-shadow:0 10px 30px rgba(63,81,36,0.22),inset 0 1px 0 rgba(255,255,255,0.06);
 }
 .cb-why-card::before{
   content:'';
   position:absolute;inset:0;border-radius:16px;
-  background:linear-gradient(135deg,rgba(213,216,137,0.12) 0%,rgba(255,255,255,0.02) 38%,transparent 72%);
+  background:linear-gradient(135deg,rgba(213,216,137,0.1) 0%,rgba(255,255,255,0.02) 38%,transparent 72%);
   opacity:0.7;
   transition:opacity 0.22s ease;
 }
 .cb-why-card:hover,.cb-why-card.active{
-  background:linear-gradient(180deg,rgba(255,255,255,0.07) 0%,rgba(213,216,137,0.05) 100%);
-  border-color:rgba(213,216,137,0.42);
-  box-shadow:0 18px 42px rgba(0,0,0,0.22),0 0 0 1px rgba(213,216,137,0.08),inset 0 1px 0 rgba(255,255,255,0.08);
+  background:linear-gradient(180deg,rgba(63,81,36,0.95) 0%,rgba(47,62,24,1) 100%);
+  border-color:rgba(213,216,137,0.5);
+  box-shadow:0 18px 42px rgba(63,81,36,0.32),0 0 0 1px rgba(213,216,137,0.1),inset 0 1px 0 rgba(255,255,255,0.08);
 }
 .cb-why-card:hover::before,.cb-why-card.active::before{opacity:1}
 .cb-why-col.left .cb-why-card:hover,
@@ -379,12 +384,12 @@ a{text-decoration:none;color:inherit}
 }
 .cb-why-num{
   font-family:'GeneralSans',sans-serif;font-size:0.6rem;letter-spacing:0.28em;
-  color:var(--accent);opacity:0.45;font-weight:500;flex-shrink:0;
+  color:var(--accent);opacity:0.7;font-weight:500;flex-shrink:0;
 }
 .cb-why-icon{
   width:22px;height:22px;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  opacity:0.7;
+  opacity:0.85;
 }
 .cb-why-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .cb-why-title{
@@ -416,6 +421,16 @@ a{text-decoration:none;color:inherit}
 .cb-why-card.active .cb-why-desc{
   padding-top:10px;
   opacity:1;
+}
+
+/* Bottle flip interaction */
+.cb-bottle-flip{cursor:pointer;}
+.cb-bottle-flip:hover{opacity:0.88}
+.cb-bottle-hint{
+  position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);
+  font-family:'GeneralSans',sans-serif;font-size:0.58rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:rgba(213,216,137,0.45);white-space:nowrap;
+  pointer-events:none;
 }
 
 /* Tap hint mobile */
@@ -640,8 +655,14 @@ a{text-decoration:none;color:inherit}
   .cb-why-col.right .cb-why-card:nth-child(3){margin-top:0;margin-bottom:6px;margin-right:auto}
 }
 
+@media(max-width:1004px){
+  .cb-nav-tag{font-size:0.68rem;letter-spacing:0.12em;padding-left:10px}
+  .cb-nav-links{display:none}
+  .cb-nav-toggle{display:flex}
+  .cb-mobile-menu{display:block}
+}
+
 @media(max-width:900px){
-  .cb-nav-tag{display:none}
   .cb-concept-grid{grid-template-columns:1fr;gap:40px}
   .cb-mascot-box{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:24px;order:1}
   .cb-mascot-svg-wrap{animation:elegantWalk 5s ease-in-out infinite}
@@ -704,10 +725,7 @@ a{text-decoration:none;color:inherit}
 
 @media(max-width:768px){
   body{font-size:16px}
-  .cb-nav-links{display:none}
-  .cb-nav-toggle{display:flex}
   .cb-dots{display:none}
-  .cb-mobile-menu{display:block}
 
   /* Hero */
   #p1{padding:88px 0 72px;align-items:center;text-align:center;overflow:hidden}
@@ -724,7 +742,7 @@ a{text-decoration:none;color:inherit}
   .cb-quote{font-size:0.96rem}
 
   /* ── WHY: Phone — video top, all 6 below ── */
-  #p3{min-height:auto;padding:72px 0 60px}
+  #p2{min-height:auto;padding:72px 0 60px}
   .cb-why-stage{display:flex;flex-direction:column;gap:0}
   .cb-why-bottle{display:flex;width:100%;order:1;justify-content:center}
   .cb-why-bottle-ring{width:80%;max-width:260px}
@@ -752,8 +770,9 @@ a{text-decoration:none;color:inherit}
   .cb-why-num{font-size:0.62rem}
   .cb-why-title{font-size:0.85rem;line-height:1.25}
   .cb-why-desc-wrap{display:none}
-  .cb-why-chevron{display:none}
-  .cb-why-tap{display:block;font-size:0.58rem;margin-top:6px;opacity:0.4}
+  .cb-why-chevron{display:flex;opacity:0.55}
+  .cb-why-tap{display:none}
+  .cb-why-chevron svg{transform:rotate(-90deg)}
   .cb-why-col.left .cb-why-card:hover,
   .cb-why-col.left .cb-why-card.active,
   .cb-why-col.right .cb-why-card:hover,
@@ -852,8 +871,8 @@ a{text-decoration:none;color:inherit}
       <span class="cb-nav-tag">100% Organic · Farm Direct</span>
     </a>
     <ul class="cb-nav-links">
-      <li><a onclick="go(2)">Story</a></li>
-      <li><a onclick="go(3)">Why Us</a></li>
+      <li><a onclick="go(2)">Why Us</a></li>
+      <li><a onclick="go(3)">Story</a></li>
       <li><a onclick="go(4)">Shelf Life</a></li>
       <li><a onclick="go(5)">Packaging</a></li>
       <li><a class="cb-nav-cta" onclick="go(7)">Pricing</a></li>
@@ -866,8 +885,8 @@ a{text-decoration:none;color:inherit}
 
 <div class="cb-mobile-menu" id="cbMobileMenu">
   <div class="cb-mobile-menu-inner">
-    <a onclick="go(2);closeMobileMenu()">Story</a>
-    <a onclick="go(3);closeMobileMenu()">Why Us</a>
+    <a onclick="go(2);closeMobileMenu()">Why Us</a>
+    <a onclick="go(3);closeMobileMenu()">Story</a>
     <a onclick="go(4);closeMobileMenu()">Shelf Life</a>
     <a onclick="go(5);closeMobileMenu()">Packaging</a>
     <a class="cb-mobile-cta" onclick="go(7);closeMobileMenu()">Pricing</a>
@@ -905,32 +924,8 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- PAGE 2: STORY -->
+<!-- PAGE 2: WHY US -->
 <section class="cb-page" id="p2">
-  <div class="cb-concept-grid">
-    <div>
-      <p class="cb-eyebrow cbr">Our Story</p>
-      <h2 class="cb-h2 highlight-em cbr d1">Rooted in <em>purpose</em>,<br>bottled with <em>care</em>.</h2>
-      <p class="cb-body cbr d2">COCOBARN was born from a simple belief: Thai coconut farmers deserve more value for what they grow. Sourcing from 100% organic Thai namhom coconut farms that share our vision for sustainability, we harvest only at the best timing, care for the land, and turn organic by-products back to the cycle—working toward near-zero waste.</p>
-      <p class="cb-body cbr d3">The <strong>"O"</strong> in COCOBARN is intentionally imperfect to symbolize our coconuts that are never identical. Even their natural sweetness could vary. And that's exactly what makes them real, natural, and at their best.</p>
-      <blockquote class="cb-quote cbr d4">a ready-to-drink refreshment that supports both growers and drinkers</blockquote>
-    </div>
-    <!-- Mascot: white-inside version (page2 logo) with elegant walk -->
-    <div class="cb-mascot-box cbr d2">
-      <div class="cb-mascot-svg-wrap">
-        <img
-          src="/assets/img/cocobarn/COCOBARN_LOGO_page2.svg"
-          alt="COCOBARN Mascot"
-          class="cb-mascot-p2-logo"
-        >
-      </div>
-      <p class="cb-mascot-cap">The COCOBARN Farmer<br>Ratchaburi, Thailand</p>
-    </div>
-  </div>
-</section>
-
-<!-- PAGE 3: WHY US -->
-<section class="cb-page" id="p3">
   <div class="cb-why-wrap">
     <p class="cb-eyebrow light cbr">Our product</p>
     <h2 class="cb-why-h cb-why-h-logo cbr d1">Why <span class="cb-why-logo-wrap"><img src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg" alt="COCOBARN" class="cb-why-logo-word"></span></h2>
@@ -972,16 +967,11 @@ a{text-decoration:none;color:inherit}
 
       </div>
 
-      <!-- CENTER: Bottle video -->
-      <!-- CENTER: Bottle image  -->
+      <!-- CENTER: Bottle image — tap/click to flip front/back -->
       <div class="cb-why-bottle cbr">
-        <div class="cb-why-bottle-ring">
-          <img src="/assets/img/cocobarn/font_bottle.svg" alt="COCOBARN bottle" class="cb-why-bottle-img">
-          <!--
-          <video autoplay muted loop playsinline preload="auto"
-            src="/assets/img/cocobarn/cocobarn_video.mp4">
-          </video>
-          -->
+        <div class="cb-why-bottle-ring" style="position:relative;cursor:pointer" onclick="toggleBottle()">
+          <img id="bottleImg" src="/assets/img/cocobarn/font_bottle.png" alt="COCOBARN bottle" class="cb-why-bottle-img cb-bottle-flip" title="Tap to flip">
+          <span class="cb-bottle-hint">tap to flip ↻</span>
         </div>
       </div>
 
@@ -1023,6 +1013,30 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
+<!-- PAGE 3: STORY -->
+<section class="cb-page" id="p3">
+  <div class="cb-concept-grid">
+    <div>
+      <p class="cb-eyebrow cbr">Our Story</p>
+      <h2 class="cb-h2 highlight-em cbr d1">Rooted in <em>purpose</em>,<br>bottled with <em>care</em>.</h2>
+      <p class="cb-body cbr d2">COCOBARN was born from a simple belief: Thai coconut farmers deserve more value for what they grow. Sourcing from 100% organic Thai namhom coconut farms that share our vision for sustainability, we harvest only at the best timing, care for the land, and turn organic by-products back to the cycle—working toward near-zero waste.</p>
+      <p class="cb-body cbr d3">The <strong>"O"</strong> in COCOBARN is intentionally imperfect to symbolize our coconuts that are never identical. Even their natural sweetness could vary. And that's exactly what makes them real, natural, and at their best.</p>
+      <blockquote class="cb-quote cbr d4">a ready-to-drink refreshment that supports both growers and drinkers</blockquote>
+    </div>
+    <!-- Mascot: white-inside version (page2 logo) with elegant walk -->
+    <div class="cb-mascot-box cbr d2">
+      <div class="cb-mascot-svg-wrap">
+        <img
+          src="/assets/img/cocobarn/COCOBARN_LOGO_page2.svg"
+          alt="COCOBARN Mascot"
+          class="cb-mascot-p2-logo"
+        >
+      </div>
+      <p class="cb-mascot-cap">The COCOBARN Farmer<br>Ratchaburi, Thailand</p>
+    </div>
+  </div>
+</section>
+
 <!-- PAGE 4: SHELF LIFE -->
 <section class="cb-page" id="p4">
   <div class="cb-shelf-bg">FRESH</div>
@@ -1048,9 +1062,9 @@ a{text-decoration:none;color:inherit}
     <!-- Mobile tabs: sit directly under image (hidden on desktop via CSS) -->
     <div class="cb-pack-mobile-tabs">
       <div class="cb-pack-tabs">
-        <button class="cb-pack-tab on" onclick="switchPack('front',this)">Front</button>
-        <button class="cb-pack-tab" onclick="switchPack('back',this)">Back</button>
-        <button class="cb-pack-tab" onclick="switchPack('story',this)">Story</button>
+        <button class="cb-pack-tab on" onclick="switchPack('front')">Front</button>
+        <button class="cb-pack-tab" onclick="switchPack('back')">Back</button>
+        <button class="cb-pack-tab" onclick="switchPack('story')">Story</button>
       </div>
     </div>
     <div class="cb-pack-text-panel">
@@ -1064,9 +1078,9 @@ a{text-decoration:none;color:inherit}
       <!-- Desktop tabs: inside text panel (hidden on mobile via CSS) -->
       <div class="cb-pack-text-inner-tabs cbr d4">
         <div class="cb-pack-tabs">
-          <button class="cb-pack-tab on" onclick="switchPack('front',this)">Front</button>
-          <button class="cb-pack-tab" onclick="switchPack('back',this)">Back</button>
-          <button class="cb-pack-tab" onclick="switchPack('story',this)">Story</button>
+          <button class="cb-pack-tab on" onclick="switchPack('front')">Front</button>
+          <button class="cb-pack-tab" onclick="switchPack('back')">Back</button>
+          <button class="cb-pack-tab" onclick="switchPack('story')">Story</button>
         </div>
       </div>
       <div class="cbr d5">
@@ -1169,6 +1183,20 @@ function go(n){
   document.getElementById('p'+n).scrollIntoView({behavior:'smooth'});
 }
 
+// Bottle flip toggle
+const BOTTLE_FRONT = '/assets/img/cocobarn/font_bottle.png';
+const BOTTLE_BACK  = '/assets/img/cocobarn/back_bottle.png';
+let bottleShowingFront = true;
+let bottleSpinning = false;
+function toggleBottle(){
+  if(bottleSpinning) return;
+  bottleSpinning = true;
+  const img = document.getElementById('bottleImg');
+  bottleShowingFront = !bottleShowingFront;
+  img.src = bottleShowingFront ? BOTTLE_FRONT : BOTTLE_BACK;
+  setTimeout(()=>{ bottleSpinning=false; }, 300);
+}
+
 const pages=[...document.querySelectorAll('#p1,#p2,#p3,#p4,#p5,#p6,#p7')];
 const dots=[...document.querySelectorAll('.cb-dot')];
 
@@ -1187,13 +1215,15 @@ document.querySelectorAll('.cbr').forEach(el=>
   },{threshold:0.12}).observe(el)
 );
 
-function switchPack(size,btn){
+function switchPack(size){
+  // Toggle slides
   document.querySelectorAll('.cb-pack-slide').forEach(s=>s.classList.remove('on'));
-  document.querySelectorAll('.cb-pack-tab').forEach(t=>t.classList.remove('on'));
-  document.getElementById('s-'+size).classList.add('on');
-  // Sync all buttons with matching data across both tab bars
+  const target = document.getElementById('s-'+size);
+  if(target) target.classList.add('on');
+  // Toggle all tabs (both mobile and desktop bars)
   document.querySelectorAll('.cb-pack-tab').forEach(t=>{
-    if(t.getAttribute('onclick')&&t.getAttribute('onclick').includes("'"+size+"'"))t.classList.add('on');
+    const fn = t.getAttribute('onclick')||'';
+    t.classList.toggle('on', fn.indexOf("'"+size+"'") !== -1);
   });
 }
 
@@ -1276,7 +1306,7 @@ if(cbNavToggle&&cbMobileMenu){
     if(!cbMobileMenu.contains(e.target)&&!cbNavToggle.contains(e.target)){closeMobileMenu();}
   });
   window.addEventListener('resize',function(){
-    if(window.innerWidth>768)closeMobileMenu();
+    if(window.innerWidth>1004)closeMobileMenu();
   });
 }
 </script>
