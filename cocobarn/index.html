@@ -250,7 +250,7 @@ a{text-decoration:none;color:inherit}
 /* Mascot panel — elegant walk animation */
 .cb-mascot-box{
   display:flex;flex-direction:column;align-items:center;gap:20px;
-  position:relative;overflow:hidden
+  position:relative;overflow:visible;padding-top:10px
 }
 .cb-mascot-svg-wrap{
   position:relative;
@@ -656,13 +656,13 @@ a{text-decoration:none;color:inherit}
 }
 
 @media(max-width:1004px){
-  .cb-nav-tag{font-size:0.6rem;letter-spacing:0.12em;padding-left:10px}
+  .cb-nav-tag{font-size:0.58rem;letter-spacing:0.12em;padding-left:10px}
   .cb-nav-links{display:none}
   .cb-nav-toggle{display:flex}
   .cb-mobile-menu{display:block}
 }
 @media(max-width:600px){
-  .cb-nav-tag{font-size:0.52rem;letter-spacing:0.06em;padding-left:7px;max-width:38vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .cb-nav-tag{font-size:0.48rem;letter-spacing:0.06em;padding-left:7px;max-width:38vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 }
 @media(max-width:400px){
   .cb-nav-tag{display:none}
@@ -1152,6 +1152,10 @@ a{text-decoration:none;color:inherit}
       <div class="coco-btn-label">cocobarn.th</div>
       <div class="coco-btn-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="#e0a878" stroke="none"/></svg></div>
     </a>
+    <a href="https://lin.ee/7AFC5Bs" class="coco-btn coco-btn-line" target="_blank" rel="noopener">
+      <div class="coco-btn-label">LINE@</div>
+      <div class="coco-btn-icon"><img src="/assets/img/icon/line_icon.png" alt="LINE" style="width:20px;height:20px;object-fit:contain;display:block"></div>
+    </a>
     <a href="tel:0851535353" class="coco-btn coco-btn-call">
       <div class="coco-btn-label">085-153-5353</div>
       <div class="coco-btn-icon"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></div>
@@ -1160,8 +1164,7 @@ a{text-decoration:none;color:inherit}
   <div class="coco-row">
     <div class="coco-label">Contact Us</div>
     <button class="coco-toggle" id="cocoBtn" aria-label="Contact COCOBARN">
-      <!-- Page 3 logo = darkgreen inside mascot -->
-      <img src="/assets/img/cocobarn/COCOBARN_LOGO_page3.svg" alt="Mr. Coconut">
+      <img id="cocoToggleImg" src="/assets/img/cocobarn/COCOBARN_LOGO_page2.svg" alt="Mr. Coconut">
     </button>
   </div>
 </div>
@@ -1234,12 +1237,19 @@ function switchPack(size){
 }
 
 const cw=document.getElementById('cocoContact');
+const cocoToggleImg = document.getElementById('cocoToggleImg');
 document.getElementById('cocoBtn').addEventListener('click',e=>{
   e.stopPropagation();
-  cw.classList.toggle('open');
+  const isOpen = cw.classList.toggle('open');
+  cocoToggleImg.src = isOpen
+    ? '/assets/img/cocobarn/COCOBARN_LOGO_page3.svg'
+    : '/assets/img/cocobarn/COCOBARN_LOGO_page2.svg';
 });
 document.addEventListener('click',e=>{
-  if(!cw.contains(e.target))cw.classList.remove('open');
+  if(!cw.contains(e.target)){
+    cw.classList.remove('open');
+    cocoToggleImg.src = '/assets/img/cocobarn/COCOBARN_LOGO_page2.svg';
+  }
 });
 
 // ── WHY CARD MODAL (mobile only) ──
