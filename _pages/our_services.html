@@ -1,0 +1,413 @@
+---
+layout: bluroca
+title: Our Services
+permalink: /our-services/
+
+description: "BLUROCA delivers strategic planning, operational execution, and entrepreneur advisory — end-to-end business growth for manufacturers and growth-stage companies."
+keywords: "BLUROCA services, strategic planning, brand development, market expansion, logistics, sales execution, ERP, digital transformation, entrepreneur consulting"
+og_title: "BLUROCA Services — Strategic Planning, Execution & Business Growth"
+og_description: "Data-driven business services covering brand strategy, market expansion, logistics, sales, digital transformation, and entrepreneur advisory."
+og_image: "/assets/img/custom_logo/bluroca/Bluroca.png"
+---
+
+<style>
+/* ═══════════════════════════════════════════
+   OUR SERVICES PAGE
+   ═══════════════════════════════════════════ */
+
+/* ─── PAGE HERO ─────────────────────────────── */
+.page-hero { padding-bottom: 64px; }
+
+/* ─── MAJOR SECTION WRAPPER ─────────────────── */
+.svc-major {
+  padding: 72px 0;
+  border-bottom: 1px solid var(--blu-divider);
+}
+.svc-major:last-child { border-bottom: none; }
+
+.svc-major-header { margin-bottom: 2.5rem; }
+.svc-major-header h2 {
+  font-size: clamp(1.8rem,3.5vw,2.6rem); font-weight:800;
+  letter-spacing:-0.04em; color:var(--blu-ocean); margin-bottom:0.6rem;
+}
+.svc-major-header p { font-size:1rem; font-weight:300; color:var(--blu-muted); line-height:1.72; max-width:720px; margin:0; }
+
+/* ─── SIDEBAR + MAIN LAYOUT ─────────────────── */
+.svc-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 0;
+  border: 1px solid var(--blu-divider);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--blu-card);
+}
+@media(max-width:900px){ .svc-layout{ grid-template-columns:1fr } }
+
+/* Sidebar */
+.svc-sidebar {
+  background: var(--blu-card);
+  border-right: 1px solid var(--blu-divider);
+  padding: 1.5rem;
+}
+@media(max-width:900px){ .svc-sidebar{ border-right:none; border-bottom:1px solid var(--blu-divider); } }
+
+.svc-menu { display:flex; flex-direction:column; gap:4px; }
+
+.svc-menu-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1rem; border-radius:8px; cursor:pointer;
+  border-left: 3px solid transparent;
+  transition: background 0.25s, border-color 0.25s;
+}
+.svc-menu-item:hover { background: rgba(0,136,187,0.05); border-left-color: rgba(0,136,187,0.3); }
+.svc-menu-item.active { background: rgba(0,87,184,0.06); border-left-color: var(--blu-primary); }
+.svc-menu-item.active .svc-menu-title { color: var(--blu-primary); }
+html[data-theme="dark"] .svc-menu-item.active { background: rgba(0,136,187,0.1); }
+
+.svc-menu-num { font-size:0.65rem; font-weight:700; letter-spacing:0.16em; color:var(--blu-ocean); opacity:0.6; padding-top:2px; min-width:26px; }
+.svc-menu-title { font-size:0.95rem; font-weight:700; letter-spacing:-0.01em; color:var(--blu-text); margin-bottom:0.2rem; }
+.svc-menu-desc  { font-size:0.78rem; font-weight:400; color:var(--blu-muted); line-height:1.5; }
+html[data-theme="dark"] .svc-menu-title { color: #D8E8F4; }
+
+/* Submenu */
+.svc-submenu { list-style:none; padding:0.5rem 0 0 2.5rem; margin:0; max-height:0; overflow:hidden; opacity:0; transition:max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease; }
+.svc-menu-item.active .svc-submenu { max-height:600px; opacity:1; }
+.svc-submenu li { font-size:0.82rem; font-weight:400; color:var(--blu-muted); padding:0.45rem 0 0.45rem 1rem; cursor:pointer; position:relative; border-bottom:1px solid var(--blu-divider); transition:color 0.2s, padding-left 0.2s; }
+.svc-submenu li:last-child { border-bottom:none; }
+.svc-submenu li::before { content:'→'; position:absolute; left:0; opacity:0; color:var(--blu-ocean); transition:opacity 0.2s; }
+.svc-submenu li:hover { color:var(--blu-ocean); padding-left:1.3rem; }
+.svc-submenu li:hover::before { opacity:1; }
+
+/* Main content panel */
+.svc-main { padding: 2rem 2.5rem; overflow-y:auto; }
+@media(max-width:600px){ .svc-main{ padding:1.5rem 1.25rem; } }
+
+.svc-panel { display:none; opacity:0; animation:panelIn 0.45s ease forwards; }
+.svc-panel.active { display:block; }
+@keyframes panelIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+
+.svc-panel-header {
+  display:flex; align-items:center; gap:1.25rem;
+  padding-bottom:1.25rem; margin-bottom:1.5rem;
+  border-bottom:2px solid var(--blu-primary);
+}
+.svc-panel-num { font-size:3.5rem; font-weight:900; letter-spacing:-0.05em; color:var(--blu-primary); opacity:0.15; line-height:1; }
+.svc-panel-header h2 { font-size:clamp(1.6rem,2.8vw,2.2rem); font-weight:800; letter-spacing:-0.03em; color:var(--blu-text); margin:0; }
+html[data-theme="dark"] .svc-panel-header h2 { color:#D8E8F4; }
+
+.svc-panel-intro { font-size:1.05rem; font-weight:300; color:var(--blu-text); line-height:1.78; margin-bottom:2rem; }
+html[data-theme="dark"] .svc-panel-intro { color:#D8E8F4; }
+
+/* Cards inside panel */
+.svc-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.25rem; }
+
+.svc-card {
+  background: var(--blu-bg);
+  border:1px solid var(--blu-divider); border-radius:10px;
+  padding:1.5rem; position:relative; overflow:hidden;
+  transition:transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.svc-card.full { grid-column:1/-1; }
+.svc-card::before { content:''; position:absolute; top:0;left:0;width:4px;height:100%; background:linear-gradient(180deg,var(--blu-primary),var(--blu-cyan)); transform:scaleY(0); transform-origin:top; transition:transform 0.35s ease; }
+.svc-card:hover { transform:translateY(-4px); box-shadow:0 10px 32px rgba(0,30,60,0.1); border-color:rgba(0,136,187,0.2); }
+.svc-card:hover::before { transform:scaleY(1); }
+.svc-card.highlight { animation:cardPulse 2s ease; }
+@keyframes cardPulse { 0%,100%{box-shadow:0 0 0 0 rgba(0,136,187,0)} 50%{box-shadow:0 0 0 8px rgba(0,136,187,0.18)} }
+
+.svc-card h3 { font-size:1rem; font-weight:700; color:var(--blu-ocean); margin-bottom:0.75rem; letter-spacing:-0.01em; }
+.svc-card p  { font-size:0.88rem; font-weight:400; color:var(--blu-muted); line-height:1.68; margin:0; }
+
+.svc-list-inner { list-style:none; padding:0; margin:1.25rem 0 0; }
+.svc-list-inner li { font-size:0.88rem; font-weight:400; color:var(--blu-text); padding:0.6rem 0 0.6rem 1.75rem; position:relative; border-bottom:1px solid var(--blu-divider); line-height:1.55; }
+.svc-list-inner li:last-child { border-bottom:none; }
+.svc-list-inner li::before { content:'✓'; position:absolute; left:0; color:var(--blu-cyan); font-weight:700; }
+html[data-theme="dark"] .svc-list-inner li { color:#D8E8F4; }
+
+/* ─── JOURNEY STEPS ─────────────────────────── */
+.journey-section { padding: 72px 0; background:var(--blu-bg); }
+
+.journey-steps {
+  display:flex; align-items:center; justify-content:center;
+  gap:clamp(0.5rem,1.5vw,1.5rem); margin:3rem auto 0;
+  flex-wrap:nowrap;
+}
+@media(max-width:860px){ .journey-steps{ flex-direction:column; gap:1.5rem; align-items:stretch; max-width:400px; margin-left:auto; margin-right:auto; } }
+
+.j-step { flex:1 1 0; min-width:0; text-align:center; }
+.j-step-num { width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#002855,#0088BB);color:#fff;font-size:1.05rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 0.85rem;box-shadow:0 4px 16px rgba(0,40,85,0.28);transition:transform 0.3s,box-shadow 0.3s; }
+.j-step:hover .j-step-num { transform:scale(1.1); box-shadow:0 6px 22px rgba(0,136,187,0.38); }
+.j-step-arrow { font-size:clamp(1rem,1.4vw,1.6rem); color:var(--blu-ocean); opacity:0.4; flex-shrink:0; }
+@media(max-width:860px){ .j-step-arrow{ transform:rotate(90deg); text-align:center; } }
+.j-step-title { font-size:0.84rem; font-weight:700; color:var(--blu-text); margin-bottom:0.35rem; }
+.j-step-desc  { font-size:0.76rem; font-weight:400; color:var(--blu-muted); line-height:1.5; }
+
+.journey-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; margin-top:2.5rem; max-width:860px; margin-left:auto; margin-right:auto; }
+@media(max-width:640px){ .journey-cards{grid-template-columns:1fr} }
+
+.j-card { background:var(--blu-card); border:1px solid var(--blu-divider); border-radius:10px; padding:1.5rem; }
+.j-card h3 { font-size:0.98rem; font-weight:700; color:var(--blu-text); margin-bottom:0.6rem; }
+.j-card p  { font-size:0.86rem; font-weight:400; color:var(--blu-muted); line-height:1.68; margin:0; }
+html[data-theme="dark"] .j-card h3 { color:#D8E8F4; }
+</style>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="blu-shell">
+    <div class="page-hero-inner R">
+      <p class="page-hero-eyebrow">What We Do</p>
+      <h1>Our <em>Services</em></h1>
+      <p>Three practice areas. One integrated team. Every growth lever your business needs — from OEM brand-building to operational execution and entrepreneur advisory.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════
+     SECTION 1: B2B Growth
+     ═══════════════════════ -->
+<div style="background:var(--blu-bg);">
+  <div class="blu-shell">
+    <div class="svc-major R">
+      <div class="svc-major-header">
+        <h2>Business Growth</h2>
+        <p>Empowering established businesses and OEM manufacturers to scale, optimize, and dominate competitive markets through data-driven strategy and hands-on execution.</p>
+      </div>
+
+      <div class="svc-layout">
+        <aside class="svc-sidebar">
+          <div class="svc-menu">
+
+            <div class="svc-menu-item active" data-section="b2b" data-panel="strategic">
+              <span class="svc-menu-num">01</span>
+              <div>
+                <div class="svc-menu-title">Strategic Planning</div>
+                <div class="svc-menu-desc">Data-driven growth strategies</div>
+                <ul class="svc-submenu">
+                  <li data-target="brand-dev">Brand Development</li>
+                  <li data-target="domestic">Domestic Market Expansion</li>
+                  <li data-target="international">International Expansion</li>
+                  <li data-target="finance">Financial Planning</li>
+                  <li data-target="risk">Risk Management</li>
+                  <li data-target="hobbit-dt">Digital Transformation</li>
+                  <li data-target="hobbit-erp">ERP Systems</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="svc-menu-item" data-section="b2b" data-panel="execution">
+              <span class="svc-menu-num">02</span>
+              <div>
+                <div class="svc-menu-title">Execution</div>
+                <div class="svc-menu-desc">End-to-end operational support</div>
+                <ul class="svc-submenu">
+                  <li data-target="logistics">Logistics</li>
+                  <li data-target="sales">Sales</li>
+                  <li data-target="production">Production</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </aside>
+
+        <div class="svc-main">
+
+          <!-- Panel: Strategic Planning -->
+          <div class="svc-panel active" id="b2b-strategic">
+            <div class="svc-panel-header"><span class="svc-panel-num">01</span><h2>Strategic Planning</h2></div>
+            <p class="svc-panel-intro">We design clear, data-driven growth strategies for businesses ready to scale — delivering measurable results from day one.</p>
+            <div class="svc-cards">
+              <div class="svc-card" id="brand-dev">
+                <h3>Brand Development</h3>
+                <p>Build and strengthen your brand identity to command premium positioning in target markets. We architect strategy that differentiates and compounds over time.</p>
+                <ul class="svc-list-inner"><li>Brand positioning and competitive differentiation</li><li>Visual identity and messaging framework</li><li>OEM-to-brand transition roadmap</li><li>Channel-specific brand guidelines</li></ul>
+              </div>
+              <div class="svc-card" id="domestic">
+                <h3>Domestic Market Expansion</h3>
+                <p>Strategic approaches to grow your local presence using real channel data and distribution intelligence.</p>
+                <ul class="svc-list-inner"><li>Market segmentation and opportunity mapping</li><li>Distribution channel design</li><li>Retail and modern trade activation</li><li>Regional rollout planning and execution</li></ul>
+              </div>
+              <div class="svc-card" id="international">
+                <h3>International Market Expansion</h3>
+                <p>Navigate global markets with confidence through market entry intelligence, partner sourcing, and compliance guidance.</p>
+                <ul class="svc-list-inner"><li>Target market feasibility assessment</li><li>Import/export regulatory analysis</li><li>Local partner and distributor identification</li><li>International go-to-market execution</li></ul>
+              </div>
+              <div class="svc-card" id="finance">
+                <h3>Financial & Monetary Planning</h3>
+                <p>Optimize financial resources and plan for sustainable, de-risked growth with sound fiscal modelling.</p>
+                <ul class="svc-list-inner"><li>Growth-stage financial modelling</li><li>Cash flow and working capital optimization</li><li>Investment prioritization frameworks</li><li>Scenario planning and stress testing</li></ul>
+              </div>
+              <div class="svc-card" id="risk">
+                <h3>Risk Management</h3>
+                <p>Identify, assess, and mitigate business risks across operations, finance, and market exposure.</p>
+                <ul class="svc-list-inner"><li>Operational risk audit and register</li><li>Supply chain vulnerability mapping</li><li>Contingency planning and business continuity</li><li>Regulatory and compliance risk assessment</li></ul>
+              </div>
+              <div class="svc-card" id="hobbit-dt">
+                <h3>Digital Transformation</h3>
+                <p>Convert paper-based and manual workflows into efficient digital systems — enabling better data, accessibility, and operational speed.</p>
+                <ul class="svc-list-inner"><li>Document digitization and archiving</li><li>Workflow automation and process optimization</li><li>Cloud-based storage and team accessibility</li><li>Data migration and system integration</li><li>Change management and staff training</li></ul>
+              </div>
+              <div class="svc-card" id="hobbit-erp">
+                <h3>Enterprise Resource Planning</h3>
+                <p>Implement integrated business management systems that unify finance, HR, supply chain, and operations into one real-time intelligence layer.</p>
+                <ul class="svc-list-inner"><li>ERP vendor evaluation and system selection</li><li>Custom implementation and module configuration</li><li>Cross-department integration</li><li>Data consolidation and reporting dashboards</li><li>User training and ongoing optimization</li></ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel: Execution -->
+          <div class="svc-panel" id="b2b-execution">
+            <div class="svc-panel-header"><span class="svc-panel-num">02</span><h2>Execution</h2></div>
+            <p class="svc-panel-intro">We support end-to-end operational execution — turning strategic plans into measurable, ground-level results.</p>
+            <div class="svc-cards">
+              <div class="svc-card" id="logistics">
+                <h3>Logistics</h3>
+                <p>Design and optimize supply chain and distribution networks for maximum efficiency, reliability, and cost reduction.</p>
+                <ul class="svc-list-inner"><li>Supply chain network design and optimization</li><li>Freight and carrier management</li><li>Warehouse operations consulting</li><li>Last-mile delivery strategy</li><li>Logistics technology and tracking systems</li></ul>
+              </div>
+              <div class="svc-card" id="sales">
+                <h3>Sales</h3>
+                <p>Drive revenue growth through optimized sales strategy, channel activation, and performance management frameworks.</p>
+                <ul class="svc-list-inner"><li>Sales pipeline design and CRM setup</li><li>Distributor and retailer network activation</li><li>Sales team structure and incentive design</li><li>E-commerce and omnichannel integration</li><li>Sales performance tracking and KPI dashboards</li></ul>
+              </div>
+              <div class="svc-card" id="production">
+                <h3>Production</h3>
+                <p>Enhance manufacturing processes, quality control, and capacity planning to meet demand while maintaining margin efficiency.</p>
+                <ul class="svc-list-inner"><li>Production capacity assessment and planning</li><li>Quality management system design</li><li>OEM-to-brand production workflow alignment</li><li>Supplier audit and qualification</li><li>Lean manufacturing and waste reduction</li></ul>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.svc-main -->
+      </div><!-- /.svc-layout -->
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════
+     SECTION 2: Entrepreneur
+     ═══════════════════════ -->
+<div style="background:var(--blu-card);border-top:1px solid var(--blu-divider);">
+  <div class="blu-shell">
+    <div class="svc-major R">
+      <div class="svc-major-header">
+        <h2>Entrepreneur & Startup</h2>
+        <p>Turning bold visions into profitable, scalable realities — from concept validation to market launch.</p>
+      </div>
+
+      <div class="svc-layout">
+        <aside class="svc-sidebar">
+          <div class="svc-menu">
+            <div class="svc-menu-item active" data-section="ent" data-panel="consulting">
+              <span class="svc-menu-num">01</span>
+              <div>
+                <div class="svc-menu-title">Consulting</div>
+                <div class="svc-menu-desc">Tailored, practical solutions</div>
+                <ul class="svc-submenu"><li data-target="recommendations">Clear & Actionable Recommendations</li></ul>
+              </div>
+            </div>
+            <div class="svc-menu-item" data-section="ent" data-panel="bizdev">
+              <span class="svc-menu-num">02</span>
+              <div>
+                <div class="svc-menu-title">Business Development</div>
+                <div class="svc-menu-desc">Transform concepts into reality</div>
+                <ul class="svc-submenu"><li data-target="biz-models">Viable Business Models</li></ul>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <div class="svc-main">
+          <div class="svc-panel active" id="ent-consulting">
+            <div class="svc-panel-header"><span class="svc-panel-num">01</span><h2>Consulting</h2></div>
+            <p class="svc-panel-intro">Tailored, practical solutions that address each client's specific challenges — concrete, implementable, and measurable.</p>
+            <div class="svc-cards">
+              <div class="svc-card full" id="recommendations">
+                <h3>Clear & Actionable Recommendations</h3>
+                <p>Our consulting process delivers concrete solutions based on deep analysis of your unique business context. We don't just identify problems — we provide clear, prioritized pathways to resolve them.</p>
+                <ul class="svc-list-inner"><li>Comprehensive situational analysis and diagnostic</li><li>Evidence-based strategic recommendations</li><li>Implementation roadmaps with clear milestones</li><li>Ongoing advisory support and adjustment guidance</li><li>Accountability tracking to ensure delivery</li></ul>
+              </div>
+            </div>
+          </div>
+          <div class="svc-panel" id="ent-bizdev">
+            <div class="svc-panel-header"><span class="svc-panel-num">02</span><h2>Business Development</h2></div>
+            <p class="svc-panel-intro">We work with entrepreneurs and investors to transform concepts into real, scalable ventures — from initial validation to market launch.</p>
+            <div class="svc-cards">
+              <div class="svc-card full" id="biz-models">
+                <h3>Viable Business Models</h3>
+                <p>Transform innovative ideas into sustainable business ventures with structured development support from ideation through to investor-ready documentation.</p>
+                <ul class="svc-list-inner"><li>Business model validation and stress-testing</li><li>Market opportunity and TAM/SAM/SOM assessment</li><li>Financial modelling and unit economics</li><li>Go-to-market strategy development</li><li>Investor pitch and funding strategy support</li><li>Scalability architecture and growth planning</li></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════
+     SECTION 3: Journey
+     ═══════════════════════ -->
+<div class="journey-section">
+  <div class="blu-shell">
+    <div class="R" style="text-align:center;max-width:540px;margin:0 auto;">
+      <p class="eyebrow eyebrow-center">How We Work</p>
+      <h2 class="h2">Six Phases. <em>One Outcome.</em></h2>
+      <p class="lead" style="margin:0 auto;">A structured engagement — from the first conversation to sustained, measurable growth.</p>
+    </div>
+
+    <div class="journey-steps R d1">
+      <div class="j-step"><div class="j-step-num">1</div><div class="j-step-title">Discovery</div><p class="j-step-desc">Understand your vision, goals, and market</p></div>
+      <div class="j-step-arrow">→</div>
+      <div class="j-step"><div class="j-step-num">2</div><div class="j-step-title">Analysis</div><p class="j-step-desc">Market, competitor, operational gap</p></div>
+      <div class="j-step-arrow">→</div>
+      <div class="j-step"><div class="j-step-num">3</div><div class="j-step-title">Blueprint</div><p class="j-step-desc">Tailored plan with KPIs</p></div>
+      <div class="j-step-arrow">→</div>
+      <div class="j-step"><div class="j-step-num">4</div><div class="j-step-title">Execute</div><p class="j-step-desc">End-to-end operational delivery</p></div>
+      <div class="j-step-arrow">→</div>
+      <div class="j-step"><div class="j-step-num">5</div><div class="j-step-title">Optimize</div><p class="j-step-desc">Real-time tracking and iteration</p></div>
+      <div class="j-step-arrow">→</div>
+      <div class="j-step"><div class="j-step-num">6</div><div class="j-step-title">Scale</div><p class="j-step-desc">Expand channels and markets</p></div>
+    </div>
+
+    <div class="journey-cards">
+      <div class="j-card R d2"><h3>True Partnership</h3><p>We work alongside you — every decision aligns with your vision and timelines. Not consultants who disappear after the slide deck.</p></div>
+      <div class="j-card R d3"><h3>Data-Driven Insights</h3><p>Every recommendation is grounded in market intelligence and industry benchmarks — never assumptions.</p></div>
+      <div class="j-card R d4"><h3>Measurable Results</h3><p>Clear KPIs and milestone tracking at every stage so you can measure progress and ROI from day one.</p></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Services tab navigation ────────────────────────────────
+document.querySelectorAll('.svc-menu-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    if(e.target.tagName === 'LI') return;
+    const section  = this.dataset.section;
+    const panelId  = section + '-' + this.dataset.panel;
+
+    // Deactivate siblings in same section
+    this.closest('.svc-menu').querySelectorAll('.svc-menu-item').forEach(m => m.classList.remove('active'));
+    this.classList.add('active');
+
+    // Swap panels
+    this.closest('.svc-layout').querySelectorAll('.svc-panel').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById(panelId);
+    if(target) target.classList.add('active');
+  });
+});
+
+// ── Submenu scroll-to ──────────────────────────────────────
+document.querySelectorAll('.svc-submenu li').forEach(li => {
+  li.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const el = document.getElementById(this.dataset.target);
+    if(!el) return;
+    const top = el.getBoundingClientRect().top + window.pageYOffset - 100;
+    window.scrollTo({top, behavior:'smooth'});
+    el.classList.add('highlight');
+    setTimeout(() => el.classList.remove('highlight'), 2000);
+  });
+});
+</script>

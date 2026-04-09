@@ -1,0 +1,176 @@
+---
+layout: bluroca
+title: Our Customers
+permalink: /our-customers/
+
+description: "Meet the brands BLUROCA has helped build, launch, and scale — from OEM manufacturers to consumer brands and growth-stage ventures."
+keywords: "BLUROCA clients, COCOBARN, brand partners, OEM branding, business growth Thailand"
+og_title: "BLUROCA — Our Customers"
+og_description: "Brands we have helped build, grow, and scale — end-to-end business partners from strategy to market."
+og_image: "/assets/img/custom_logo/bluroca/Bluroca.png"
+---
+
+<style>
+/* ═══════════════════════════════════════════
+   OUR CUSTOMERS PAGE
+   ═══════════════════════════════════════════ */
+
+/* ─── CUSTOMER GRID ────────────────────────── */
+.cust-section { padding: 72px 0 96px; background: var(--blu-bg); }
+
+.cust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+@media(max-width:700px){ .cust-grid{ grid-template-columns:1fr; gap:1.5rem; } }
+
+/* ─── CUSTOMER CARD ────────────────────────── */
+.cust-card {
+  background: var(--blu-card);
+  border: 1px solid var(--blu-divider);
+  border-radius: 14px; overflow:hidden;
+  display:flex; flex-direction:column;
+  cursor:pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.cust-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 48px rgba(0,30,60,0.12);
+  border-color: rgba(0,136,187,0.22);
+}
+
+/* Image panel */
+.cust-img-wrap {
+  position:relative; width:100%; aspect-ratio:16/9; overflow:hidden;
+  background: #0a1828;
+}
+.cust-img {
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition: transform 0.5s ease;
+}
+.cust-card:hover .cust-img { transform: scale(1.04); }
+
+.cust-cat {
+  position:absolute; top:12px; left:14px;
+  font-size:0.65rem; font-weight:700; letter-spacing:0.14em;
+  text-transform:uppercase; padding:4px 10px;
+  background:rgba(0,20,50,0.72); color:var(--blu-cyan);
+  border-radius:999px; backdrop-filter:blur(6px);
+  border:1px solid rgba(0,196,232,0.2);
+}
+
+/* Card body */
+.cust-body { padding:1.5rem 1.75rem 1.75rem; display:flex; flex-direction:column; flex:1; }
+
+.cust-since {
+  font-size:0.65rem; font-weight:700; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--blu-ocean); margin-bottom:0.4rem; opacity:0.85;
+}
+.cust-brand {
+  font-size:1.35rem; font-weight:800; letter-spacing:-0.03em;
+  color:var(--blu-text); margin-bottom:0.3rem; line-height:1.2;
+}
+html[data-theme="dark"] .cust-brand { color:#D8E8F4; }
+
+.cust-tagline {
+  font-size:0.82rem; font-weight:600; color:var(--blu-ocean);
+  margin-bottom:0.9rem; letter-spacing:-0.01em; line-height:1.4;
+}
+.cust-desc {
+  font-size:0.88rem; font-weight:400; color:var(--blu-muted);
+  line-height:1.7; margin:0 0 1.5rem; flex:1;
+}
+
+.cust-link {
+  display:inline-flex; align-items:center; gap:0.45rem;
+  font-size:0.76rem; font-weight:700; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--blu-ocean);
+  margin-top:auto; transition:gap 0.2s, color 0.2s;
+}
+.cust-link:hover { gap:0.7rem; color:var(--blu-cyan); }
+
+/* Placeholder card */
+.cust-placeholder {
+  border:1.5px dashed var(--blu-divider);
+  border-radius:14px; padding:3rem 2rem;
+  text-align:center; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; min-height:280px; opacity:0.45;
+}
+.cust-placeholder svg { margin-bottom:1rem; }
+.cust-placeholder p { font-size:0.78rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--blu-muted); margin:0; }
+
+/* ─── CTA ───────────────────────────────────── */
+.cust-cta-section {
+  background: var(--blu-card);
+  border-top:1px solid var(--blu-divider);
+  padding:72px 0; text-align:center;
+}
+.cust-cta-section h2 { font-size:clamp(1.6rem,3.2vw,2.4rem); font-weight:800; letter-spacing:-0.04em; color:var(--blu-text); margin-bottom:0.75rem; }
+.cust-cta-section p  { font-size:1rem; font-weight:300; color:var(--blu-muted); line-height:1.78; max-width:460px; margin:0 auto 2rem; }
+html[data-theme="dark"] .cust-cta-section h2 { color:#D8E8F4; }
+</style>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="blu-shell">
+    <div class="page-hero-inner R">
+      <p class="page-hero-eyebrow">Our Portfolio</p>
+      <h1>Brands We've <em>Built Together</em></h1>
+      <p>From OEM manufacturers entering the market as a brand, to growth-stage ventures scaling into new territories — these are the partners BLUROCA works alongside.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CUSTOMER GRID -->
+<section class="cust-section">
+  <div class="blu-shell">
+
+    <div class="cust-grid">
+
+      <!-- ── COCOBARN ── -->
+      <div class="cust-card R d1" onclick="window.location='{{ '/cocobarn/' | relative_url }}';" role="link" aria-label="COCOBARN">
+        <div class="cust-img-wrap">
+          <img src="{{ '/assets/img/cocobarn/og/cocobarn_og.png' | relative_url }}"
+               alt="COCOBARN — 100% Organic Thai Namhom Coconut Water"
+               class="cust-img" loading="lazy" decoding="async">
+          <span class="cust-cat">Food & Beverage</span>
+        </div>
+        <div class="cust-body">
+          <span class="cust-since">Since 2024</span>
+          <h3 class="cust-brand">COCOBARN</h3>
+          <p class="cust-tagline">100% Organic Thai Namhom Coconut Water</p>
+          <p class="cust-desc">Farm-to-bottle organic coconut water sourced directly from Ratchaburi growers. No added sugar, no middlemen. GMP &amp; HACCP certified. Available in 210ml and 1L formats.</p>
+          <a href="{{ '/cocobarn/' | relative_url }}" class="cust-link" onclick="event.stopPropagation();">
+            View Brand
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Placeholders -->
+      <div class="cust-placeholder R d2">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <p>Next brand<br>coming soon</p>
+      </div>
+
+      <div class="cust-placeholder R d3">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <p>Next brand<br>coming soon</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cust-cta-section">
+  <div class="blu-shell">
+    <h2 class="R">Want to be on this page?</h2>
+    <p class="R d1">We work with manufacturers and growth-stage businesses ready to build a real brand. Let's talk.</p>
+    <div class="R d2">
+      <a href="mailto:bluroca.info@gmail.com" class="blu-btn blu-btn-navy">bluroca.info@gmail.com</a>
+    </div>
+  </div>
+</section>
