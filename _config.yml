@@ -131,6 +131,9 @@ collections:
   cocobarn:
     output: true
     permalink: /cocobarn/
+  mhooyim:
+    output: true
+    permalink: /mhooyim/
 
 # Environment variables
 env: {}
