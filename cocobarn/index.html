@@ -8,6 +8,7 @@
 <meta name="keywords" content="organic coconut water, Thai coconut water, Namhom coconut, farm direct, COCOBARN, Ratchaburi, no sugar coconut water, organic drink Thailand">
 <meta name="robots" content="index, follow">
 <meta name="author" content="COCOBARN">
+<!-- ══ SERVER: enable gzip/brotli compression in Jekyll _config.yml or .htaccess for the remaining 45KB savings flagged by Lighthouse ══ -->
 <link rel="canonical" href="https://www.bluroca.com/cocobarn/">
 
 <!-- ── FAVICONS ── -->
@@ -83,6 +84,9 @@
 
 <!-- ── PRELOAD critical above-the-fold assets ── -->
 <link rel="preload" as="image" href="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg" type="image/svg+xml">
+<link rel="preload" as="font" href="/assets/fonts/bluroca/BODYTEXT/GeneralSans-Regular.otf" type="font/otf" crossorigin="anonymous">
+<link rel="preload" as="font" href="/assets/fonts/bluroca/CAPTION/GeneralSans-Medium.otf" type="font/otf" crossorigin="anonymous">
+<link rel="preload" as="font" href="/assets/fonts/bluroca/HEADLINE/ivyora-display-light.ttf" type="font/ttf" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <style>
 @font-face {
@@ -90,28 +94,33 @@
   src: url('/assets/fonts/bluroca/HEADLINE/GeneralSans-Semibold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'GeneralSans';
   src: url('/assets/fonts/bluroca/CAPTION/GeneralSans-Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'GeneralSans';
   src: url('/assets/fonts/bluroca/BODYTEXT/GeneralSans-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'IvyOra';
   src: url('/assets/fonts/bluroca/HEADLINE/ivyora-display-light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: 'NotoSansThai';
   src: url('/assets/fonts/bluroca/THAI/NotoSansThai-VariableFont_wdth,wght.ttf') format('truetype');
+  font-display: swap;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -221,7 +230,7 @@ a{text-decoration:none;color:inherit}
     radial-gradient(ellipse 45% 55% at 82% 25%,rgba(213,216,137,0.13) 0%,transparent 60%),
     radial-gradient(ellipse 40% 50% at 70% 80%,rgba(56,24,16,0.18) 0%,transparent 60%)
 }
-.cb-leaf{position:absolute;opacity:0.06;font-size:260px;pointer-events:none;user-select:none}
+.cb-leaf{position:absolute;opacity:0.06;font-size:260px;pointer-events:none;user-select:none;content-visibility:auto;will-change:auto}
 .cb-leaf-1{top:-30px;left:-20px;transform:rotate(-20deg)}
 .cb-leaf-2{bottom:-50px;right:-20px;transform:rotate(160deg)}
 .cb-inner{position:relative;z-index:2;width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));margin:0 auto;overflow:hidden}

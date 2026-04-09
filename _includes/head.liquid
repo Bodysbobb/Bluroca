@@ -8,11 +8,13 @@
   <link rel="preload" href="{{ '/assets/css/full-page-landing.css' | relative_url | bust_css_cache }}" as="style">
   <link rel="stylesheet" href="{{ '/assets/css/full-page-landing.css' | relative_url | bust_css_cache }}">
   
-  <!-- Preload hero logo with high priority -->
+  <!-- Preload hero logo with high priority (only when explicitly set in front matter) -->
+  {% if page.hero_logo %}
   <link rel="preload" 
-        href="{{ page.hero_logo | default: '/assets/img/custom_logo/amata/AMATA_Logo.svg' | relative_url }}" 
+        href="{{ page.hero_logo | relative_url }}" 
         as="image"
         fetchpriority="high">
+  {% endif %}
 {% endif %}
 
 <!-- Preload all navbar logos if they exist -->
@@ -40,10 +42,15 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
         href="{{ "/assets/fonts/prompt/prompt-v11-thai-600.woff2" | relative_url }}">
 {% elsif page.lang == "en" %}
+  <!-- Inter replaces Roboto for English pages (BLUROCA and all EN content) -->
   <link rel="preload" as="font" type="font/woff2" crossorigin
-        href="{{ "/assets/fonts/roboto/roboto-v47-latin-400.woff2" | relative_url }}">
+        href="{{ "/assets/fonts/inter/inter-v13-latin-400.woff2" | relative_url }}">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-        href="{{ "/assets/fonts/roboto/roboto-v47-latin-600.woff2" | relative_url }}">
+        href="{{ "/assets/fonts/inter/inter-v13-latin-600.woff2" | relative_url }}">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="{{ "/assets/fonts/inter/inter-v13-latin-700.woff2" | relative_url }}">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="{{ "/assets/fonts/inter/inter-v13-latin-800.woff2" | relative_url }}">
 {% endif %}
 
 <!-- Font Face Declarations -->
@@ -80,33 +87,53 @@
   </style>
 {% elsif page.lang == "en" %}
   <style>
+    /*
+      Inter — modern geometric sans-serif for all BLUROCA English pages.
+      Self-hosted woff2 files: place under /assets/fonts/inter/
+      Download from: https://fonts.google.com/specimen/Inter (download family)
+      Needed weights: 300 (Light), 400 (Regular), 500 (Medium), 600 (SemiBold), 700 (Bold), 800 (ExtraBold)
+    */
     @font-face {
-      font-family: 'Roboto';
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url('{{ "/assets/fonts/inter/inter-v13-latin-300.woff2" | relative_url }}') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 400;
       font-display: swap;
-      src: url('{{ "/assets/fonts/roboto/roboto-v47-latin-400.woff2" | relative_url }}') format('woff2');
+      src: url('{{ "/assets/fonts/inter/inter-v13-latin-400.woff2" | relative_url }}') format('woff2');
     }
     @font-face {
-      font-family: 'Roboto';
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 500;
       font-display: swap;
-      src: url('{{ "/assets/fonts/roboto/roboto-v47-latin-500.woff2" | relative_url }}') format('woff2');
+      src: url('{{ "/assets/fonts/inter/inter-v13-latin-500.woff2" | relative_url }}') format('woff2');
     }
     @font-face {
-      font-family: 'Roboto';
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 600;
       font-display: swap;
-      src: url('{{ "/assets/fonts/roboto/roboto-v47-latin-600.woff2" | relative_url }}') format('woff2');
+      src: url('{{ "/assets/fonts/inter/inter-v13-latin-600.woff2" | relative_url }}') format('woff2');
     }
     @font-face {
-      font-family: 'Roboto';
+      font-family: 'Inter';
       font-style: normal;
       font-weight: 700;
       font-display: swap;
-      src: url('{{ "/assets/fonts/roboto/roboto-v47-latin-700.woff2" | relative_url }}') format('woff2');
+      src: url('{{ "/assets/fonts/inter/inter-v13-latin-700.woff2" | relative_url }}') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 800;
+      font-display: swap;
+      src: url('{{ "/assets/fonts/inter/inter-v13-latin-800.woff2" | relative_url }}') format('woff2');
     }
   </style>
 {% endif %}

@@ -1,15 +1,18 @@
-/* _themes.scss - Optimized Version */
+/* _themes.scss - BLUROCA Identity
+   Accent system: AMATA amber (#F2A900, #B5853F) fully replaced
+   with BLUROCA ocean-cyan (#0099CC, #0077AA, #00B4D8)
+*/
 
 @use "sass:color";
 
 // =========================
-// Shared Base Colors
+// Shared Base Colors — BLUROCA
 // =========================
-$color-nav: #003366;
+$color-nav: #002855;
 $color-white: #FFFFFF;
 $color-black: #000000;
-$color-divider-light: rgba(0, 0, 0, 0.1);
-$color-divider-dark: #424246;
+$color-divider-light: rgba(0, 0, 0, 0.08);
+$color-divider-dark: #3a3a3e;
 
 // =========================
 // LIGHT THEME
@@ -21,29 +24,30 @@ $color-divider-dark: #424246;
   --global-white-color: #{$color-white};
   --global-divider-color: #{$color-divider-light};
 
-  --global-bg-color: #F5F5F7;
-  --global-code-bg-color: #ECECEC;
+  /* BLUROCA light — ocean blue palette, no amber */
+  --global-bg-color: #F4F6F9;
+  --global-code-bg-color: #E8EEF4;
   --global-card-bg-color: #ffffffe8;
-  --global-text-color: #0056B3;
-  --global-text-secondary-color: #4A6FA5;
-  --global-theme-color: #0056B3;
-  --global-hover-color: #F2A900;
+  --global-text-color: #1a2e4a;
+  --global-text-secondary-color: #4A6F96;
+  --global-theme-color: #0057B8;
+  --global-hover-color: #0099CC;
   --global-hover-text-color: #FFFFFF;
   --global-text-nav-color: #FFFFFF;
-  --global-hover-nav-color: #F2A900;
-  --global-footer-bg-color: #E0E0E0;
-  --global-footer-text-color: #005080;
+  --global-hover-nav-color: #0099CC;
+  --global-footer-bg-color: #001e3c;
+  --global-footer-text-color: #A8C0D8;
   --global-footer-link-color: #FFFFFF;
-  --global-link-color: #B5853F;
-  --global-link-hover-color: #2080D0;
+  --global-link-color: #0077AA;
+  --global-link-hover-color: #00B4D8;
   --global-badge-text-color: #FFFFFF;
-  --global-progress-bar-color: #D9B17D;
-  --global-shadow-color: #0000001F;
-  --global-quote-color: #B5853F;
-  --global-back-to-top-bg-color: rgba(0, 0, 0, 0.4);
+  --global-progress-bar-color: #0099CC;
+  --global-shadow-color: rgba(0, 30, 60, 0.12);
+  --global-quote-color: #0077AA;
+  --global-back-to-top-bg-color: rgba(0, 40, 85, 0.5);
   --global-back-to-top-text-color: #FFFFFF;
   --global-newsletter-bg-color: #FFFFFF;
-  --global-newsletter-text-color: #000000;
+  --global-newsletter-text-color: #1a2e4a;
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;
@@ -74,29 +78,30 @@ html[data-theme="dark"] {
   --global-white-color: #{$color-white};
   --global-divider-color: #{$color-divider-dark};
 
-  --global-bg-color: #1C1C1C;
-  --global-code-bg-color: #2A2A2A;
-  --global-card-bg-color: #1a1a1a;
-  --global-text-color: #E0E0E0;
-  --global-text-secondary-color: #B8B8B8;
-  --global-theme-color: #2080D0;
-  --global-hover-color: #62B1F0;
+  /* BLUROCA dark — deeper navy darks, cyan accents */
+  --global-bg-color: #111820;
+  --global-code-bg-color: #1a2434;
+  --global-card-bg-color: #161f2e;
+  --global-text-color: #D8E8F4;
+  --global-text-secondary-color: #8AAFC8;
+  --global-theme-color: #1E90D0;
+  --global-hover-color: #00C4E8;
   --global-hover-text-color: #FFFFFF;
   --global-text-nav-color: #FFFFFF;
-  --global-hover-nav-color: #50A5E6;
-  --global-footer-bg-color: #222222;
-  --global-footer-text-color: #B0B0B0;
-  --global-footer-link-color: #E0E0E0;
-  --global-link-color: #50A5E6;
-  --global-link-hover-color: #00A3E0;
+  --global-hover-nav-color: #00B4D8;
+  --global-footer-bg-color: #0a1220;
+  --global-footer-text-color: #7A9EBB;
+  --global-footer-link-color: #D8E8F4;
+  --global-link-color: #40B8E0;
+  --global-link-hover-color: #00D4F0;
   --global-badge-text-color: #FFFFFF;
-  --global-progress-bar-color: #FFFFFF;
-  --global-shadow-color: #000000A6;
-  --global-quote-color: #2080D0;
-  --global-back-to-top-bg-color: rgba(255, 255, 255, 0.5);
-  --global-back-to-top-text-color: #000000;
-  --global-newsletter-bg-color: #f4f4f4;
-  --global-newsletter-text-color: #111111;
+  --global-progress-bar-color: #00C4E8;
+  --global-shadow-color: rgba(0, 0, 0, 0.55);
+  --global-quote-color: #1E90D0;
+  --global-back-to-top-bg-color: rgba(255, 255, 255, 0.15);
+  --global-back-to-top-text-color: #FFFFFF;
+  --global-newsletter-bg-color: #1a2434;
+  --global-newsletter-text-color: #D8E8F4;
 
   --global-tip-block: #42b983;
   --global-tip-block-bg: #e2f5ec;

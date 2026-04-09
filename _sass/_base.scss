@@ -51,8 +51,15 @@ body {
     font-family: 'Prompt', sans-serif;
   }
   
+  // Inter for all English / Bluroca pages (replaces Roboto)
   &[data-lang="en"] {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  // Hero-first pages: navbar overlaid transparently over hero.
+  // No body padding-top — the hero section handles its own 100vh + navbar offset.
+  &.bluroca-hero-page {
+    padding-top: 0;
   }
   
   // First child spacing (after navbar)

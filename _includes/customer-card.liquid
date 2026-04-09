@@ -1,0 +1,54 @@
+{% comment %}
+  customer-card.liquid
+  =====================
+  Usage in customer.md:
+  {% include customer-card.liquid
+    image="/assets/img/cocobarn/og/cocobarn_og.png"
+    brand="COCOBARN"
+    tagline="100% Organic Thai Namhom Coconut Water"
+    description="Farm-to-bottle organic coconut water sourced directly from Ratchaburi growers. No sugar, no middlemen. GMP & HACCP certified."
+    since="2024"
+    url="/cocobarn/"
+    category="Food & Beverage"
+  %}
+
+  Parameters:
+    image       — path to brand image (og image or logo)
+    brand       — brand name (displayed large)
+    tagline     — short one-line brand descriptor
+    description — 2–3 sentence description (plain text)
+    since       — year BLUROCA started working with this client
+    url         — link to their page or external site
+    category    — optional category label (e.g. "Food & Beverage")
+{% endcomment %}
+
+<article class="cust-card" onclick="window.location='{{ include.url }}';" style="cursor:pointer;" role="link" aria-label="{{ include.brand }}">
+  <div class="cust-card-img-wrap">
+    <img
+      src="{{ include.image | relative_url }}"
+      alt="{{ include.brand }} — BLUROCA client"
+      class="cust-card-img"
+      loading="lazy"
+      decoding="async"
+    >
+    {% if include.category %}
+      <span class="cust-card-cat">{{ include.category }}</span>
+    {% endif %}
+  </div>
+  <div class="cust-card-body">
+    {% if include.since %}
+      <span class="cust-card-since">Since {{ include.since }}</span>
+    {% endif %}
+    <h3 class="cust-card-brand">{{ include.brand }}</h3>
+    {% if include.tagline %}
+      <p class="cust-card-tagline">{{ include.tagline }}</p>
+    {% endif %}
+    {% if include.description %}
+      <p class="cust-card-desc">{{ include.description }}</p>
+    {% endif %}
+    <a href="{{ include.url }}" class="cust-card-link" onclick="event.stopPropagation();">
+      View Brand
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</article>

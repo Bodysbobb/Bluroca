@@ -82,7 +82,11 @@
       <ul class="navbar-nav" id="navbar-nav">
         {% assign home_page = site.pages | where: "permalink", "/" | first %}
         {% if home_page %}
-          {% if page.lang == "en" and home_page.title_th %}
+          {% comment %}
+            Logic: if viewing in TH context and a TH title exists, show TH.
+            Otherwise always show the primary title (English for Bluroca).
+          {% endcomment %}
+          {% if page.lang == "th" and home_page.title_th %}
             {% assign about_title = home_page.title_th %}
           {% else %}
             {% assign about_title = home_page.title %}
@@ -102,7 +106,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle {% if page.title == p.title %}active{% endif %}" href="#" 
                    role="button" aria-expanded="false">
-                  {% if page.lang == "en" and p.title_th %}
+                  {% if page.lang == "th" and p.title_th %}
                     {{- p.title_th }}
                   {% else %}
                     {{- p.title }}
@@ -136,7 +140,7 @@
                   {%- assign url = p.url -%}
                 {%- endif %}
                 <a class="nav-link {% if page.url contains p.url %}active{% endif %}" href="{{ url | relative_url }}">
-                  {% if page.lang == "en" and p.title_th %}
+                  {% if page.lang == "th" and p.title_th %}
                     {{- p.title_th }}
                   {% else %}
                     {{- p.title }}
