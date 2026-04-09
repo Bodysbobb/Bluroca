@@ -8,7 +8,7 @@
 <meta name="keywords" content="organic coconut water, Thai coconut water, Namhom coconut, farm direct, COCOBARN, Ratchaburi, no sugar coconut water, organic drink Thailand">
 <meta name="robots" content="index, follow">
 <meta name="author" content="COCOBARN">
-<!-- ══ SERVER: enable gzip/brotli compression in Jekyll _config.yml or .htaccess for the remaining 45KB savings flagged by Lighthouse ══ -->
+<!-- ══ SERVER: enable gzip/brotli compression in Jekyll _config.yml or .htaccess ══ -->
 <link rel="canonical" href="https://www.bluroca.com/cocobarn/">
 
 <!-- ── FAVICONS ── -->
@@ -46,32 +46,13 @@
   "@type": "Product",
   "name": "COCOBARN 100% Organic Thai Namhom Coconut Water",
   "description": "100% Organic Thai Namhom Coconut Water sourced directly from Ratchaburi farms. No added sugar, no preservatives. GMP and HACCP certified.",
-  "brand": {
-    "@type": "Brand",
-    "name": "COCOBARN"
-  },
-  "manufacturer": {
-    "@type": "Organization",
-    "name": "COCOBARN",
-    "url": "https://www.bluroca.com/cocobarn/"
-  },
+  "brand": { "@type": "Brand", "name": "COCOBARN" },
+  "manufacturer": { "@type": "Organization", "name": "COCOBARN", "url": "https://www.bluroca.com/cocobarn/" },
   "image": "https://www.bluroca.com/assets/img/cocobarn/og/cocobarn_og.png",
   "url": "https://www.bluroca.com/cocobarn/",
   "offers": [
-    {
-      "@type": "Offer",
-      "name": "210ml Coconut Water",
-      "priceCurrency": "THB",
-      "price": "50",
-      "availability": "https://schema.org/InStock"
-    },
-    {
-      "@type": "Offer",
-      "name": "1L Coconut Water",
-      "priceCurrency": "THB",
-      "price": "190",
-      "availability": "https://schema.org/InStock"
-    }
+    { "@type": "Offer", "name": "210ml Coconut Water", "priceCurrency": "THB", "price": "50",  "availability": "https://schema.org/InStock" },
+    { "@type": "Offer", "name": "1L Coconut Water",   "priceCurrency": "THB", "price": "190", "availability": "https://schema.org/InStock" }
   ],
   "additionalProperty": [
     {"@type":"PropertyValue","name":"Certification","value":"GMP, HACCP, Thai Organic Certified"},
@@ -88,858 +69,22 @@
 <link rel="preload" as="font" href="/assets/fonts/bluroca/CAPTION/GeneralSans-Medium.otf" type="font/otf" crossorigin="anonymous">
 <link rel="preload" as="font" href="/assets/fonts/bluroca/HEADLINE/ivyora-display-light.ttf" type="font/ttf" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<style>
-@font-face {
-  font-family: 'GeneralSans';
-  src: url('/assets/fonts/bluroca/HEADLINE/GeneralSans-Semibold.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'GeneralSans';
-  src: url('/assets/fonts/bluroca/CAPTION/GeneralSans-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'GeneralSans';
-  src: url('/assets/fonts/bluroca/BODYTEXT/GeneralSans-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'IvyOra';
-  src: url('/assets/fonts/bluroca/HEADLINE/ivyora-display-light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'NotoSansThai';
-  src: url('/assets/fonts/bluroca/THAI/NotoSansThai-VariableFont_wdth,wght.ttf') format('truetype');
-  font-display: swap;
-}
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-:root{
-  --white:#FFFFFF;
-  --cream:#d5d89;
-  --accent:#d5d889;
-  --forest:#3f5124;
-  --brown:#381810;
-  --black:#000000;
-  --warm-white:#FAFAF5;
-  --sage:#d5d889;
-  --forest-mid:#4d6630;
-  --forest-light:#5f7e3a;
-  --text-dark:#1a1a0f;
-  --text-mid:#3d4a2d;
-  --site-max:1200px;
-  --site-pad:clamp(24px,4vw,40px);
-}
-body{font-family:'GeneralSans',sans-serif;background:var(--warm-white);color:var(--text-dark);overflow-x:hidden;font-size:18px}
-a{text-decoration:none;color:inherit}
-.cb-shell{width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));margin:0 auto}
-
-/* ── NAVBAR ── */
-.cb-navbar{
-  position:fixed;top:0;left:0;right:0;z-index:1000;
-  height:72px;
-  background:rgba(63,81,36,0.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(213,216,137,0.14);
-}
-.cb-navbar-inner{
-  width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));
-  height:100%;margin:0 auto;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.cb-nav-brand{display:flex;align-items:center;gap:14px;cursor:pointer;min-width:0}
-/* White logo on dark-green: CSS filter forces white */
-.cb-nav-logo{
-  height:36px;width:auto;display:block;flex-shrink:0;
-  filter:brightness(0) invert(1);
-  will-change:filter;
-}
-.cb-why-h-logo{display:flex;align-items:flex-end;gap:0.16em;line-height:1}.cb-why-logo-wrap{display:inline-flex;align-items:flex-end}.cb-why-logo-word{display:block;height:1em;width:auto;transform:translateY(0.05em)}
-.cb-nav-tag{font-family:'GeneralSans',sans-serif;font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(213,216,137,0.82);border-left:1px solid rgba(213,216,137,0.42);padding-left:14px;white-space:nowrap;font-weight:400}
-.cb-nav-links{display:flex;align-items:center;gap:32px;list-style:none}
-.cb-nav-links a{font-family:'GeneralSans',sans-serif;font-size:0.88rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(250,250,245,0.65);cursor:pointer;transition:color 0.2s;font-weight:400}
-.cb-nav-links a:hover{color:var(--accent)}
-.cb-nav-cta{background:var(--accent);color:var(--forest)!important;padding:8px 18px;border-radius:100px;font-weight:500!important;transition:opacity 0.2s!important}
-.cb-nav-cta:hover{opacity:0.88}
-.cb-nav-toggle{
-  display:none;width:44px;height:44px;padding:0;border:none;background:transparent;cursor:pointer;
-  align-items:center;justify-content:center;flex-direction:column;gap:5px;flex-shrink:0
-}
-.cb-nav-toggle span{
-  display:block;width:22px;height:2px;background:var(--warm-white);border-radius:999px;
-  transition:transform 0.25s ease,opacity 0.25s ease
-}
-.cb-nav-toggle.cb-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.cb-nav-toggle.cb-open span:nth-child(2){opacity:0}
-.cb-nav-toggle.cb-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.cb-mobile-menu{
-  display:none;
-  position:fixed;top:72px;left:0;right:0;z-index:999;
-  background:rgba(63,81,36,0.98);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(213,216,137,0.12);
-  opacity:0;pointer-events:none;transform:translateY(-10px);
-  transition:opacity 0.25s ease,transform 0.25s ease
-}
-.cb-mobile-menu-inner{
-  width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));
-  margin:0 auto;display:flex;flex-direction:column;align-items:flex-end
-}
-.cb-mobile-menu a{
-  padding:16px 0;font-family:'GeneralSans',sans-serif;
-  font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;
-  color:rgba(250,250,245,0.75);
-  border-top:1px solid rgba(213,216,137,0.08);cursor:pointer;
-  width:100%;text-align:right
-}
-.cb-mobile-menu a:hover{color:var(--accent)}
-.cb-mobile-menu.cb-open{opacity:1;pointer-events:auto;transform:translateY(0)}
-.cb-mobile-cta{color:var(--accent)!important;font-weight:500}
-
-/* ── Footer ── */
-.cb-footer{
-  text-align:center;padding:28px 0;
-  font-family:'GeneralSans',sans-serif;font-size:0.72rem;letter-spacing:0.12em;
-  color:rgba(250,250,245,0.4);background:var(--forest);
-}
-
-/* ── NAV DOTS ── */
-.cb-dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:900;display:flex;flex-direction:column;gap:10px}
-.cb-dot{width:7px;height:7px;border-radius:50%;background:var(--forest-light);opacity:0.28;cursor:pointer;border:none;padding:0;transition:all 0.3s}
-.cb-dot.on{opacity:1;background:var(--accent);transform:scale(1.6)}
-.cb-dot:hover{opacity:0.65}
-
-/* ── PAGES ── */
-.cb-page{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-
-/* PAGE 1 */
-#p1{background:var(--forest);align-items:center;text-align:center;padding:100px 0 80px;overflow:hidden}
-.cb-cover-bg{
-  position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 55% 70% at 15% 50%,rgba(95,126,58,0.28) 0%,transparent 65%),
-    radial-gradient(ellipse 45% 55% at 82% 25%,rgba(213,216,137,0.13) 0%,transparent 60%),
-    radial-gradient(ellipse 40% 50% at 70% 80%,rgba(56,24,16,0.18) 0%,transparent 60%)
-}
-.cb-leaf{position:absolute;opacity:0.06;font-size:260px;pointer-events:none;user-select:none;content-visibility:auto;will-change:auto}
-.cb-leaf-1{top:-30px;left:-20px;transform:rotate(-20deg)}
-.cb-leaf-2{bottom:-50px;right:-20px;transform:rotate(160deg)}
-.cb-inner{position:relative;z-index:2;width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));margin:0 auto;overflow:hidden}
-
-.cb-tagline{
-  font-family:'GeneralSans',sans-serif;font-size:0.74rem;letter-spacing:0.4em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:36px;font-weight:400;
-  opacity:0;animation:up 0.8s 0.2s ease forwards
-}
-.cb-hero-logo{
-  display:block;margin:0 auto 16px;
-  height:clamp(100px,16vw,170px);
-  max-width:min(80vw,500px);
-  width:auto;
-  filter:brightness(0) invert(1);
-  opacity:0;animation:cbFadeIn 0.9s 0.3s ease forwards;
-}
-@keyframes cbFadeIn{from{opacity:0}to{opacity:1}}
-.cb-sub{
-  font-family:'IvyOra',serif;font-size:clamp(1.1rem,2.5vw,1.35rem);font-weight:300;
-  color:rgba(250,250,245,0.58);margin-top:16px;letter-spacing:0.08em;
-  opacity:0;animation:up 0.9s 0.7s ease forwards
-}
-.cb-badge{
-  display:inline-flex;align-items:center;gap:8px;margin-top:44px;
-  padding:9px 24px;border:1px solid rgba(213,216,137,0.26);border-radius:100px;
-  font-family:'GeneralSans',sans-serif;font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--accent);font-weight:400;
-  max-width:calc(100vw - 48px);
-  flex-wrap:wrap;justify-content:center;
-  opacity:0;animation:up 0.9s 1s ease forwards
-}
-.cb-scroll{
-  position:absolute;bottom:32px;left:0;right:0;
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  opacity:0;animation:up 0.9s 1.3s ease forwards;cursor:pointer
-}
-.cb-scroll span{
-  font-family:'GeneralSans',sans-serif;font-size:0.7rem;letter-spacing:0.3em;
-  text-transform:uppercase;color:rgba(213,216,137,0.65);font-weight:500
-}
-.cb-scroll-line{width:1px;height:38px;background:linear-gradient(to bottom,rgba(213,216,137,0.45),transparent);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:0.28}50%{opacity:1}}
-
-/* PAGE 2 — Why Us (moved here, sage background) */
-#p2{background:#d5d889;padding:100px 0 100px;overflow:hidden}
-
-/* PAGE 3 — Story (was p2) */
-#p3{background:var(--warm-white);padding:120px 0 100px}
-.cb-concept-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
-  width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));margin:0 auto
-}
-.cb-eyebrow{
-  font-family:'GeneralSans',sans-serif;font-size:0.85rem;letter-spacing:0.24em;
-  text-transform:uppercase;color:var(--forest-mid);margin-bottom:20px;
-  display:flex;align-items:center;gap:14px;font-weight:500
-}
-.cb-eyebrow::before{content:'';width:28px;height:1px;background:currentColor;flex-shrink:0}
-.cb-eyebrow.light{color:var(--accent)}.cb-eyebrow.dark{color:var(--forest)}
-#p2 .cb-eyebrow.light{color:var(--forest)}
-.cb-h2{
-  font-family:'IvyOra',serif;font-size:clamp(2.2rem,4.8vw,4rem);
-  font-weight:300;line-height:1.1;color:var(--forest);margin-bottom:30px
-}
-.cb-h2 em{font-style:italic;color:var(--forest-mid)}
-.cb-h2.highlight-em em{color:var(--forest-light);font-style:italic}
-.cb-body{
-  font-family:'GeneralSans',sans-serif;font-size:1.05rem;line-height:1.88;
-  color:var(--text-mid);font-weight:400;margin-bottom:18px
-}
-.cb-body strong{color:var(--forest);font-weight:500}
-.cb-quote{
-  font-family:'IvyOra',serif;font-size:1.18rem;font-style:italic;
-  color:var(--forest);padding:22px 0 22px 22px;border-left:2px solid var(--accent);
-  margin-top:30px;line-height:1.55
-}
-
-/* Mascot panel — elegant walk animation */
-.cb-mascot-box{
-  display:flex;flex-direction:column;align-items:center;gap:20px;
-  position:relative;overflow:visible;padding-top:10px
-}
-.cb-mascot-svg-wrap{
-  position:relative;
-  animation:elegantWalk 5s ease-in-out infinite;
-}
-.cb-mascot-p2-logo{
-  width:clamp(160px,20vw,240px);height:auto;
-  filter:drop-shadow(0 14px 34px rgba(63,81,36,0.14));
-  /* Colour shift: white → forest-green tint on hover/cycle */
-}
-@keyframes elegantWalk{
-  0%   {transform:translateX(-12px) translateY(0px) rotate(-0.8deg)}
-  25%  {transform:translateX(0px)   translateY(-8px) rotate(0deg)}
-  50%  {transform:translateX(12px)  translateY(0px) rotate(0.8deg)}
-  75%  {transform:translateX(0px)   translateY(-8px) rotate(0deg)}
-  100% {transform:translateX(-12px) translateY(0px) rotate(-0.8deg)}
-}
-.cb-mascot-cap{
-  font-family:'GeneralSans',sans-serif;font-size:0.62rem;letter-spacing:0.28em;
-  text-transform:uppercase;color:var(--forest-mid);text-align:center;line-height:2;font-weight:400
-}
-
-/* PAGE 2 — Why Us on sage bg */
-#p2 .cb-page{min-height:auto}
-.cb-why-wrap{width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));margin:0 auto}
-.cb-why-h{
-  font-family:'IvyOra',serif;font-size:clamp(2.2rem,4.8vw,3.6rem);
-  font-weight:300;color:var(--forest);margin-bottom:72px;max-width:480px;
-  line-height:1.05;
-}
-
-/* ── CAMPAIGN STAGE ── */
-.cb-why-stage{
-  display:grid;
-  grid-template-columns:1fr clamp(220px,26vw,320px) 1fr;
-  gap:0 72px;
-  align-items:center;
-  width:100%;
-  position:relative;
-}
-
-/* Connecting line from cards to bottle — decorative */
-.cb-why-stage::before{
-  content:'';
-  position:absolute;
-  left:calc(33.33% - 1px);right:calc(33.33% - 1px);
-  top:50%;height:1px;
-  background:linear-gradient(90deg, transparent, rgba(213,216,137,0.08) 30%, rgba(213,216,137,0.08) 70%, transparent);
-  pointer-events:none;z-index:0;
-}
-
-/* Bottle */
-.cb-why-bottle{
-  display:flex;align-items:center;justify-content:center;
-  position:relative;z-index:2;
-}
-.cb-why-bottle-img{width:100%;height:auto;object-fit:contain;display:block;pointer-events:auto;cursor:pointer}
-.cb-why-bottle-ring{
-  position:relative;
-  width:clamp(220px,26vw,320px);
-  display:flex;align-items:center;justify-content:center;
-  filter:drop-shadow(0 0 16px rgba(213,216,137,0.07));
-  animation:bottleGlow 4s ease-in-out infinite;
-  perspective:900px;
-}
-@keyframes bottleGlow{
-  0%,100%{filter:drop-shadow(0 0 16px rgba(63,81,36,0.12))}
-  50%    {filter:drop-shadow(0 0 52px rgba(63,81,36,0.32))}
-}
-.cb-why-bottle video{
-  width:100%;height:auto;
-  object-fit:contain;
-  display:block;
-  pointer-events:none;
-}
-.cb-why-bottle-ring::before,.cb-why-bottle-ring::after{display:none}
-
-/* Card columns — staggered vertical positions */
-.cb-why-col{
-  display:flex;flex-direction:column;
-  gap:0; /* gap handled per-card with margin */
-  position:relative;z-index:2;
-}
-
-/* ── STAGGER: each card gets a unique vertical offset ── */
-/* Left col — cards lean toward bottle (right-aligned text, slight offsets) */
-.cb-why-col.left .cb-why-card:nth-child(1){ margin-top:0; margin-bottom:32px; margin-left:auto; }
-.cb-why-col.left .cb-why-card:nth-child(2){ margin-top:0; margin-bottom:32px; margin-left:24%; }
-.cb-why-col.left .cb-why-card:nth-child(3){ margin-top:0; margin-left:auto; }
-
-/* Right col — mirror offset */
-.cb-why-col.right .cb-why-card:nth-child(1){ margin-top:0; margin-bottom:32px; margin-right:auto; }
-.cb-why-col.right .cb-why-card:nth-child(2){ margin-top:0; margin-bottom:32px; margin-right:24%; }
-.cb-why-col.right .cb-why-card:nth-child(3){ margin-top:0; margin-right:auto; }
-
-/* ── CARD: compact, refined, no big box feel ── */
-.cb-why-card{
-  width:100%;
-  max-width:360px;
-  background:linear-gradient(180deg,rgba(63,81,36,0.82) 0%,rgba(47,62,24,0.90) 100%);
-  border:1.5px solid rgba(63,81,36,0.35);
-  border-radius:16px;
-  padding:18px 22px;
-  cursor:pointer;
-  will-change:background,border-color,transform;
-  transition:background 0.22s ease,border-color 0.22s ease,transform 0.22s ease,box-shadow 0.22s ease;
-  position:relative;overflow:hidden;
-  box-shadow:0 10px 30px rgba(63,81,36,0.22),inset 0 1px 0 rgba(255,255,255,0.06);
-}
-.cb-why-card::before{
-  content:'';
-  position:absolute;inset:0;border-radius:16px;
-  background:linear-gradient(135deg,rgba(213,216,137,0.1) 0%,rgba(255,255,255,0.02) 38%,transparent 72%);
-  opacity:0.7;
-  transition:opacity 0.22s ease;
-}
-.cb-why-card:hover,.cb-why-card.active{
-  background:linear-gradient(180deg,rgba(63,81,36,0.95) 0%,rgba(47,62,24,1) 100%);
-  border-color:rgba(213,216,137,0.5);
-  box-shadow:0 18px 42px rgba(63,81,36,0.32),0 0 0 1px rgba(213,216,137,0.1),inset 0 1px 0 rgba(255,255,255,0.08);
-}
-.cb-why-card:hover::before,.cb-why-card.active::before{opacity:1}
-.cb-why-col.left .cb-why-card:hover,
-.cb-why-col.left .cb-why-card.active{transform:translateX(4px)}
-.cb-why-col.right .cb-why-card:hover,
-.cb-why-col.right .cb-why-card.active{transform:translateX(-4px)}
-
-/* Card header */
-.cb-why-card-header{
-  display:flex;align-items:center;gap:10px;
-}
-.cb-why-num{
-  font-family:'GeneralSans',sans-serif;font-size:0.6rem;letter-spacing:0.28em;
-  color:var(--accent);opacity:0.7;font-weight:500;flex-shrink:0;
-}
-.cb-why-icon{
-  width:22px;height:22px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  opacity:0.85;
-}
-.cb-why-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.cb-why-title{
-  font-family:'GeneralSans',sans-serif;font-size:0.82rem;font-weight:500;
-  color:var(--warm-white);line-height:1.28;
-  letter-spacing:0.01em;
-}
-
-/* Expand chevron */
-.cb-why-chevron{
-  margin-left:auto;flex-shrink:0;width:14px;height:14px;
-  display:flex;align-items:center;justify-content:center;
-  opacity:0.28;transition:transform 0.25s,opacity 0.25s;
-}
-.cb-why-chevron svg{width:10px;height:10px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.cb-why-card:hover .cb-why-chevron{opacity:0.7}
-.cb-why-card.active .cb-why-chevron{opacity:0.9;transform:rotate(180deg)}
-
-/* Expandable desc */
-.cb-why-desc-wrap{
-  display:grid;
-  grid-template-rows:0fr;
-  transition:grid-template-rows 0.28s cubic-bezier(0.4,0,0.2,1);
-}
-.cb-why-card.active .cb-why-desc-wrap{
-  grid-template-rows:1fr;
-}
-.cb-why-desc{overflow:hidden;font-family:'GeneralSans',sans-serif;font-size:0.78rem;color:rgba(250,250,245,0.8);line-height:1.68;font-weight:400;padding-top:0;transition:padding-top 0.28s ease, opacity 0.22s ease;opacity:0}
-.cb-why-card.active .cb-why-desc{
-  padding-top:10px;
-  opacity:1;
-}
-
-/* Bottle flip interaction */
-.cb-bottle-flip{cursor:pointer;}
-.cb-bottle-flip:hover{opacity:0.88}
-.cb-bottle-hint{
-  position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);
-  font-family:'GeneralSans',sans-serif;font-size:0.58rem;letter-spacing:0.18em;
-  text-transform:uppercase;color:rgba(213,216,137,0.45);white-space:nowrap;
-  pointer-events:none;
-}
-
-/* Tap hint mobile */
-.cb-why-tap{display:none}
-
-/* ── WHY CARD MODAL ── */
-.cb-why-modal-overlay{
-  position:fixed;inset:0;z-index:2000;
-  background:rgba(26,26,15,0.75);
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  opacity:0;pointer-events:none;
-  transition:opacity 0.3s ease;
-  display:flex;align-items:flex-end;justify-content:center;
-}
-.cb-why-modal-overlay.open{opacity:1;pointer-events:auto}
-.cb-why-modal{
-  width:100%;max-width:560px;
-  background:var(--forest);
-  border-radius:20px 20px 0 0;
-  padding:0 0 40px;
-  transform:translateY(100%);
-  transition:transform 0.4s cubic-bezier(0.32,0.72,0,1);
-  position:relative;
-  max-height:88vh;overflow-y:auto;
-}
-.cb-why-modal-overlay.open .cb-why-modal{transform:translateY(0)}
-.cb-why-modal-handle{
-  width:36px;height:4px;border-radius:2px;
-  background:rgba(213,216,137,0.25);
-  margin:14px auto 0;
-}
-.cb-why-modal-body{padding:28px 32px 8px}
-.cb-why-modal-num{
-  font-family:'GeneralSans',sans-serif;font-size:0.72rem;letter-spacing:0.28em;
-  color:var(--accent);opacity:0.6;font-weight:500;margin-bottom:16px
-}
-.cb-why-modal-icon{
-  width:44px;height:44px;border-radius:50%;
-  background:rgba(213,216,137,0.1);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:18px
-}
-.cb-why-modal-icon svg{width:24px;height:24px;stroke:var(--accent);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.cb-why-modal-title{
-  font-family:'GeneralSans',sans-serif;font-size:1.22rem;font-weight:600;
-  color:var(--warm-white);line-height:1.3;margin-bottom:16px
-}
-.cb-why-modal-desc{font-family:'GeneralSans',sans-serif;font-size:1rem;color:rgba(250,250,245,0.82);line-height:1.75;font-weight:400}
-.cb-why-modal-close{
-  position:absolute;top:16px;right:20px;
-  width:32px;height:32px;border:none;background:rgba(213,216,137,0.12);
-  border-radius:50%;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--accent);font-size:1.1rem;line-height:1;
-  transition:background 0.2s;
-}
-.cb-why-modal-close:hover{background:rgba(213,216,137,0.22)}
-
-/* PAGE 4 */
-#p4{background:var(--accent);padding:120px 0 100px}
-.cb-shelf-inner{
-  width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));
-  margin:0 auto;position:relative;z-index:2
-}
-.cb-shelf-h{
-  font-family:'IvyOra',serif;font-size:clamp(2.2rem,4.8vw,4rem);
-  font-weight:300;color:var(--forest);line-height:1.05;margin-bottom:44px;max-width:680px
-}
-.cb-shelf-stat{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
-.cb-shelf-num{
-  font-family:'GeneralSans',sans-serif;font-size:clamp(76px,13vw,112px);
-  font-weight:700;color:var(--forest);line-height:1;letter-spacing:-0.05em
-}
-.cb-shelf-unit{
-  font-family:'IvyOra',serif;font-size:1.9rem;font-style:italic;color:var(--forest-mid)
-}
-.cb-shelf-note{
-  font-family:'GeneralSans',sans-serif;font-size:0.78rem;color:var(--forest);
-  letter-spacing:0.15em;text-transform:uppercase;font-weight:500;
-  padding:12px 22px;background:rgba(63,81,36,0.1);border-radius:8px;
-  display:inline-block;margin-bottom:26px
-}
-.cb-shelf-bg{
-  position:absolute;right:-2%;top:50%;transform:translateY(-50%);
-  font-family:'GeneralSans',sans-serif;font-size:clamp(90px,17vw,200px);font-weight:700;
-  color:transparent;-webkit-text-stroke:2px rgba(63,81,36,0.18);
-  pointer-events:none;user-select:none;white-space:nowrap;
-  letter-spacing:-0.04em;
-  text-shadow:4px 4px 0 rgba(63,81,36,0.06);
-}
-
-/* PAGES 5-6 */
-.cb-pack-page{min-height:100vh;padding:0;position:relative;overflow:hidden;display:flex;justify-content:center}
-.cb-pack-grid{
-  display:grid;grid-template-columns:1fr 1fr;min-height:100vh;
-  width:100%;max-width:var(--site-max);
-}
-.cb-pack-img-panel{position:relative;overflow:hidden;background:#f0ece0;border-radius:0}
-.cb-pack-img-wrap{position:relative;width:100%;height:100%;min-height:100vh}
-.cb-pack-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.55s ease;overflow:hidden}
-.cb-pack-slide.on{opacity:1}
-.cb-pack-slide img,.cb-pack-img-panel>img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.8s ease}
-/* Story image — wide banner treatment */
-.cb-pack-slide.story-slide img{object-fit:contain;background:#f0ece0;padding:20px}
-.cb-pack-img-panel:hover>img,.cb-pack-img-panel:hover .cb-pack-slide.on:not(.story-slide) img{transform:scale(1.04)}
-
-.cb-pack-text-panel{display:flex;flex-direction:column;justify-content:center;padding:80px 60px;background:var(--warm-white)}
-.cb-pack-text-panel.dark{background:var(--forest)}
-.cb-pack-h{
-  font-family:'IvyOra',serif;font-size:clamp(1.9rem,3.6vw,3rem);
-  font-weight:300;color:var(--forest);line-height:1.1;margin-bottom:22px
-}
-.cb-pack-h em{font-style:italic;color:inherit}
-.cb-pack-h.light{color:var(--warm-white)}
-.cb-pack-h.light em{color:var(--accent)}
-.cb-pack-body{
-  font-family:'GeneralSans',sans-serif;font-size:1.02rem;color:var(--text-mid);
-  line-height:1.85;font-weight:400;margin-bottom:28px
-}
-.cb-pack-body.light{color:rgba(250,250,245,0.6)}
-
-/* 3-button tabs */
-.cb-pack-tabs{display:flex;gap:0;margin-bottom:26px;border:1px solid var(--forest);border-radius:8px;overflow:hidden;width:fit-content}
-.cb-pack-tab{
-  padding:9px 26px;font-family:'GeneralSans',sans-serif;font-size:0.78rem;
-  font-weight:500;letter-spacing:0.14em;text-transform:uppercase;cursor:pointer;
-  border:none;background:transparent;color:rgba(63,81,36,0.38);transition:all 0.3s
-}
-.cb-pack-tab.on{background:var(--forest);color:var(--warm-white)}
-.cb-pack-tab:hover:not(.on){color:var(--forest)}
-
-/* Mobile tabs wrapper — hidden on desktop, shown on mobile via media query */
-.cb-pack-mobile-tabs{display:none}
-/* Desktop inner tabs — shown on desktop, hidden on mobile via media query */
-.cb-pack-text-inner-tabs{display:block}
-.cb-size-badges{display:flex;align-items:center;gap:10px;margin-bottom:22px}
-.cb-size-pill{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:6px 16px;border:1.5px solid rgba(63,81,36,0.22);border-radius:100px;
-  font-family:'GeneralSans',sans-serif;font-size:0.78rem;font-weight:500;
-  color:var(--forest);letter-spacing:0.06em;background:transparent;
-  pointer-events:none;user-select:none
-}
-.cb-size-pill::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--forest);opacity:0.35;flex-shrink:0}
-.cb-tag{
-  display:inline-flex;align-items:center;padding:7px 16px;background:var(--forest);
-  color:var(--accent);border-radius:100px;font-family:'GeneralSans',sans-serif;
-  font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:400;
-  margin-right:7px;margin-bottom:7px
-}
-.cb-tag.light{background:var(--accent);color:var(--forest)}
-
-/* PAGE 7 */
-#p7{background:var(--forest);padding:120px 0 100px}
-.cb-price-wrap{width:min(calc(100% - (var(--site-pad)*2)),var(--site-max));margin:0 auto}
-.cb-price-h{
-  font-family:'IvyOra',serif;font-size:clamp(1.9rem,3.6vw,3rem);
-  font-weight:300;color:var(--warm-white);max-width:640px;line-height:1.25;margin-bottom:14px
-}
-.cb-price-sub{
-  font-family:'IvyOra',serif;font-size:0.88rem;color:var(--accent);
-  font-style:italic;letter-spacing:0.04em;margin-bottom:52px
-}
-.cb-price-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;width:100%;margin-bottom:28px}
-.cb-price-card{
-  background:rgba(255,255,255,0.04);border:1px solid rgba(213,216,137,0.16);
-  border-radius:14px;padding:38px 34px;transition:all 0.4s;position:relative;overflow:hidden
-}
-.cb-price-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity 0.4s
-}
-.cb-price-card:hover{background:rgba(255,255,255,0.07);border-color:rgba(213,216,137,0.36)}
-.cb-price-card:hover::before{opacity:1}
-.cb-price-size{
-  font-family:'GeneralSans',sans-serif;font-size:0.72rem;letter-spacing:0.32em;
-  text-transform:uppercase;color:var(--accent);margin-bottom:14px;font-weight:400
-}
-.cb-price-name{font-family:'GeneralSans',sans-serif;font-size:1.08rem;font-weight:500;color:var(--warm-white);margin-bottom:26px}
-.cb-price-row{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(213,216,137,0.08)}
-.cb-price-row:last-of-type{border-bottom:none}
-.cb-price-label{
-  font-family:'GeneralSans',sans-serif;font-size:0.8rem;
-  color:rgba(250,250,245,0.42);text-transform:uppercase;letter-spacing:0.1em;font-weight:400
-}
-.cb-price-val{
-  font-family:'GeneralSans',sans-serif;font-size:1.52rem;font-weight:500;
-  color:var(--warm-white);letter-spacing:-0.02em
-}
-.cb-price-val small{font-size:0.88rem;color:rgba(250,250,245,0.42);font-family:'GeneralSans',sans-serif}
-.cb-price-note{
-  font-family:'IvyOra',serif;
-  font-size:0.82rem;
-  color:rgba(250,250,245,0.72);
-  font-style:italic;
-  margin-top:11px;
-  line-height:1.68
-}
-.cb-delivery{
-  width:100%;padding:18px 26px;
-  background:rgba(213,216,137,0.07);border:1px solid rgba(213,216,137,0.26);
-  border-radius:10px;display:flex;align-items:center;gap:14px;
-  font-family:'GeneralSans',sans-serif;font-size:0.92rem;color:var(--warm-white)
-}
-.cb-delivery strong{color:var(--accent)}
-
-/* ── REVEAL ── */
-@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.cbr{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
-.cbr.on{opacity:1;transform:translateY(0)}
-.d1{transition-delay:0.08s}.d2{transition-delay:0.16s}.d3{transition-delay:0.24s}
-.d4{transition-delay:0.32s}.d5{transition-delay:0.40s}.d6{transition-delay:0.48s}
-
-/* ── RESPONSIVE ── */
-@media(min-width:901px){
-  .cb-why-col{justify-content:space-between;min-height:460px}
-  .cb-why-col.left .cb-why-card:nth-child(1){margin-top:8px;margin-bottom:0;margin-left:auto}
-  .cb-why-col.left .cb-why-card:nth-child(2){margin-top:0;margin-bottom:0;margin-left:auto}
-  .cb-why-col.left .cb-why-card:nth-child(3){margin-top:0;margin-bottom:8px;margin-left:auto}
-  .cb-why-col.right .cb-why-card:nth-child(1){margin-top:0;margin-bottom:0;margin-right:auto}
-  .cb-why-col.right .cb-why-card:nth-child(2){margin-top:0;margin-bottom:0;margin-right:auto}
-  .cb-why-col.right .cb-why-card:nth-child(3){margin-top:0;margin-bottom:6px;margin-right:auto}
-}
-
-@media(max-width:1004px){
-  .cb-nav-tag{font-size:0.58rem;letter-spacing:0.12em;padding-left:10px}
-  .cb-nav-links{display:none}
-  .cb-nav-toggle{display:flex}
-  .cb-mobile-menu{display:block}
-}
-@media(max-width:600px){
-  .cb-nav-tag{font-size:0.48rem;letter-spacing:0.06em;padding-left:7px;max-width:38vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-}
-@media(max-width:400px){
-  .cb-nav-tag{display:none}
-}
-
-@media(max-width:900px){
-  .cb-concept-grid{grid-template-columns:1fr;gap:40px}
-  .cb-mascot-box{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:24px;order:1}
-  .cb-mascot-svg-wrap{animation:elegantWalk 5s ease-in-out infinite}
-  .cb-mascot-p2-logo{width:clamp(100px,24vw,150px);height:auto;filter:drop-shadow(0 10px 24px rgba(63,81,36,0.18))}
-  .cb-mascot-cap{text-align:center;font-size:0.6rem}
-  .cb-concept-grid>div:first-child{order:2}
-  .cb-price-cards{grid-template-columns:1fr}
-  .cb-shelf-bg{font-size:clamp(60px,13vw,100px);right:-4%;opacity:0.8}
-
-  /* ── WHY: Tablet — video LEFT, all 6 cards RIGHT ── */
-  .cb-why-stage{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:auto;
-    gap:0 24px;
-    align-items:start;
-  }
-  .cb-why-bottle{
-    grid-column:1;
-    grid-row:1 / span 2;
-    align-self:start;
-    position:sticky;
-    top:88px;
-  }
-  .cb-why-bottle-img{width:100%;height:auto;object-fit:contain;max-height:55vw}
-  .cb-why-bottle-ring{width:100%}
-  .cb-why-col.left{
-    grid-column:2;grid-row:1;gap:10px;
-  }
-  .cb-why-col.right{
-    grid-column:2;grid-row:2;margin-top:10px;gap:10px;
-  }
-  /* Reset stagger offsets on tablet */
-  .cb-why-col.left .cb-why-card:nth-child(1),
-  .cb-why-col.left .cb-why-card:nth-child(2),
-  .cb-why-col.left .cb-why-card:nth-child(3),
-  .cb-why-col.right .cb-why-card:nth-child(1),
-  .cb-why-col.right .cb-why-card:nth-child(2),
-  .cb-why-col.right .cb-why-card:nth-child(3){
-    margin-left:0;margin-right:0;margin-bottom:0;max-width:100%;
-  }
-
-  /* ── Packaging mobile ── */
-  .cb-pack-page{min-height:auto;display:block}
-  .cb-pack-grid{display:flex;flex-direction:column;min-height:auto;width:100%;max-width:100%;margin:0}
-  .cb-pack-img-panel{width:100%;height:56vw;min-height:220px;max-height:340px;order:1;background:#f0ece0;flex-shrink:0}
-  .cb-pack-img-wrap{width:100%;height:100%;min-height:0}
-  .cb-pack-slide img{object-fit:contain !important;padding:12px}
-  .cb-pack-slide.story-slide img{object-fit:contain;padding:16px}
-  #p6 .cb-pack-img-panel img{object-fit:cover !important;padding:0}
-  .cb-pack-mobile-tabs{order:2;width:100%;padding:12px 20px 0;background:var(--warm-white);display:flex}
-  #p6 .cb-pack-mobile-tabs{display:none}
-  .cb-pack-mobile-tabs .cb-pack-tabs{width:100%;margin-bottom:0;border-radius:8px}
-  .cb-pack-mobile-tabs .cb-pack-tab{flex:1}
-  .cb-pack-text-panel{padding:24px 24px 44px;order:3}
-  .cb-pack-text-inner-tabs{display:none}
-  #p6 .cb-pack-img-panel{order:1}
-  #p6 .cb-pack-text-panel{order:2;padding-top:36px}
-}
-
-@media(max-width:768px){
-  body{font-size:16px}
-  .cb-dots{display:none}
-
-  /* Hero */
-  #p1{padding:88px 0 72px;align-items:center;text-align:center;overflow:hidden}
-  .cb-inner{width:calc(100% - 48px);padding:0;overflow:hidden}
-  .cb-hero-logo{height:clamp(90px,22vw,130px);max-width:72vw;object-fit:contain}
-  .cb-tagline{font-size:0.84rem;letter-spacing:0.28em;margin-bottom:20px}
-  .cb-sub{font-size:clamp(1.15rem,4.5vw,1.4rem);margin-top:14px}
-  .cb-badge{font-size:0.74rem;letter-spacing:0.12em;padding:10px 20px;max-width:calc(100vw - 48px);white-space:normal;text-align:center;line-height:1.55;margin-top:32px}
-  .cb-scroll{bottom:20px}
-
-  /* Story */
-  .cb-h2{font-size:clamp(1.8rem,6.5vw,2.6rem)}
-  .cb-body{font-size:0.92rem}
-  .cb-quote{font-size:0.96rem}
-
-  /* ── WHY: Phone — video top, all 6 below ── */
-  #p2{min-height:auto;padding:72px 0 60px}
-  .cb-why-stage{display:flex;flex-direction:column;gap:0}
-  .cb-why-bottle{display:flex;width:100%;order:1;justify-content:center}
-  .cb-why-bottle-ring{width:80%;max-width:260px}
-  .cb-why-bottle video{width:100%;height:auto;object-fit:contain;max-height:55vw}
-  .cb-why-col.left{
-    grid-column:unset;grid-row:unset;position:static;
-    order:2;margin-top:20px;gap:8px;
-  }
-  .cb-why-col.right{
-    grid-column:unset;grid-row:unset;position:static;
-    order:3;margin-top:8px;gap:8px;
-  }
-  .cb-why-col{width:100%}
-  /* Reset all stagger offsets on phone */
-  .cb-why-col.left .cb-why-card:nth-child(1),
-  .cb-why-col.left .cb-why-card:nth-child(2),
-  .cb-why-col.left .cb-why-card:nth-child(3),
-  .cb-why-col.right .cb-why-card:nth-child(1),
-  .cb-why-col.right .cb-why-card:nth-child(2),
-  .cb-why-col.right .cb-why-card:nth-child(3){
-    margin-left:0;margin-right:0;margin-bottom:0;max-width:100%;
-  }
-  .cb-why-h{font-size:clamp(1.7rem,6.5vw,2.4rem);margin-bottom:24px}
-  .cb-why-card{padding:14px 14px}
-  .cb-why-num{font-size:0.62rem}
-  .cb-why-title{font-size:0.85rem;line-height:1.25}
-  .cb-why-desc-wrap{display:none}
-  .cb-why-chevron{display:flex;opacity:0.55}
-  .cb-why-tap{display:none}
-  .cb-why-chevron svg{transform:rotate(-90deg)}
-  .cb-why-col.left .cb-why-card:hover,
-  .cb-why-col.left .cb-why-card.active,
-  .cb-why-col.right .cb-why-card:hover,
-  .cb-why-col.right .cb-why-card.active{transform:none}
-
-  /* Shelf */
-  .cb-shelf-h{font-size:clamp(1.7rem,6.5vw,2.4rem)}
-  .cb-shelf-num{font-size:clamp(58px,16vw,86px)}
-
-  /* Pack */
-  .cb-pack-h{font-size:clamp(1.5rem,5.5vw,2.2rem)}
-  .cb-pack-body{font-size:0.88rem}
-  .cb-pack-tabs{width:100%}
-  .cb-pack-tab{flex:1;padding:10px 6px;font-size:0.68rem;letter-spacing:0.07em}
-
-  /* Pricing */
-  .cb-price-h{font-size:clamp(1.5rem,5.5vw,2.2rem)}
-  .cb-price-val{font-size:1.22rem}
-  .cb-price-cards{grid-template-columns:1fr}
-  .cb-delivery{font-size:0.8rem}
-}
-
-@media(max-width:480px){
-  .cb-why-stage{grid-template-columns:1fr 1fr;gap:6px}
-  .cb-why-card{padding:14px 10px}
-  .cb-why-num{font-size:0.68rem}
-  .cb-why-title{font-size:0.82rem}
-  .cb-badge{font-size:0.55rem;letter-spacing:0.08em}
-  .cb-delivery{flex-direction:column;align-items:flex-start}
-  .cb-size-badges{flex-wrap:wrap;gap:8px}
-}
-
-/* ═══════════════════════════════════════
-   MR. COCONUT CONTACT WIDGET
-═══════════════════════════════════════ */
-.coco-wrap{position:fixed;bottom:30px;right:30px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:10px;font-family:'GeneralSans',sans-serif}
-.coco-options{display:flex;flex-direction:column;align-items:flex-end;gap:8px;pointer-events:none;opacity:0;transform:translateY(14px) scale(0.94);transition:opacity 0.35s cubic-bezier(0.4,0,0.2,1),transform 0.35s cubic-bezier(0.4,0,0.2,1)}
-.coco-wrap.open .coco-options{pointer-events:auto;opacity:1;transform:translateY(0) scale(1)}
-.coco-options a:nth-child(1){transition-delay:0s}
-.coco-options a:nth-child(2){transition-delay:0.05s}
-.coco-options a:nth-child(3){transition-delay:0.10s}
-.coco-options a:nth-child(4){transition-delay:0.15s}
-.coco-btn{display:flex;align-items:center;gap:0;text-decoration:none;border-radius:100px;overflow:hidden;background:var(--forest);box-shadow:0 3px 14px rgba(63,81,36,0.32);transition:transform 0.25s,box-shadow 0.25s,max-width 0.3s;max-width:46px;height:46px}
-.coco-btn:hover{transform:translateX(-6px);box-shadow:0 6px 22px rgba(63,81,36,0.42);max-width:220px}
-.coco-btn-icon{width:46px;height:46px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.coco-btn-icon svg{width:20px;height:20px;fill:none;stroke:var(--accent);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.coco-btn-label{font-family:'GeneralSans',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.08em;color:var(--warm-white);white-space:nowrap;max-width:0;overflow:hidden;padding:0;transition:max-width 0.3s,padding 0.3s}
-.coco-btn:hover .coco-btn-label{max-width:160px;padding:0 16px 0 2px}
-.coco-btn-ig .coco-btn-icon{background:#3a3a4a}
-.coco-btn-ig .coco-btn-icon svg{stroke:#e0a878}
-.coco-btn-call .coco-btn-icon{background:#2d5040}
-.coco-btn-mail .coco-btn-icon{background:#2a4060}
-.coco-btn-mail .coco-btn-icon svg{stroke:#90b8e0}
-.coco-btn-card .coco-btn-icon{background:var(--forest)}
-.coco-label{font-family:'GeneralSans',sans-serif;font-size:0.64rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--forest);background:var(--accent);padding:5px 13px;border-radius:100px;white-space:nowrap;box-shadow:0 2px 9px rgba(0,0,0,0.11);opacity:0;transform:translateX(10px);transition:opacity 0.3s,transform 0.3s;pointer-events:none}
-.coco-wrap.open .coco-label{opacity:1;transform:translateX(0)}
-.coco-row{display:flex;align-items:center;gap:10px}
-.coco-toggle{
-  width:60px;height:60px;border-radius:50%;
-  background:var(--warm-white);
-  border:2.5px solid var(--forest);
-  cursor:pointer;padding:0;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 20px rgba(63,81,36,0.38),0 0 0 4px rgba(213,216,137,0.14);
-  overflow:hidden;position:relative;
-  animation:dukdik 2s ease-in-out infinite;
-  transition:box-shadow 0.3s;
-}
-.coco-wrap.open .coco-toggle{animation:none;transform:scale(1.06) rotate(8deg)}
-.coco-toggle:hover{box-shadow:0 6px 26px rgba(63,81,36,0.48),0 0 0 6px rgba(213,216,137,0.22)}
-.coco-toggle img{width:40px;height:40px;object-fit:contain;transition:transform 0.3s}
-.coco-wrap.open .coco-toggle img{transform:rotate(-8deg) scale(0.9)}
-.coco-toggle::before{content:'';position:absolute;inset:-5px;border-radius:50%;border:2px solid rgba(213,216,137,0.45);animation:ring 2.5s ease-in-out infinite}
-@keyframes ring{0%,100%{transform:scale(1);opacity:0.5}50%{transform:scale(1.2);opacity:0}}
-@keyframes dukdik{
-  0%{transform:translateY(0) rotate(0deg) scale(1)}
-  14%{transform:translateY(-9px) rotate(-4deg) scale(1.06)}
-  28%{transform:translateY(0) rotate(0deg) scale(1)}
-  42%{transform:translateY(-6px) rotate(3deg) scale(1.04)}
-  57%{transform:translateY(0) rotate(0deg) scale(1)}
-  100%{transform:translateY(0) rotate(0deg) scale(1)}
-}
-</style>
+<!-- ── STYLES ── -->
+<link rel="stylesheet" href="/assets/css/cocobarn.css">
 </head>
 <body>
 
+<!-- ══════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════ -->
 <nav class="cb-navbar">
   <div class="cb-navbar-inner">
     <a class="cb-nav-brand" onclick="go(1)">
-      <!-- White logo on dark-green navbar -->
-      <img
-        src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg"
-        alt="COCOBARN — Thai Organic Coconut Water brand logo"
-        class="cb-nav-logo"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-        width="120" height="36"
-      >
+      <img src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg"
+           alt="COCOBARN — Thai Organic Coconut Water brand logo"
+           class="cb-nav-logo" loading="eager" decoding="async"
+           fetchpriority="high" width="120" height="36">
       <span class="cb-nav-tag">100% Organic · Farm Direct</span>
     </a>
     <ul class="cb-nav-links">
@@ -949,7 +94,8 @@ a{text-decoration:none;color:inherit}
       <li><a onclick="go(5)">Packaging</a></li>
       <li><a class="cb-nav-cta" onclick="go(7)">Pricing</a></li>
     </ul>
-    <button class="cb-nav-toggle" id="cbNavToggle" aria-label="Open menu" aria-expanded="false" aria-controls="cbMobileMenu">
+    <button class="cb-nav-toggle" id="cbNavToggle"
+            aria-label="Open menu" aria-expanded="false" aria-controls="cbMobileMenu">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -966,33 +112,31 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <nav class="cb-dots">
-  <button class="cb-dot on" onclick="go(1)"></button>
-  <button class="cb-dot" onclick="go(2)"></button>
-  <button class="cb-dot" onclick="go(3)"></button>
-  <button class="cb-dot" onclick="go(4)"></button>
-  <button class="cb-dot" onclick="go(5)"></button>
-  <button class="cb-dot" onclick="go(6)"></button>
-  <button class="cb-dot" onclick="go(7)"></button>
+  <button class="cb-dot on"  onclick="go(1)"></button>
+  <button class="cb-dot"     onclick="go(2)"></button>
+  <button class="cb-dot"     onclick="go(3)"></button>
+  <button class="cb-dot"     onclick="go(4)"></button>
+  <button class="cb-dot"     onclick="go(5)"></button>
+  <button class="cb-dot"     onclick="go(6)"></button>
+  <button class="cb-dot"     onclick="go(7)"></button>
 </nav>
 
-<!-- PAGE 1: HERO -->
+
+<!-- ══════════════════════════════════════════════
+     PAGE 1 · HERO
+══════════════════════════════════════════════ -->
 <section class="cb-page" id="p1">
   <div class="cb-cover-bg"></div>
   <div class="cb-leaf cb-leaf-1">🌿</div>
   <div class="cb-leaf cb-leaf-2">🌿</div>
   <div class="cb-inner">
     <p class="cb-tagline">Brand Introduction</p>
-    <img
-      src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg"
-      alt="COCOBARN — 100% Organic Thai Namhom Coconut Water, Farm Direct from Ratchaburi"
-      class="cb-hero-logo"
-      loading="eager"
-      decoding="sync"
-      fetchpriority="high"
-      width="500" height="170"
-    >
+    <img src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg"
+         alt="COCOBARN — 100% Organic Thai Namhom Coconut Water, Farm Direct from Ratchaburi"
+         class="cb-hero-logo" loading="eager" decoding="sync"
+         fetchpriority="high" width="500" height="170">
     <p class="cb-sub">Farm-honest. Zero compromise.</p>
-    <div class="cb-badge">🌿 100% Organic · Thai Namhom · Farm Direct</div>
+    <div class="cb-badge">🌿 100% Organic · Thai Namhom Coconut · Farm Direct</div>
   </div>
   <div class="cb-scroll" onclick="go(2)">
     <span>Explore</span>
@@ -1000,28 +144,45 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- PAGE 2: WHY US -->
+
+<!-- ══════════════════════════════════════════════
+     PAGE 2 · WHY US
+══════════════════════════════════════════════ -->
 <section class="cb-page" id="p2">
   <div class="cb-why-wrap">
     <p class="cb-eyebrow light cbr">Our product</p>
-    <h2 class="cb-why-h cb-why-h-logo cbr d1">Why <span class="cb-why-logo-wrap"><img src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg" alt="COCOBARN logo" class="cb-why-logo-word" loading="lazy" decoding="async" width="160" height="40"></span></h2>
+    <h2 class="cb-why-h cb-why-h-logo cbr d1">Why
+      <span class="cb-why-logo-wrap">
+        <img src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg"
+             alt="COCOBARN logo" class="cb-why-logo-word"
+             loading="lazy" decoding="async" width="160" height="40">
+      </span>
+    </h2>
 
     <div class="cb-why-stage cbr d2">
 
-      <!-- LEFT COLUMN: cards 01 02 03 -->
+      <!-- LEFT COLUMN: cards 01–03 -->
       <div class="cb-why-col left">
 
-        <div class="cb-why-card" data-num="01" data-title="100% Organic Thai Nam Hom Coconut" data-desc="The finest aromatic variety, certified organic from farm to bottle. Thai Namhom coconuts are prized for their natural fragrance and delicately sweet water — a quality you simply cannot replicate with other varieties." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11"/><path d="M14 3 Q18 8 14 14 Q10 8 14 3Z"/><path d="M9 6 Q12 12 14 14 Q9 10 9 6Z" opacity="0.5"/><path d="M19 6 Q16 12 14 14 Q19 10 19 6Z" opacity="0.5"/></svg>'>
+        <div class="cb-why-card"
+             data-num="01"
+             data-title="100% Organic Thai Nam Hom Coconut"
+             data-desc="The finest aromatic variety, certified organic from farm to bottle. Thai Namhom coconuts are prized for their natural fragrance and delicately sweet water — a quality you simply cannot replicate with other varieties."
+             data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11"/><path d="M14 3 Q18 8 14 14 Q10 8 14 3Z"/><path d="M9 6 Q12 12 14 14 Q9 10 9 6Z" opacity="0.5"/><path d="M19 6 Q16 12 14 14 Q19 10 19 6Z" opacity="0.5"/></svg>'>
           <div class="cb-why-card-header">
             <span class="cb-why-num">01</span>
             <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="11"/><path d="M14 3 Q18 8 14 14 Q10 8 14 3Z"/><path d="M9 6 Q12 12 14 14 Q9 10 9 6Z" opacity="0.5"/><path d="M19 6 Q16 12 14 14 Q19 10 19 6Z" opacity="0.5"/></svg></div>
-            <div class="cb-why-title">100% Organic Thai Nam Hom</div>
+            <div class="cb-why-title">100% Organic Thai Nam Hom Coconut</div>
             <div class="cb-why-chevron"><svg viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></div>
           </div>
           <div class="cb-why-desc-wrap"><div class="cb-why-desc">The finest aromatic variety, certified organic from farm to bottle. Thai Namhom coconuts are prized for their natural fragrance and delicately sweet water.</div></div>
         </div>
 
-        <div class="cb-why-card" data-num="02" data-title="Locally Sourced Freshness" data-desc="Direct from Ratchaburi growers — no middlemen, maximum freshness. By working directly with farmers, we eliminate unnecessary supply chain steps and ensure the water reaches you at its most vibrant, alive state." data-icon='<svg viewBox="0 0 28 28"><path d="M14 3 C9 3 5 7 5 12 C5 19 14 25 14 25 C14 25 23 19 23 12 C23 7 19 3 14 3Z"/><circle cx="14" cy="12" r="3.5"/></svg>'>
+        <div class="cb-why-card"
+             data-num="02"
+             data-title="Locally Sourced Freshness"
+             data-desc="Direct from Ratchaburi growers — no middlemen, maximum freshness. By working directly with farmers, we eliminate unnecessary supply chain steps and ensure the water reaches you at its most vibrant, alive state."
+             data-icon='<svg viewBox="0 0 28 28"><path d="M14 3 C9 3 5 7 5 12 C5 19 14 25 14 25 C14 25 23 19 23 12 C23 7 19 3 14 3Z"/><circle cx="14" cy="12" r="3.5"/></svg>'>
           <div class="cb-why-card-header">
             <span class="cb-why-num">02</span>
             <div class="cb-why-icon"><svg viewBox="0 0 28 28"><path d="M14 3 C9 3 5 7 5 12 C5 19 14 25 14 25 C14 25 23 19 23 12 C23 7 19 3 14 3Z"/><circle cx="14" cy="12" r="3.5"/></svg></div>
@@ -1031,7 +192,11 @@ a{text-decoration:none;color:inherit}
           <div class="cb-why-desc-wrap"><div class="cb-why-desc">Direct from Ratchaburi growers — no middlemen, maximum freshness. We eliminate unnecessary supply chain steps so the water reaches you at its most vibrant state.</div></div>
         </div>
 
-        <div class="cb-why-card" data-num="03" data-title="Optimal 6-Month Harvest" data-desc="Harvested at exactly 6 months — the peak of juiciness and flavor. Too young and the water is watery; too old and it becomes oily. We harvest at the precise moment when sweetness, electrolytes, and aroma are at their absolute best." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="15" r="10"/><polyline points="14,8 14,15 19,15"/><path d="M14 5L14 3" stroke-width="2"/></svg>'>
+        <div class="cb-why-card"
+             data-num="03"
+             data-title="Optimal 6-Month Harvest"
+             data-desc="Harvested at exactly 6 months — the peak of juiciness and flavor. Too young and the water is watery; too old and it becomes oily. We harvest at the precise moment when sweetness, electrolytes, and aroma are at their absolute best."
+             data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="15" r="10"/><polyline points="14,8 14,15 19,15"/><path d="M14 5L14 3" stroke-width="2"/></svg>'>
           <div class="cb-why-card-header">
             <span class="cb-why-num">03</span>
             <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="15" r="10"/><polyline points="14,8 14,15 19,15"/><path d="M14 5L14 3" stroke-width="2"/></svg></div>
@@ -1041,20 +206,29 @@ a{text-decoration:none;color:inherit}
           <div class="cb-why-desc-wrap"><div class="cb-why-desc">Harvested at exactly 6 months — the peak of juiciness and flavor. We harvest at the precise moment when sweetness, electrolytes, and aroma are at their absolute best.</div></div>
         </div>
 
-      </div>
+      </div><!-- /left -->
 
-      <!-- CENTER: Bottle image — tap/click to flip front/back -->
+      <!-- CENTER: Bottle — tap/click to flip front/back -->
       <div class="cb-why-bottle cbr">
         <div class="cb-why-bottle-ring" style="position:relative;cursor:pointer" onclick="toggleBottle()">
-          <img id="bottleImg" src="/assets/img/cocobarn/font_bottle.svg" alt="COCOBARN 180ml organic coconut water bottle — front label featuring Thai farmer mascot" class="cb-why-bottle-img cb-bottle-flip" title="Tap to flip" loading="lazy" decoding="async" width="320" height="480">
+          <img id="bottleImg"
+               src="/assets/img/cocobarn/font_bottle.svg"
+               alt="COCOBARN 180ml organic coconut water bottle — front label"
+               class="cb-why-bottle-img cb-bottle-flip"
+               title="Tap to flip"
+               loading="lazy" decoding="async" width="320" height="480">
           <span class="cb-bottle-hint">tap to flip ↻</span>
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: cards 04 05 06 -->
+      <!-- RIGHT COLUMN: cards 04–06 -->
       <div class="cb-why-col right">
 
-        <div class="cb-why-card" data-num="04" data-title="No Added Sugar" data-desc="Pure coconut water as nature intended — nothing added, nothing hidden. No sugar. No preservatives. No concentrates. Just the real, living water from inside each coconut, bottled with minimal processing to preserve every natural note." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M10 10L18 18M18 10L10 18" stroke-width="2"/></svg>'>
+        <div class="cb-why-card"
+             data-num="04"
+             data-title="No Added Sugar"
+             data-desc="Pure coconut water as nature intended — nothing added, nothing hidden. No sugar. No preservatives. No concentrates. Just the real, living water from inside each coconut, bottled with minimal processing to preserve every natural note."
+             data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M10 10L18 18M18 10L10 18" stroke-width="2"/></svg>'>
           <div class="cb-why-card-header">
             <span class="cb-why-num">04</span>
             <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><path d="M10 10L18 18M18 10L10 18" stroke-width="2"/></svg></div>
@@ -1064,7 +238,11 @@ a{text-decoration:none;color:inherit}
           <div class="cb-why-desc-wrap"><div class="cb-why-desc">Pure coconut water as nature intended — nothing added, nothing hidden. No sugar, no preservatives, no concentrates. Just the real, living water from inside each coconut.</div></div>
         </div>
 
-        <div class="cb-why-card" data-num="05" data-title="Electrolyte &amp; Nutrient Rich" data-desc="Naturally packed with potassium, magnesium, calcium, and natural electrolytes. COCOBARN coconut water replenishes what your body loses — without any artificial additives — making it the most honest form of hydration possible." data-icon='<svg viewBox="0 0 28 28"><path d="M14 4 Q14 4 20 13 C22 17 21 22 17 24 C15 25 13 25 11 24 C7 22 6 17 8 13 Q14 4 14 4Z"/><path d="M10 18 Q12 22 16 20" stroke-width="1.5" opacity="0.6"/></svg>'>
+        <div class="cb-why-card"
+             data-num="05"
+             data-title="Electrolyte &amp; Nutrient Rich"
+             data-desc="Naturally packed with potassium, magnesium, calcium, and natural electrolytes. COCOBARN coconut water replenishes what your body loses — without any artificial additives — making it the most honest form of hydration possible."
+             data-icon='<svg viewBox="0 0 28 28"><path d="M14 4 Q14 4 20 13 C22 17 21 22 17 24 C15 25 13 25 11 24 C7 22 6 17 8 13 Q14 4 14 4Z"/><path d="M10 18 Q12 22 16 20" stroke-width="1.5" opacity="0.6"/></svg>'>
           <div class="cb-why-card-header">
             <span class="cb-why-num">05</span>
             <div class="cb-why-icon"><svg viewBox="0 0 28 28"><path d="M14 4 Q14 4 20 13 C22 17 21 22 17 24 C15 25 13 25 11 24 C7 22 6 17 8 13 Q14 4 14 4Z"/><path d="M10 18 Q12 22 16 20" stroke-width="1.5" opacity="0.6"/></svg></div>
@@ -1074,7 +252,11 @@ a{text-decoration:none;color:inherit}
           <div class="cb-why-desc-wrap"><div class="cb-why-desc">Naturally packed with potassium, magnesium, calcium, and electrolytes. Replenishes what your body loses — without any artificial additives — the most honest hydration possible.</div></div>
         </div>
 
-        <div class="cb-why-card" data-num="06" data-title="GMP, HACCP, Thai Organic Certified" data-desc="Every bottle is produced under GMP and HACCP food safety standards, and certified by Thailand's official organic certification body. International quality, Thai authenticity — backed by independent verification." data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><polyline points="9,14 13,18 20,10"/></svg>'>
+        <div class="cb-why-card"
+             data-num="06"
+             data-title="GMP, HACCP, Thai Organic Certified"
+             data-desc="Every bottle is produced under GMP and HACCP food safety standards, and certified by Thailand's official organic certification body. International quality, Thai authenticity — backed by independent verification."
+             data-icon='<svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><polyline points="9,14 13,18 20,10"/></svg>'>
           <div class="cb-why-card-header">
             <span class="cb-why-num">06</span>
             <div class="cb-why-icon"><svg viewBox="0 0 28 28"><circle cx="14" cy="14" r="10"/><polyline points="9,14 13,18 20,10"/></svg></div>
@@ -1084,12 +266,16 @@ a{text-decoration:none;color:inherit}
           <div class="cb-why-desc-wrap"><div class="cb-why-desc">Every bottle produced under GMP and HACCP standards, certified by Thailand's organic certification body. International quality, Thai authenticity — independently verified.</div></div>
         </div>
 
-      </div>
+      </div><!-- /right -->
+
     </div><!-- /cb-why-stage -->
   </div>
 </section>
 
-<!-- PAGE 3: STORY -->
+
+<!-- ══════════════════════════════════════════════
+     PAGE 3 · STORY
+══════════════════════════════════════════════ -->
 <section class="cb-page" id="p3">
   <div class="cb-concept-grid">
     <div>
@@ -1099,24 +285,22 @@ a{text-decoration:none;color:inherit}
       <p class="cb-body cbr d3">The <strong>"O"</strong> in COCOBARN is intentionally imperfect to symbolize our coconuts that are never identical. Even their natural sweetness could vary. And that's exactly what makes them real, natural, and at their best.</p>
       <blockquote class="cb-quote cbr d4">a ready-to-drink refreshment that supports both growers and drinkers</blockquote>
     </div>
-    <!-- Mascot: white-inside version (page2 logo) with elegant walk -->
     <div class="cb-mascot-box cbr d2">
       <div class="cb-mascot-svg-wrap">
-        <img
-          src="/assets/img/cocobarn/COCOBARN_LOGO_page2.svg"
-          alt="COCOBARN farmer mascot — a Thai coconut farmer from Ratchaburi carrying a coconut"
-          class="cb-mascot-p2-logo"
-          loading="lazy"
-          decoding="async"
-          width="240" height="240"
-        >
+        <img src="/assets/img/cocobarn/COCOBARN_LOGO_page2.svg"
+             alt="COCOBARN farmer mascot — a Thai coconut farmer from Ratchaburi carrying a coconut"
+             class="cb-mascot-p2-logo"
+             loading="lazy" decoding="async" width="240" height="240">
       </div>
       <p class="cb-mascot-cap">The COCOBARN Farmer<br>Ratchaburi, Thailand</p>
     </div>
   </div>
 </section>
 
-<!-- PAGE 4: SHELF LIFE -->
+
+<!-- ══════════════════════════════════════════════
+     PAGE 4 · SHELF LIFE
+══════════════════════════════════════════════ -->
 <section class="cb-page" id="p4">
   <div class="cb-shelf-bg">FRESH</div>
   <div class="cb-shelf-inner">
@@ -1128,22 +312,37 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- PAGE 5: PACKAGING (3 tabs: Front / Back / Story) -->
+
+<!-- ══════════════════════════════════════════════
+     PAGE 5 · PACKAGING  (3 tabs: Front / Back / Story)
+══════════════════════════════════════════════ -->
 <section class="cb-pack-page" id="p5">
   <div class="cb-pack-grid">
     <div class="cb-pack-img-panel">
       <div class="cb-pack-img-wrap">
-        <div class="cb-pack-slide on" id="s-front"><img src="/assets/img/cocobarn/front.jpg" alt="COCOBARN coconut water bottle front label — COCOBARN branding with farmer mascot, 180ml and 1L sizes" loading="lazy" decoding="async" width="600" height="800"></div>
-        <div class="cb-pack-slide" id="s-back"><img src="/assets/img/cocobarn/back.jpg" alt="COCOBARN coconut water bottle back label — nutrition facts, ingredients, and brand story in handwritten style" loading="lazy" decoding="async" width="600" height="800"></div>
-        <div class="cb-pack-slide story-slide" id="s-story"><img src="/assets/img/cocobarn/story.svg" alt="COCOBARN brand story banner — from Ratchaburi organic farm to your hands, near-zero waste mission" loading="lazy" decoding="async" width="1200" height="400"></div>
+        <div class="cb-pack-slide on" id="s-front">
+          <img src="/assets/img/cocobarn/front.jpg"
+               alt="COCOBARN coconut water bottle front label — branding with farmer mascot, 180ml and 1L sizes"
+               loading="lazy" decoding="async" width="600" height="800">
+        </div>
+        <div class="cb-pack-slide" id="s-back">
+          <img src="/assets/img/cocobarn/back.jpg"
+               alt="COCOBARN bottle back label — nutrition facts and brand story"
+               loading="lazy" decoding="async" width="600" height="800">
+        </div>
+        <div class="cb-pack-slide story-slide" id="s-story">
+          <img src="/assets/img/cocobarn/story.svg"
+               alt="COCOBARN brand story banner — from Ratchaburi organic farm to your hands"
+               loading="lazy" decoding="async" width="1200" height="400">
+        </div>
       </div>
     </div>
-    <!-- Mobile tabs: sit directly under image (hidden on desktop via CSS) -->
+    <!-- Mobile tabs (below image, hidden on desktop) -->
     <div class="cb-pack-mobile-tabs">
       <div class="cb-pack-tabs">
-        <button class="cb-pack-tab on" onclick="switchPack('front')">Front</button>
-        <button class="cb-pack-tab" onclick="switchPack('back')">Back</button>
-        <button class="cb-pack-tab" onclick="switchPack('story')">Story</button>
+        <button class="cb-pack-tab on"  onclick="switchPack('front')">Front</button>
+        <button class="cb-pack-tab"     onclick="switchPack('back')">Back</button>
+        <button class="cb-pack-tab"     onclick="switchPack('story')">Story</button>
       </div>
     </div>
     <div class="cb-pack-text-panel">
@@ -1154,12 +353,12 @@ a{text-decoration:none;color:inherit}
         <span class="cb-size-pill">210 ml</span>
         <span class="cb-size-pill">1 L</span>
       </div>
-      <!-- Desktop tabs: inside text panel (hidden on mobile via CSS) -->
+      <!-- Desktop tabs (inside text panel, hidden on mobile) -->
       <div class="cb-pack-text-inner-tabs cbr d4">
         <div class="cb-pack-tabs">
-          <button class="cb-pack-tab on" onclick="switchPack('front')">Front</button>
-          <button class="cb-pack-tab" onclick="switchPack('back')">Back</button>
-          <button class="cb-pack-tab" onclick="switchPack('story')">Story</button>
+          <button class="cb-pack-tab on"  onclick="switchPack('front')">Front</button>
+          <button class="cb-pack-tab"     onclick="switchPack('back')">Back</button>
+          <button class="cb-pack-tab"     onclick="switchPack('story')">Story</button>
         </div>
       </div>
       <div class="cbr d5">
@@ -1170,7 +369,10 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- PAGE 6: FARM — text LEFT, image RIGHT -->
+
+<!-- ══════════════════════════════════════════════
+     PAGE 6 · FARM  (text left, image right)
+══════════════════════════════════════════════ -->
 <section class="cb-pack-page" id="p6">
   <div class="cb-pack-grid">
     <div class="cb-pack-text-panel dark">
@@ -1183,12 +385,17 @@ a{text-decoration:none;color:inherit}
       </div>
     </div>
     <div class="cb-pack-img-panel">
-      <img src="/assets/img/cocobarn/banner.jpg" alt="COCOBARN organic coconut farm in Ratchaburi, Thailand — lush coconut grove with traditional farming" loading="lazy" decoding="async" width="1200" height="800">
+      <img src="/assets/img/cocobarn/banner.jpg"
+           alt="COCOBARN organic coconut farm in Ratchaburi, Thailand — lush coconut grove"
+           loading="lazy" decoding="async" width="1200" height="800">
     </div>
   </div>
 </section>
 
-<!-- PAGE 7: PRICING -->
+
+<!-- ══════════════════════════════════════════════
+     PAGE 7 · PRICING
+══════════════════════════════════════════════ -->
 <section class="cb-page" id="p7">
   <div class="cb-price-wrap">
     <p class="cb-eyebrow light cbr">Wholesale Pricing</p>
@@ -1218,7 +425,15 @@ a{text-decoration:none;color:inherit}
   </div>
 </section>
 
-<!-- MR. COCONUT CONTACT WIDGET (green mascot) -->
+
+<!-- ══════════════════════════════════════════════
+     MR. COCONUT CONTACT WIDGET
+     .coco-wrap has pointer-events:none so the
+     invisible bounding box never blocks the page.
+     Only .coco-row (the toggle button) is clickable
+     when closed; .coco-options becomes clickable
+     only after .open is added.
+══════════════════════════════════════════════ -->
 <div class="coco-wrap" id="cocoContact">
   <div class="coco-options">
     <a href="https://www.instagram.com/cocobarn.th" class="coco-btn coco-btn-ig" target="_blank" rel="noopener">
@@ -1227,7 +442,7 @@ a{text-decoration:none;color:inherit}
     </a>
     <a href="https://lin.ee/7AFC5Bs" class="coco-btn coco-btn-line" target="_blank" rel="noopener">
       <div class="coco-btn-label">LINE@</div>
-      <div class="coco-btn-icon"><img src="/assets/img/icon/line.png" alt="LINE messaging app" loading="lazy" decoding="async" width="20" height="20" style="width:20px;height:20px;object-fit:contain;display:block"></div>
+      <div class="coco-btn-icon"><img src="/assets/img/icon/line_icon.png" alt="LINE" loading="lazy" decoding="async" width="20" height="20" style="width:20px;height:20px;object-fit:contain;display:block"></div>
     </a>
     <a href="tel:0851535353" class="coco-btn coco-btn-call">
       <div class="coco-btn-label">085-153-5353</div>
@@ -1237,55 +452,58 @@ a{text-decoration:none;color:inherit}
   <div class="coco-row">
     <div class="coco-label">Contact Us</div>
     <button class="coco-toggle" id="cocoBtn" aria-label="Contact COCOBARN">
-      <img id="cocoToggleImg" src="/assets/img/cocobarn/COCOBARN_LOGO_page2.svg" alt="Contact COCOBARN" loading="lazy" decoding="async" width="40" height="40">
+      <img id="cocoToggleImg" src="/assets/img/cocobarn/COCOBARN_LOGO_page2.svg"
+           alt="Contact COCOBARN" loading="lazy" decoding="async" width="40" height="40">
     </button>
   </div>
 </div>
 
-<!-- WHY CARD MODAL -->
+
+<!-- WHY CARD MODAL (mobile) -->
 <div class="cb-why-modal-overlay" id="whyModal" role="dialog" aria-modal="true">
   <div class="cb-why-modal" id="whyModalPanel">
     <div class="cb-why-modal-handle"></div>
     <button class="cb-why-modal-close" id="whyModalClose" aria-label="Close">✕</button>
     <div class="cb-why-modal-body">
-      <div class="cb-why-modal-num" id="whyModalNum"></div>
-      <div class="cb-why-modal-icon" id="whyModalIcon"></div>
+      <div class="cb-why-modal-num"   id="whyModalNum"></div>
+      <div class="cb-why-modal-icon"  id="whyModalIcon"></div>
       <div class="cb-why-modal-title" id="whyModalTitle"></div>
-      <div class="cb-why-modal-desc" id="whyModalDesc"></div>
+      <div class="cb-why-modal-desc"  id="whyModalDesc"></div>
     </div>
   </div>
 </div>
+
 
 <footer class="cb-footer">
   © <a href="https://www.bluroca.com">Bluroca</a> All rights reserved.
 </footer>
 
+
+<!-- ══════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════ -->
 <script>
+/* ── Smooth scroll to page ── */
 function go(n){
   document.getElementById('p'+n).scrollIntoView({behavior:'smooth'});
 }
 
-// Bottle flip toggle
+/* ── Bottle flip ── */
 const BOTTLE_FRONT = '/assets/img/cocobarn/font_bottle.svg';
 const BOTTLE_BACK  = '/assets/img/cocobarn/back_bottle.svg';
-// Preload back bottle after page load so swap is instant
-window.addEventListener('load', ()=>{
-  const preload = new Image(); preload.src = BOTTLE_BACK;
-});
-let bottleShowingFront = true;
-let bottleSpinning = false;
+window.addEventListener('load', ()=>{ const p=new Image(); p.src=BOTTLE_BACK; });
+let bottleShowingFront=true, bottleSpinning=false;
 function toggleBottle(){
   if(bottleSpinning) return;
-  bottleSpinning = true;
-  const img = document.getElementById('bottleImg');
-  bottleShowingFront = !bottleShowingFront;
-  img.src = bottleShowingFront ? BOTTLE_FRONT : BOTTLE_BACK;
-  setTimeout(()=>{ bottleSpinning=false; }, 300);
+  bottleSpinning=true;
+  bottleShowingFront=!bottleShowingFront;
+  document.getElementById('bottleImg').src=bottleShowingFront?BOTTLE_FRONT:BOTTLE_BACK;
+  setTimeout(()=>{ bottleSpinning=false; },300);
 }
 
+/* ── Nav dot active state ── */
 const pages=[...document.querySelectorAll('#p1,#p2,#p3,#p4,#p5,#p6,#p7')];
-const dots=[...document.querySelectorAll('.cb-dot')];
-
+const dots =[...document.querySelectorAll('.cb-dot')];
 pages.forEach(p=>new IntersectionObserver(es=>{
   es.forEach(e=>{
     if(e.isIntersecting&&e.intersectionRatio>0.35){
@@ -1295,72 +513,92 @@ pages.forEach(p=>new IntersectionObserver(es=>{
   });
 },{threshold:0.35}).observe(p));
 
+/* ── Scroll-reveal ── */
 document.querySelectorAll('.cbr').forEach(el=>
   new IntersectionObserver(es=>{
-    es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});
+    es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on'); });
   },{threshold:0.12}).observe(el)
 );
 
+/* ── Packaging tabs ── */
 function switchPack(size){
-  // Toggle slides
   document.querySelectorAll('.cb-pack-slide').forEach(s=>s.classList.remove('on'));
-  const target = document.getElementById('s-'+size);
-  if(target) target.classList.add('on');
-  // Toggle all tabs (both mobile and desktop bars)
-  document.querySelectorAll('.cb-pack-tab').forEach(t=>{
-    const fn = t.getAttribute('onclick')||'';
-    t.classList.toggle('on', fn.indexOf("'"+size+"'") !== -1);
+  const t=document.getElementById('s-'+size);
+  if(t) t.classList.add('on');
+  document.querySelectorAll('.cb-pack-tab').forEach(tab=>{
+    const fn=tab.getAttribute('onclick')||'';
+    tab.classList.toggle('on', fn.indexOf("'"+size+"'")!==-1);
   });
 }
 
-const cw=document.getElementById('cocoContact');
+/* ── Contact widget ── */
+const cw            = document.getElementById('cocoContact');
 const cocoToggleImg = document.getElementById('cocoToggleImg');
 document.getElementById('cocoBtn').addEventListener('click',e=>{
   e.stopPropagation();
-  const isOpen = cw.classList.toggle('open');
-  cocoToggleImg.src = isOpen
+  const isOpen=cw.classList.toggle('open');
+  cocoToggleImg.src=isOpen
     ? '/assets/img/cocobarn/COCOBARN_LOGO_page3.svg'
     : '/assets/img/cocobarn/COCOBARN_LOGO_page2.svg';
 });
 document.addEventListener('click',e=>{
   if(!cw.contains(e.target)){
     cw.classList.remove('open');
-    cocoToggleImg.src = '/assets/img/cocobarn/COCOBARN_LOGO_page2.svg';
+    cocoToggleImg.src='/assets/img/cocobarn/COCOBARN_LOGO_page2.svg';
   }
 });
 
-// ── WHY CARD MODAL (mobile only) ──
-const whyModal    = document.getElementById('whyModal');
-const whyPanel    = document.getElementById('whyModalPanel');
-const whyClose    = document.getElementById('whyModalClose');
-const whyNum      = document.getElementById('whyModalNum');
-const whyIcon     = document.getElementById('whyModalIcon');
-const whyTitle    = document.getElementById('whyModalTitle');
-const whyDesc     = document.getElementById('whyModalDesc');
+/* ── Mobile nav menu ── */
+const cbNavToggle  = document.getElementById('cbNavToggle');
+const cbMobileMenu = document.getElementById('cbMobileMenu');
+function closeMobileMenu(){
+  cbMobileMenu.classList.remove('cb-open');
+  cbNavToggle.classList.remove('cb-open');
+  cbNavToggle.setAttribute('aria-expanded','false');
+}
+if(cbNavToggle&&cbMobileMenu){
+  cbNavToggle.addEventListener('click',e=>{
+    e.stopPropagation();
+    const isOpen=cbMobileMenu.classList.toggle('cb-open');
+    cbNavToggle.classList.toggle('cb-open',isOpen);
+    cbNavToggle.setAttribute('aria-expanded',isOpen?'true':'false');
+  });
+  document.addEventListener('click',e=>{
+    if(!cbMobileMenu.contains(e.target)&&!cbNavToggle.contains(e.target)) closeMobileMenu();
+  });
+  window.addEventListener('resize',()=>{ if(window.innerWidth>1004) closeMobileMenu(); });
+}
+
+/* ── Why card modal (mobile) ── */
+const whyModal  = document.getElementById('whyModal');
+const whyPanel  = document.getElementById('whyModalPanel');
+const whyClose  = document.getElementById('whyModalClose');
+const whyNum    = document.getElementById('whyModalNum');
+const whyIcon   = document.getElementById('whyModalIcon');
+const whyTitle  = document.getElementById('whyModalTitle');
+const whyDesc   = document.getElementById('whyModalDesc');
 
 function openWhyModal(card){
-  if(window.innerWidth > 900) return; // desktop: no modal
+  if(window.innerWidth>900) return;
   whyNum.textContent   = card.dataset.num;
   whyIcon.innerHTML    = card.dataset.icon;
   whyTitle.textContent = card.dataset.title;
   whyDesc.textContent  = card.dataset.desc;
   whyModal.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
 function closeWhyModal(){
   whyModal.classList.remove('open');
-  document.body.style.overflow = '';
+  document.body.style.overflow='';
 }
 
 document.querySelectorAll('.cb-why-card').forEach(card=>{
   card.addEventListener('click',()=>{
-    if(window.innerWidth > 768){
-      // Desktop: toggle active (expand inline)
-      const isActive = card.classList.contains('active');
+    if(window.innerWidth>768){
+      const isActive=card.classList.contains('active');
       document.querySelectorAll('.cb-why-card').forEach(c=>c.classList.remove('active'));
       if(!isActive) card.classList.add('active');
     } else {
-      // Mobile: open modal
       openWhyModal(card);
     }
   });
@@ -1368,40 +606,17 @@ document.querySelectorAll('.cb-why-card').forEach(card=>{
 whyClose.addEventListener('click', closeWhyModal);
 whyModal.addEventListener('click', e=>{ if(e.target===whyModal) closeWhyModal(); });
 
-// Swipe down to close
-let touchStartY = 0;
-whyPanel.addEventListener('touchstart', e=>{ touchStartY = e.touches[0].clientY; },{passive:true});
+let touchStartY=0;
+whyPanel.addEventListener('touchstart',e=>{ touchStartY=e.touches[0].clientY; },{passive:true});
 whyPanel.addEventListener('touchmove', e=>{
-  const dy = e.touches[0].clientY - touchStartY;
-  if(dy > 0) whyPanel.style.transform = `translateY(${dy}px)`;
+  const dy=e.touches[0].clientY-touchStartY;
+  if(dy>0) whyPanel.style.transform=`translateY(${dy}px)`;
 },{passive:true});
 whyPanel.addEventListener('touchend', e=>{
-  const dy = e.changedTouches[0].clientY - touchStartY;
-  whyPanel.style.transform = '';
-  if(dy > 80) closeWhyModal();
+  const dy=e.changedTouches[0].clientY-touchStartY;
+  whyPanel.style.transform='';
+  if(dy>80) closeWhyModal();
 },{passive:true});
-const cbMobileMenu=document.getElementById('cbMobileMenu');
-
-function closeMobileMenu(){
-  cbMobileMenu.classList.remove('cb-open');
-  cbNavToggle.classList.remove('cb-open');
-  cbNavToggle.setAttribute('aria-expanded','false');
-}
-
-if(cbNavToggle&&cbMobileMenu){
-  cbNavToggle.addEventListener('click',function(e){
-    e.stopPropagation();
-    const isOpen=cbMobileMenu.classList.toggle('cb-open');
-    cbNavToggle.classList.toggle('cb-open',isOpen);
-    cbNavToggle.setAttribute('aria-expanded',isOpen?'true':'false');
-  });
-  document.addEventListener('click',function(e){
-    if(!cbMobileMenu.contains(e.target)&&!cbNavToggle.contains(e.target)){closeMobileMenu();}
-  });
-  window.addEventListener('resize',function(){
-    if(window.innerWidth>1004)closeMobileMenu();
-  });
-}
 </script>
 </body>
 </html>
