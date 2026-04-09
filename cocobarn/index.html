@@ -656,10 +656,16 @@ a{text-decoration:none;color:inherit}
 }
 
 @media(max-width:1004px){
-  .cb-nav-tag{font-size:0.68rem;letter-spacing:0.12em;padding-left:10px}
+  .cb-nav-tag{font-size:0.58rem;letter-spacing:0.12em;padding-left:10px}
   .cb-nav-links{display:none}
   .cb-nav-toggle{display:flex}
   .cb-mobile-menu{display:block}
+}
+@media(max-width:600px){
+  .cb-nav-tag{font-size:0.48rem;letter-spacing:0.06em;padding-left:7px;max-width:38vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+@media(max-width:400px){
+  .cb-nav-tag{display:none}
 }
 
 @media(max-width:900px){
@@ -970,7 +976,7 @@ a{text-decoration:none;color:inherit}
       <!-- CENTER: Bottle image — tap/click to flip front/back -->
       <div class="cb-why-bottle cbr">
         <div class="cb-why-bottle-ring" style="position:relative;cursor:pointer" onclick="toggleBottle()">
-          <img id="bottleImg" src="/assets/img/cocobarn/font_bottle.png" alt="COCOBARN bottle" class="cb-why-bottle-img cb-bottle-flip" title="Tap to flip">
+          <img id="bottleImg" src="/assets/img/cocobarn/font_bottle.svg" alt="COCOBARN bottle" class="cb-why-bottle-img cb-bottle-flip" title="Tap to flip">
           <span class="cb-bottle-hint">tap to flip ↻</span>
         </div>
       </div>
@@ -1184,8 +1190,8 @@ function go(n){
 }
 
 // Bottle flip toggle
-const BOTTLE_FRONT = '/assets/img/cocobarn/font_bottle.png';
-const BOTTLE_BACK  = '/assets/img/cocobarn/back_bottle.png';
+const BOTTLE_FRONT = '/assets/img/cocobarn/font_bottle.svg';
+const BOTTLE_BACK  = '/assets/img/cocobarn/back_bottle.svg';
 let bottleShowingFront = true;
 let bottleSpinning = false;
 function toggleBottle(){
