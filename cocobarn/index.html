@@ -3,7 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COCOBARN — Brand Introduction</title>
+<title>COCOBARN — 100% Organic Thai Namhom Coconut Water | Farm Direct</title>
+<meta name="description" content="COCOBARN — 100% Organic Thai Namhom Coconut Water sourced directly from Ratchaburi farmers. No added sugar, no middlemen. GMP & HACCP certified. Fresh within 10 days.">
+<meta name="keywords" content="organic coconut water, Thai coconut water, Namhom coconut, farm direct, COCOBARN, Ratchaburi, no sugar coconut water, organic drink Thailand">
+<meta name="robots" content="index, follow">
+<meta name="author" content="COCOBARN">
+<link rel="canonical" href="https://www.bluroca.com/cocobarn/">
 
 <!-- ── FAVICONS ── -->
 <link rel="icon" href="/assets/img/cocobarn/favicon/favicon.ico" sizes="any">
@@ -13,23 +18,71 @@
 <link rel="manifest" href="/assets/img/cocobarn/favicon/site.webmanifest">
 <meta name="theme-color" content="#3f5124">
 
-<!-- ── OPEN GRAPH (link previews: iMessage, LINE, Facebook, etc.) ── -->
-<meta property="og:title" content="COCOBARN — Thai Organic Coconut Water.">
-<meta property="og:description" content="100% Organic Thai Namhom Coconut Water. Sourced direct from Ratchaburi farmers. No added sugar, no middlemen.">
+<!-- ── OPEN GRAPH ── -->
+<meta property="og:title" content="COCOBARN — 100% Organic Thai Namhom Coconut Water.">
+<meta property="og:description" content="100% Organic Thai Namhom Coconut Water. Sourced direct from Ratchaburi farmers. No added sugar, no middlemen. GMP & HACCP certified.">
 <meta property="og:image" content="https://www.bluroca.com/assets/img/cocobarn/og/cocobarn_og.png">
-<meta property="og:image:type" content="image/svg+xml">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="COCOBARN — Thai Organic Coconut Water bottle with farmer mascot">
 <meta property="og:url" content="https://www.bluroca.com/cocobarn/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="COCOBARN">
+<meta property="og:locale" content="en_US">
 
-<!-- Twitter Card (X, iMessage fallback) -->
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="COCOBARN — Thai Organic Coconut Water.">
-<meta name="twitter:description" content="100% Organic Thai Namhom Coconut Water. Direct from Ratchaburi farmers.">
+<meta name="twitter:description" content="100% Organic Thai Namhom Coconut Water. Direct from Ratchaburi farmers. No sugar, GMP & HACCP certified.">
 <meta name="twitter:image" content="https://www.bluroca.com/assets/img/cocobarn/og/cocobarn_og.png">
+<meta name="twitter:image:alt" content="COCOBARN Thai Organic Coconut Water">
 
+<!-- ── STRUCTURED DATA (JSON-LD) ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "COCOBARN 100% Organic Thai Namhom Coconut Water",
+  "description": "100% Organic Thai Namhom Coconut Water sourced directly from Ratchaburi farms. No added sugar, no preservatives. GMP and HACCP certified.",
+  "brand": {
+    "@type": "Brand",
+    "name": "COCOBARN"
+  },
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "COCOBARN",
+    "url": "https://www.bluroca.com/cocobarn/"
+  },
+  "image": "https://www.bluroca.com/assets/img/cocobarn/og/cocobarn_og.png",
+  "url": "https://www.bluroca.com/cocobarn/",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "210ml Coconut Water",
+      "priceCurrency": "THB",
+      "price": "50",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer",
+      "name": "1L Coconut Water",
+      "priceCurrency": "THB",
+      "price": "190",
+      "availability": "https://schema.org/InStock"
+    }
+  ],
+  "additionalProperty": [
+    {"@type":"PropertyValue","name":"Certification","value":"GMP, HACCP, Thai Organic Certified"},
+    {"@type":"PropertyValue","name":"Origin","value":"Ratchaburi, Thailand"},
+    {"@type":"PropertyValue","name":"Variety","value":"Thai Namhom Coconut"},
+    {"@type":"PropertyValue","name":"Shelf Life","value":"10 days refrigerated at 0–4°C"}
+  ]
+}
+</script>
+
+<!-- ── PRELOAD critical above-the-fold assets ── -->
+<link rel="preload" as="image" href="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <style>
 @font-face {
@@ -871,8 +924,12 @@ a{text-decoration:none;color:inherit}
       <!-- White logo on dark-green navbar -->
       <img
         src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg"
-        alt="COCOBARN"
+        alt="COCOBARN — Thai Organic Coconut Water brand logo"
         class="cb-nav-logo"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        width="120" height="36"
       >
       <span class="cb-nav-tag">100% Organic · Farm Direct</span>
     </a>
@@ -918,8 +975,12 @@ a{text-decoration:none;color:inherit}
     <p class="cb-tagline">Brand Introduction</p>
     <img
       src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg"
-      alt="COCOBARN"
+      alt="COCOBARN — 100% Organic Thai Namhom Coconut Water, Farm Direct from Ratchaburi"
       class="cb-hero-logo"
+      loading="eager"
+      decoding="sync"
+      fetchpriority="high"
+      width="500" height="170"
     >
     <p class="cb-sub">Farm-honest. Zero compromise.</p>
     <div class="cb-badge">🌿 100% Organic · Thai Namhom · Farm Direct</div>
@@ -934,7 +995,7 @@ a{text-decoration:none;color:inherit}
 <section class="cb-page" id="p2">
   <div class="cb-why-wrap">
     <p class="cb-eyebrow light cbr">Our product</p>
-    <h2 class="cb-why-h cb-why-h-logo cbr d1">Why <span class="cb-why-logo-wrap"><img src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg" alt="COCOBARN" class="cb-why-logo-word"></span></h2>
+    <h2 class="cb-why-h cb-why-h-logo cbr d1">Why <span class="cb-why-logo-wrap"><img src="/assets/img/cocobarn/COCOBARN_LOGO_page1.svg" alt="COCOBARN logo" class="cb-why-logo-word" loading="lazy" decoding="async" width="160" height="40"></span></h2>
 
     <div class="cb-why-stage cbr d2">
 
@@ -976,7 +1037,7 @@ a{text-decoration:none;color:inherit}
       <!-- CENTER: Bottle image — tap/click to flip front/back -->
       <div class="cb-why-bottle cbr">
         <div class="cb-why-bottle-ring" style="position:relative;cursor:pointer" onclick="toggleBottle()">
-          <img id="bottleImg" src="/assets/img/cocobarn/font_bottle.svg" alt="COCOBARN bottle" class="cb-why-bottle-img cb-bottle-flip" title="Tap to flip">
+          <img id="bottleImg" src="/assets/img/cocobarn/font_bottle.svg" alt="COCOBARN 180ml organic coconut water bottle — front label featuring Thai farmer mascot" class="cb-why-bottle-img cb-bottle-flip" title="Tap to flip" loading="lazy" decoding="async" width="320" height="480">
           <span class="cb-bottle-hint">tap to flip ↻</span>
         </div>
       </div>
@@ -1034,8 +1095,11 @@ a{text-decoration:none;color:inherit}
       <div class="cb-mascot-svg-wrap">
         <img
           src="/assets/img/cocobarn/COCOBARN_LOGO_page2.svg"
-          alt="COCOBARN Mascot"
+          alt="COCOBARN farmer mascot — a Thai coconut farmer from Ratchaburi carrying a coconut"
           class="cb-mascot-p2-logo"
+          loading="lazy"
+          decoding="async"
+          width="240" height="240"
         >
       </div>
       <p class="cb-mascot-cap">The COCOBARN Farmer<br>Ratchaburi, Thailand</p>
@@ -1060,9 +1124,9 @@ a{text-decoration:none;color:inherit}
   <div class="cb-pack-grid">
     <div class="cb-pack-img-panel">
       <div class="cb-pack-img-wrap">
-        <div class="cb-pack-slide on" id="s-front"><img src="/assets/img/cocobarn/front.jpg" alt="Front label"></div>
-        <div class="cb-pack-slide" id="s-back"><img src="/assets/img/cocobarn/back.jpg" alt="Back label"></div>
-        <div class="cb-pack-slide story-slide" id="s-story"><img src="/assets/img/cocobarn/story.svg" alt="Story banner"></div>
+        <div class="cb-pack-slide on" id="s-front"><img src="/assets/img/cocobarn/front.jpg" alt="COCOBARN coconut water bottle front label — COCOBARN branding with farmer mascot, 180ml and 1L sizes" loading="lazy" decoding="async" width="600" height="800"></div>
+        <div class="cb-pack-slide" id="s-back"><img src="/assets/img/cocobarn/back.jpg" alt="COCOBARN coconut water bottle back label — nutrition facts, ingredients, and brand story in handwritten style" loading="lazy" decoding="async" width="600" height="800"></div>
+        <div class="cb-pack-slide story-slide" id="s-story"><img src="/assets/img/cocobarn/story.svg" alt="COCOBARN brand story banner — from Ratchaburi organic farm to your hands, near-zero waste mission" loading="lazy" decoding="async" width="1200" height="400"></div>
       </div>
     </div>
     <!-- Mobile tabs: sit directly under image (hidden on desktop via CSS) -->
@@ -1110,7 +1174,7 @@ a{text-decoration:none;color:inherit}
       </div>
     </div>
     <div class="cb-pack-img-panel">
-      <img src="/assets/img/cocobarn/banner.jpg" alt="COCOBARN farm">
+      <img src="/assets/img/cocobarn/banner.jpg" alt="COCOBARN organic coconut farm in Ratchaburi, Thailand — lush coconut grove with traditional farming" loading="lazy" decoding="async" width="1200" height="800">
     </div>
   </div>
 </section>
@@ -1154,7 +1218,7 @@ a{text-decoration:none;color:inherit}
     </a>
     <a href="https://lin.ee/7AFC5Bs" class="coco-btn coco-btn-line" target="_blank" rel="noopener">
       <div class="coco-btn-label">LINE@</div>
-      <div class="coco-btn-icon"><img src="/assets/img/icon/line_icon.png" alt="LINE" style="width:20px;height:20px;object-fit:contain;display:block"></div>
+      <div class="coco-btn-icon"><img src="/assets/img/icon/line.png" alt="LINE messaging app" loading="lazy" decoding="async" width="20" height="20" style="width:20px;height:20px;object-fit:contain;display:block"></div>
     </a>
     <a href="tel:0851535353" class="coco-btn coco-btn-call">
       <div class="coco-btn-label">085-153-5353</div>
@@ -1164,7 +1228,7 @@ a{text-decoration:none;color:inherit}
   <div class="coco-row">
     <div class="coco-label">Contact Us</div>
     <button class="coco-toggle" id="cocoBtn" aria-label="Contact COCOBARN">
-      <img id="cocoToggleImg" src="/assets/img/cocobarn/COCOBARN_LOGO_page2.svg" alt="Mr. Coconut">
+      <img id="cocoToggleImg" src="/assets/img/cocobarn/COCOBARN_LOGO_page2.svg" alt="Contact COCOBARN" loading="lazy" decoding="async" width="40" height="40">
     </button>
   </div>
 </div>
@@ -1195,6 +1259,10 @@ function go(n){
 // Bottle flip toggle
 const BOTTLE_FRONT = '/assets/img/cocobarn/font_bottle.svg';
 const BOTTLE_BACK  = '/assets/img/cocobarn/back_bottle.svg';
+// Preload back bottle after page load so swap is instant
+window.addEventListener('load', ()=>{
+  const preload = new Image(); preload.src = BOTTLE_BACK;
+});
 let bottleShowingFront = true;
 let bottleSpinning = false;
 function toggleBottle(){
