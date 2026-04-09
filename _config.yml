@@ -59,7 +59,7 @@ search_settings:
 # Open Graph & Schema.org
 # -----------------------------------------------------------------------------
 
-serve_og_meta: false # change to true later
+serve_og_meta: true # change to true later
 serve_schema_org: false
 og_image: "/assets/img/custom_logo/bluroca/Bluroca.png"
 

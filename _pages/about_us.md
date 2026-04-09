@@ -18,7 +18,7 @@ contact_order:
 #  - digitalcard
 
 # ================ NAVBAR ================ #
-navbar_logo_one: /assets/img/custom_logo/bluroca/Bluroca_square.svg
+navbar_logo_one: /assets/img/custom_logo/bluroca/Bluroca_logo.png
 
 # ================ Language Switch ================ #
 language_switch: false
@@ -39,7 +39,7 @@ keywords: BLUROCA, business consulting, strategic planning, market expansion, in
 # OG META
 og_title: BLUROCA — Strategic Business Solutions from Vision to Execution
 og_description: BLUROCA helps businesses and entrepreneurs grow through strategic planning, operational execution, digital transformation, and business development tailored to measurable results.
-#og_image: /assets/img/page_logo/bluroca_logo.png
+og_image: /assets/img/custom_logo/bluroca/Bluroca.png
 ---
 
 <style>
