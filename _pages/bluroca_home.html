@@ -43,13 +43,40 @@ og_image: "/assets/img/custom_logo/bluroca/Bluroca.png"
 .blu-hero-inner { position:relative; z-index:2; max-width:820px; margin:0 auto; }
 
 /* BLUORCA wordmark */
-.blu-wordmark {
-  font-size:clamp(3rem,9vw,6.5rem); font-weight:900;
-  letter-spacing:0.05em; line-height:1; color:#fff;
-  margin-bottom:2rem; user-select:none;
-  opacity:0; animation:bluUp 0.8s 0.2s ease forwards;
+.blu-wordmark{
+  font-size:clamp(3rem,9vw,6.5rem);
+  font-weight:900;
+  letter-spacing:0.05em;
+  line-height:1;
+  color:#fff;
+  margin-bottom:2rem;
+  user-select:none;
+  opacity:0;
+  animation:bluUp 0.8s 0.2s ease forwards;
 }
-.blu-word-blue { color:var(--blu-cyan); }
+.blu-fill{
+  display:inline;
+  color:#fff;
+  animation:bluLetterSwap 0.9s ease-in-out forwards;
+}
+.blu-fill:nth-child(1){animation-delay:1.00s;}
+.blu-fill:nth-child(2){animation-delay:1.45s;}
+.blu-fill:nth-child(3){animation-delay:1.90s;}
+.blu-fill:nth-child(4){animation-delay:2.35s;}
+.blu-fill:nth-child(5){animation-delay:2.80s;}
+.blu-fill:nth-child(6){animation-delay:3.25s;}
+.blu-fill:nth-child(7){animation-delay:3.70s;}
+
+@keyframes bluLetterSwap{
+  from{
+    color:#fff;
+    opacity:1;
+  }
+  to{
+    color:var(--blu-cyan);
+    opacity:1;
+  }
+}
 
 .blu-eyebrow-hero {
   font-size:0.72rem; font-weight:700; letter-spacing:0.32em;
@@ -231,10 +258,10 @@ og_image: "/assets/img/custom_logo/bluroca/Bluroca.png"
 <!-- HERO -->
 <section class="blu-hero" id="s-hero">
   <div class="blu-hero-inner">
-    <div class="blu-wordmark"><span class="blu-word-blue">BLU</span>ROCA</div>
+    <div class="blu-wordmark"><span class="blu-fill">B</span><span class="blu-fill">L</span><span class="blu-fill">U</span><span class="blu-fill">R</span><span class="blu-fill">O</span><span class="blu-fill">C</span><span class="blu-fill">A</span></div>
     <p class="blu-eyebrow-hero">Blue Ocean · Strategy · Execution</p>
     <h1 class="blu-hero-h1">Where Manufacturers<br>Become <em>Market Leaders</em></h1>
-    <p class="blu-hero-sub">BLUROCA is your end-to-end business growth partner. We handle brand, market, distribution, and digital operations — so you can focus entirely on producing.</p>
+    <p class="blu-hero-sub">Your end-to-end business growth partner.</p>
     <div class="blu-hero-actions">
       <a href="{{ '/our-services/' | relative_url }}" class="blu-btn blu-btn-solid">Explore Services</a>
       <a href="{{ '/our-customers/' | relative_url }}" class="blu-btn blu-btn-ghost-hero">Our Customers</a>
