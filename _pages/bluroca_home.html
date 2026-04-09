@@ -45,7 +45,7 @@ og_image: "/assets/img/custom_logo/bluroca/Bluroca.png"
 /* BLUORCA wordmark */
 .blu-wordmark {
   font-size:clamp(3rem,9vw,6.5rem); font-weight:900;
-  letter-spacing:-0.06em; line-height:1; color:#fff;
+  letter-spacing:0.05em; line-height:1; color:#fff;
   margin-bottom:2rem; user-select:none;
   opacity:0; animation:bluUp 0.8s 0.2s ease forwards;
 }
@@ -110,9 +110,14 @@ og_image: "/assets/img/custom_logo/bluroca/Bluroca.png"
     transform:translateX(-50%) translateY(0);
   }
 }
-@media (max-width:768px){
+@media(max-width:768px){
   .blu-hero{
+    padding-top:calc(var(--nav-h) + 36px);
     padding-bottom:110px;
+  }
+  .blu-hero-actions{
+    flex-direction:column;
+    align-items:center;
   }
   .blu-scroll{
     bottom:calc(env(safe-area-inset-bottom,0px) + 0.6rem);
@@ -124,6 +129,23 @@ og_image: "/assets/img/custom_logo/bluroca/Bluroca.png"
   }
   .blu-scroll-line{
     height:22px;
+  }
+}
+@media(max-width:480px){
+  .blu-hero{
+    min-height:100svh;
+  }
+  .blu-btn{
+    width:100%;
+    max-width:320px;
+    text-align:center;
+  }
+  .cta-actions{
+    flex-direction:column;
+    align-items:center;
+  }
+  .blu-wordmark{
+    font-size:clamp(2.4rem,14vw,4rem);
   }
 }
 .blu-hero-wave { position:absolute; bottom:-1px; left:0; right:0; line-height:0; pointer-events:none; z-index:1; }
@@ -211,7 +233,7 @@ og_image: "/assets/img/custom_logo/bluroca/Bluroca.png"
 <!-- HERO -->
 <section class="blu-hero" id="s-hero">
   <div class="blu-hero-inner">
-    <div class="blu-wordmark"><span class="blu-word-blue">BLU</span>ORCA</div>
+    <div class="blu-wordmark"><span class="blu-word-blue">BLU</span>ROCA</div>
     <p class="blu-eyebrow-hero">Blue Ocean · Strategy · Execution</p>
     <h1 class="blu-hero-h1">Where Manufacturers<br>Become <em>Market Leaders</em></h1>
     <p class="blu-hero-sub">BLUROCA is your end-to-end business growth partner. We handle brand, market, distribution, and digital operations — so you can focus entirely on producing.</p>
