@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admins/
+
+Sitemap: https://www.bluroca.com/sitemap.xml
